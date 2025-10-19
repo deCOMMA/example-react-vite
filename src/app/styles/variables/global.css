@@ -1,4 +1,4 @@
-@import "../font.css";
+@import "@/shared/fonts/font.css";
 :root{
     --font-family-main: 'Mulish', serif; 
 
