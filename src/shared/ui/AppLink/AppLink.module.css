@@ -1,0 +1,18 @@
+.AppLink{
+    text-decoration: none;
+}
+.small{
+    font-size: var(--font-size-s);
+}
+.medium{
+    font-size: var(--font-size-m);
+}
+.large{
+    font-size: var(--font-size-l);
+}
+.primary{
+
+}
+.secondary{
+    
+}

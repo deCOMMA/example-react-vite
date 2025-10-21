@@ -1,3 +1,4 @@
 .app.dark{
-    --bg-color:: rgb(194, 194, 194);
+    --bg-color: rgb(194, 194, 194);
+    --inv-bg-color: rgb(131, 174, 218); 
 }

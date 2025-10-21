@@ -1,5 +1,4 @@
 import { AppRouter } from "./providers/router";
-
 import "./styles/index.css";
 import { Navbar } from "@/widgets/Navbar";
 

@@ -1,11 +1,29 @@
-import { Link } from "react-router-dom"
+import clsx from "clsx"
+import cls from './Navbar.module.css'
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
 
+type NavbarProps = {
+    classNamesProps?: string;
+}
 
-export const Navbar = () => {
+export const Navbar = ({ classNamesProps }: NavbarProps) => {
+
+    const classNames = clsx(cls.Navbar, classNamesProps);
+
     return (
-        <div>
-            <Link to={'/'}>Main</Link>
-            <Link to={'/about'}>About</Link>
+        <div className={classNames}>
+            <div className={cls.links}>
+                <AppLink
+                    size="large"
+                    classNamesProps={cls.links}
+                    to={'/'}
+                >Main</AppLink>
+                <AppLink
+                    size="large"
+                    classNamesProps={cls.links}
+                    to={'/about'}
+                >About</AppLink>
+            </div>
         </div>
     )
 }
