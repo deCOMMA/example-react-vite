@@ -21,7 +21,8 @@ export const AppLink = ({
         cls.AppLink,
         cls[size],
         cls[variant],
-        classNamesProps);
+        classNamesProps
+    );
 
     return (
         <Link

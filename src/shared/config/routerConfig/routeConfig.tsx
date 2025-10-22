@@ -1,13 +1,10 @@
 import { AboutPage } from "@/pages/AboutPage";
 import { MainPage } from "@/pages/MainPage";
 
-export const AppRoutes = {
-    MAIN: 'main',
-    ABOUT: 'about',
-} as const;
-
-export type AppRoutesType = typeof AppRoutes[keyof typeof AppRoutes];
-export type AppRouteKeys = keyof typeof AppRoutes;
+export enum AppRoutes {
+    MAIN = 'main',
+    ABOUT = 'about',
+}
 
 export type RouteConfig = {
     path: string;
@@ -24,12 +21,12 @@ export const PublicRoutes = {
 export const PrivateRoutes = {
 } as const;
 
-export const RoutePath: Record<AppRoutesType, string> = {
+export const RoutePath: Record<AppRoutes, string> = {
     main: '/',
     about: '/about',
 };
 
-export const routeConfig: Record<AppRoutesType, RouteConfig> = {
+export const routeConfig: Record<AppRoutes, RouteConfig> = {
     main: {
         path: RoutePath.main,
         title: "Main",
