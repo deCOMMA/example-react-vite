@@ -3,13 +3,13 @@ import cls from './AppLink.module.css'
 import { Link, type LinkProps } from "react-router-dom"
 
 type AppLinkProps = {
-    classNamesProps?: string;
+    className?: string;
     variant?: 'primary' | 'secondary';
     size?: 'small' | 'medium' | 'large';
 } & Omit<LinkProps, 'className'>
 
 export const AppLink = ({
-    classNamesProps,
+    className,
     to,
     variant = 'primary',
     size = 'medium',
@@ -21,7 +21,7 @@ export const AppLink = ({
         cls.AppLink,
         cls[size],
         cls[variant],
-        classNamesProps
+        className
     );
 
     return (

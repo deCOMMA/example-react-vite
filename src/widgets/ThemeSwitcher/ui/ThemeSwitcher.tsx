@@ -2,31 +2,33 @@ import clsx from "clsx"
 import cls from './ThemeSwitcher.module.css'
 import { useTheme } from "@/app/providers/theme/useTheme";
 import type React from "react";
+import { Button } from "@/shared/ui/Button/Button";
 
 type ThemeSwitcherProps = {
-    classNamesProps?: string;
+    className?: string;
     children?: React.ReactNode;
 }
 
 export const ThemeSwitcher = ({
-    classNamesProps,
+    className,
     children,
     ...otherProps
 }: ThemeSwitcherProps) => {
 
-    const { theme, switchThem } = useTheme()
+    const { switchThem } = useTheme()
 
     const classNames = clsx(
         cls.ThemeSwitcher,
-        classNamesProps
+        className
     );
 
     return (
-        <button
+        <Button
+            className={classNames}
             onClick={switchThem}
             {...otherProps}
         >
             {children}
-        </button>
+        </Button>
     )
 }

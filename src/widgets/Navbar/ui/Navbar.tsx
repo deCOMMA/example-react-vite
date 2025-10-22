@@ -4,12 +4,12 @@ import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
 
 type NavbarProps = {
-    classNamesProps?: string;
+    className?: string;
 }
 
-export const Navbar = ({ classNamesProps }: NavbarProps) => {
+export const Navbar = ({ className }: NavbarProps) => {
 
-    const classNames = clsx(cls.Navbar, classNamesProps);
+    const classNames = clsx(cls.Navbar, className);
 
     return (
         <div className={classNames}>
@@ -21,12 +21,12 @@ export const Navbar = ({ classNamesProps }: NavbarProps) => {
             <div className={cls.links}>
                 <AppLink
                     size="large"
-                    classNamesProps={cls.links}
+                    className={cls.links}
                     to={'/'}
                 >Main</AppLink>
                 <AppLink
                     size="large"
-                    classNamesProps={cls.links}
+                    className={cls.links}
                     to={'/about'}
                 >About</AppLink>
             </div>

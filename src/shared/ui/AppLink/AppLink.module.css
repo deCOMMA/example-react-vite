@@ -11,8 +11,8 @@
     font-size: var(--font-size-l);
 }
 .primary{
-
+    font-weight: 900;
 }
 .secondary{
-    
+    font-weight: normal;
 }
