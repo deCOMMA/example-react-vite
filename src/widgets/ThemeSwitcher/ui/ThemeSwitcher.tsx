@@ -3,6 +3,7 @@ import cls from './ThemeSwitcher.module.css'
 import { useTheme } from "@/app/providers/theme/useTheme";
 import type React from "react";
 import { Button } from "@/shared/ui/Button/Button";
+import { useTranslation } from "react-i18next";
 
 type ThemeSwitcherProps = {
     className?: string;
@@ -22,13 +23,18 @@ export const ThemeSwitcher = ({
         className
     );
 
+    const { t } = useTranslation()
+
     return (
-        <Button
-            className={classNames}
-            onClick={switchThem}
-            {...otherProps}
-        >
-            {children}
-        </Button>
+        <div>
+            <Button
+                size="medium"
+                className={classNames}
+                onClick={switchThem}
+                {...otherProps}
+            >
+                {t('Тема')}
+            </Button>
+        </div>
     )
 }

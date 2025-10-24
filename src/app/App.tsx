@@ -1,9 +1,10 @@
+import { Sidebar } from "@/widgets/Sidebar";
 import { AppRouter } from "./providers/router";
 import { useTheme } from "./providers/theme/useTheme";
 import "./styles/index.css";
 import { Navbar } from "@/widgets/Navbar";
 import clsx from "clsx";
-
+import { Suspense } from "react";
 
 function App() {
 
@@ -12,8 +13,13 @@ function App() {
 
   return (
     <div className={classNames}>
-      <Navbar />
-      <AppRouter></AppRouter>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   )
 }

@@ -9,3 +9,12 @@
 .def{
     padding: 2px;
 }
+.small{
+    font: var(--font-s);
+}
+.medium{
+    font: var(--font-m);
+}
+.large{
+    font: var(--font-l);
+}
