@@ -5,9 +5,11 @@
     position: relative;
     transition: width 0.4s;
 }
+
 .expand{
     width: var(--sidebar-width-expand);
 }
+
 .switcher{
     position: absolute;
     display: flex;

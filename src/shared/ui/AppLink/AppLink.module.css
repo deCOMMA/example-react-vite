@@ -1,18 +1,23 @@
 .AppLink{
     text-decoration: none;
 }
-.small{
+
+.small {
     font-size: var(--font-size-s);
 }
-.medium{
+
+.medium { 
     font-size: var(--font-size-m);
 }
-.large{
+
+.large {
     font-size: var(--font-size-l);
 }
-.primary{
+
+.primary {
     font-weight: 900;
 }
-.secondary{
+
+.secondary {
     font-weight: normal;
 }

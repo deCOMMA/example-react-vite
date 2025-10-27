@@ -10,12 +10,16 @@
     "preview": "vite preview",
     "lint:ts": "eslint src/**/*.{ts,tsx}",
     "lint:ts:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:css": "stylelint \"src/**/*.{css,scss}\"",
+    "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "format:ts": "prettier --write src/**/*.{ts,tsx}",
     "format:ts:check": "prettier --check src/**/*.{ts,tsx}",
-    "fix:all": "npm run lint:ts:fix && npm run format:ts",
-    "validate": "npm run lint:ts && npm run format:ts:check"
+    "lint:i18n": "eslint src/**/*.{ts,tsx}",
+    "lint:i18n:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "fix:all": "npm run lint:ts:fix && npm run format:ts && npm run lint:css:fix && npm run lint:i18n:fix",
+    "validate": "npm run lint:ts && npm run format:ts:check && npm run lint:css && npm run lint:i18n:fix"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -36,11 +40,14 @@
     "@vitejs/plugin-react-swc": "^3.10.2",
     "eslint": "^9.30.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-i18next": "^6.1.3",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4"

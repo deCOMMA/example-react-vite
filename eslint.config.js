@@ -5,6 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { globalIgnores } from 'eslint/config'
 import prettier from 'eslint-config-prettier'
+import i18next from 'eslint-plugin-i18next'
 
 export default tseslint.config([
   globalIgnores([
@@ -14,6 +15,10 @@ export default tseslint.config([
 
   {
     files: ['**/*.{ts,tsx}'],
+    plugins: {
+      'i18next': i18next,
+    },
+
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -26,6 +31,8 @@ export default tseslint.config([
       globals: globals.browser,
     },
     rules: {
+      'i18next/no-literal-string': 'warn', // непереведенный текст
+
       'quotes': ['error', 'single'], // только одинарные кавычки
       'jsx-quotes': ['error', 'prefer-single'], // в JSX тоже одинарные
 
