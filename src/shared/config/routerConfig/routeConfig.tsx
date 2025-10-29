@@ -1,9 +1,11 @@
 import { AboutPage } from '@/pages/AboutPage';
 import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 
 export enum AppRoutes {
   MAIN = 'main',
   ABOUT = 'about',
+  NOT_FOUND = 'not_found',
 }
 
 export type RouteConfig = {
@@ -16,6 +18,7 @@ export type RouteConfig = {
 export const PublicRoutes = {
   MAIN: AppRoutes.MAIN,
   ABOUT: AppRoutes.ABOUT,
+  NOT_FOUND: AppRoutes.NOT_FOUND,
 } as const;
 
 export const PrivateRoutes = {} as const;
@@ -23,6 +26,7 @@ export const PrivateRoutes = {} as const;
 export const RoutePath: Record<AppRoutes, string> = {
   main: '/',
   about: '/about',
+  not_found: '*',
 };
 
 export const routeConfig: Record<AppRoutes, RouteConfig> = {
@@ -36,4 +40,9 @@ export const routeConfig: Record<AppRoutes, RouteConfig> = {
     title: 'About',
     element: <AboutPage />,
   },
+  not_found: {
+    path: RoutePath.not_found,
+    title: 'Not Found',
+    element: <NotFoundPage />
+  }
 };

@@ -1,0 +1,8 @@
+.LoaderPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-grow: 1;
+    min-height: calc(100vh - var(--navbar-h));
+}
