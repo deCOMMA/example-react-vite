@@ -28,7 +28,10 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "types": [ // добавил так как не ставил в приоритет node:test а не vitest при import
+        "vitest/globals"
+      ],
     }
   },
   "include": [

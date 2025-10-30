@@ -19,7 +19,8 @@
     "lint:i18n": "eslint src/**/*.{ts,tsx}",
     "lint:i18n:fix": "eslint src/**/*.{ts,tsx} --fix",
     "fix:all": "npm run lint:ts:fix && npm run format:ts && npm run lint:css:fix && npm run lint:i18n:fix",
-    "validate": "npm run lint:ts && npm run format:ts:check && npm run lint:css && npm run lint:i18n:fix"
+    "validate": "npm run lint:ts && npm run format:ts:check && npm run lint:css && npm run lint:i18n:fix",
+    "test": "vitest"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -34,9 +35,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^24.8.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "eslint": "^9.30.1",
@@ -46,12 +51,14 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "jsdom": "^27.0.1",
     "prettier": "^3.6.2",
     "stylelint": "^16.25.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4",
+    "vite-bundle-analyzer": "^1.2.3",
     "vitest": "^4.0.5"
   }
 }

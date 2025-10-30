@@ -21,6 +21,7 @@ export const Loader = ({
         <span
             className={classNames}
             {...otherProps}>
+            {children}
         </span>
     )
 }

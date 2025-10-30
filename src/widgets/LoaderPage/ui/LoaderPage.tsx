@@ -4,12 +4,10 @@ import { Loader } from "@/shared/ui/Loader/Loader";
 
 type LoaderPageProps = {
     className?: string;
-    children?: React.ReactNode;
 }
 
 export const LoaderPage = ({
     className,
-    children,
     ...otherProps
 }: LoaderPageProps) => {
 
