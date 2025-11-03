@@ -7,20 +7,20 @@ import clsx from 'clsx';
 import { Suspense } from 'react';
 
 function App() {
-  const { theme } = useTheme();
-  const classNames = clsx('app', theme);
+    const { theme } = useTheme();
+    const classNames = clsx('app', theme);
 
-  return (
-    <div className={classNames}>
-      <Suspense fallback=''>
-        <Navbar />
-        <div className='content-page'>
-          <Sidebar />
-          <AppRouter />
+    return (
+        <div className={classNames}>
+            <Suspense fallback=''>
+                <Navbar />
+                <div className='content-page'>
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  );
+    );
 }
 
 export default App;

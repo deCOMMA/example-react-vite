@@ -1,23 +1,23 @@
-.AppLink{
-    text-decoration: none;
+.AppLink {
+  text-decoration: none;
 }
 
 .small {
-    font-size: var(--font-size-s);
+  font-size: var(--font-size-s);
 }
 
-.medium { 
-    font-size: var(--font-size-m);
+.medium {
+  font-size: var(--font-size-m);
 }
 
 .large {
-    font-size: var(--font-size-l);
+  font-size: var(--font-size-l);
 }
 
 .primary {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 .secondary {
-    font-weight: normal;
+  font-weight: normal;
 }

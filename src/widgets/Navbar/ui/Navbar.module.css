@@ -1,16 +1,14 @@
-.Navbar{
-    width: 100%;
-    height: var(--navbar-h);
-    background-color: var(--inv-bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 10px;
+.Navbar {
+  width: 100%;
+  height: var(--navbar-h);
+  background-color: var(--inv-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 10px;
 }
 
-.links{
-    padding: 15px;
+.links {
+  padding: 15px;
 }
-
-

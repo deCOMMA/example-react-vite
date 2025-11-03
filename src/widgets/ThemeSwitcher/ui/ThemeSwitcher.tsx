@@ -8,10 +8,7 @@ type ThemeSwitcherProps = {
     className?: string;
 };
 
-export const ThemeSwitcher = ({
-    className,
-    ...otherProps
-}: ThemeSwitcherProps) => {
+export const ThemeSwitcher = ({ className, ...otherProps }: ThemeSwitcherProps) => {
     const { switchThem } = useTheme();
 
     const classNames = clsx(cls.ThemeSwitcher, className);
@@ -20,12 +17,7 @@ export const ThemeSwitcher = ({
 
     return (
         <div>
-            <Button
-                size='medium'
-                className={classNames}
-                onClick={switchThem}
-                {...otherProps}
-            >
+            <Button size='medium' className={classNames} onClick={switchThem} {...otherProps}>
                 {t('Тема')}
             </Button>
         </div>

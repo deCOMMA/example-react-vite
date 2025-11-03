@@ -12,14 +12,14 @@
     "lint:ts:fix": "eslint src/**/*.{ts,tsx} --fix",
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
+    "lint:i18n": "eslint src/**/*.{ts,tsx} --rule \"i18next/no-literal-string: warn\"",
+    "lint:i18n:fix": "eslint src/**/*.{ts,tsx} --rule \"i18next/no-literal-string: warn\" --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "format:ts": "prettier --write src/**/*.{ts,tsx}",
     "format:ts:check": "prettier --check src/**/*.{ts,tsx}",
-    "lint:i18n": "eslint src/**/*.{ts,tsx}",
-    "lint:i18n:fix": "eslint src/**/*.{ts,tsx} --fix",
     "fix:all": "npm run lint:ts:fix && npm run format:ts && npm run lint:css:fix && npm run lint:i18n:fix",
-    "validate": "npm run lint:ts && npm run format:ts:check && npm run lint:css && npm run lint:i18n:fix",
+    "validate": "npm run lint:ts && npm run format:ts:check && npm run lint:css && npm run lint:i18n",
     "test": "vitest"
   },
   "dependencies": {

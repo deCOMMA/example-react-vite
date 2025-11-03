@@ -1,28 +1,24 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
-import prettier from 'eslint-config-prettier'
-import i18next from 'eslint-plugin-i18next'
+import js from "@eslint/js";
+import globals from "globals";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import tseslint from "typescript-eslint";
+import { globalIgnores } from "eslint/config";
+import prettier from "eslint-config-prettier";
+import i18next from "eslint-plugin-i18next";
 
 export default tseslint.config([
-  globalIgnores([
-    '**/*.cjs',
-    'public/',
-  ]),
+  globalIgnores(["**/*.cjs", "public/"]),
 
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     plugins: {
-      'i18next': i18next,
+      i18next: i18next,
     },
-
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
+      reactHooks.configs["recommended-latest"],
       reactRefresh.configs.vite,
       prettier,
     ],
@@ -31,26 +27,33 @@ export default tseslint.config([
       globals: globals.browser,
     },
     rules: {
-      'i18next/no-literal-string': 'warn', // непереведенный текст
+      "i18next/no-literal-string": "warn",
 
-      'quotes': ['error', 'single'], // только одинарные кавычки
-      'jsx-quotes': ['error', 'prefer-single'], // в JSX тоже одинарные
+      "no-console": "warn",
+      "no-debugger": "error",
+      "no-alert": "error",
 
-      'no-console': 'warn',
-      'no-debugger': 'error',
-      'no-alert': 'error',
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
 
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', {
-        'argsIgnorePattern': '^_',
-        'varsIgnorePattern': '^_'
-      }],
-
-      'react-refresh/only-export-components': 'off',
-      'react-hooks/exhaustive-deps': 'warn',
-      'react-hooks/rules-of-hooks': 'error',
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
+      "react-refresh/only-export-components": "off",
+      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/rules-of-hooks": "error",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
     },
   },
-])
+
+  {
+    files: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}"],
+    rules: {
+      "i18next/no-literal-string": "off",
+    },
+  },
+]);

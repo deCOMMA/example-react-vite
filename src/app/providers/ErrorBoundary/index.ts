@@ -1,1 +1,1 @@
-export { AppErrorBoundary } from './ui/AppErrorBoundary'
+export { AppErrorBoundary } from './ui/AppErrorBoundary';

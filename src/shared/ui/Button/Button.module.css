@@ -1,25 +1,25 @@
-.Button{
-    cursor: pointer;
+.Button {
+  cursor: pointer;
 }
 
-.clear{
-    padding: 0;
-    margin: 0;
-    border: none;
+.clear {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
-.def{
-    padding: 2px;
+.def {
+  padding: 2px;
 }
 
-.small{
-    font: var(--font-s);
+.small {
+  font: var(--font-s);
 }
 
-.medium{
-    font: var(--font-m);
+.medium {
+  font: var(--font-m);
 }
 
-.large{
-    font: var(--font-l);
+.large {
+  font: var(--font-l);
 }

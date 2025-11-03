@@ -3,13 +3,8 @@ import { ErrorFallback } from './ErrorFallback';
 
 type AppErrorBoundaryProps = {
     children?: React.ReactNode;
-}
+};
 
 export const AppErrorBoundary = ({ children }: AppErrorBoundaryProps) => {
-    return (
-        <ErrorBoundary
-            FallbackComponent={ErrorFallback}>
-            {children}
-        </ErrorBoundary>
-    );
-}
+    return <ErrorBoundary FallbackComponent={ErrorFallback}>{children}</ErrorBoundary>;
+};

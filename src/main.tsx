@@ -7,11 +7,11 @@ import './shared/config/i18n/i18n.ts';
 import { AppErrorBoundary } from './app/providers/ErrorBoundary/index.ts';
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
-    <AppErrorBoundary>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </AppErrorBoundary>
-  </BrowserRouter>,
+    <BrowserRouter>
+        <AppErrorBoundary>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </AppErrorBoundary>
+    </BrowserRouter>
 );
