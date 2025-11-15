@@ -7,6 +7,7 @@ type ThemeDecoratorsProps = {
 }
 
 export const ThemeDecorators = ({ theme = 'normal' }: ThemeDecoratorsProps = {}) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
         <I18nextProvider i18n={i18n}>
             <ThemeProvider >
