@@ -29,9 +29,9 @@ jobs:
               run: npm run  lint:css
             - name: linting i18n
               run: npm run lint:i18n
-            - name: prettierrc checking
+            - name: prettier checking
               run: npm run format:check
-            - name: prettierrc checking typescript
+            - name: prettier checking typescript
               run: npm run format:ts:check
             - name: unit testing
               run: npm run test
