@@ -17,8 +17,10 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: install modules
+            - name: Install modules
               run: npm install
+            - name: Install Playwright browsers  
+              run: npx playwright install
             - name: build prod project
               run: npm run build
             - name: linting typescript
