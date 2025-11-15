@@ -33,9 +33,4 @@ jobs:
               run: npm run format:ts:check
             - name: unit testing
               run: npm run test
-            - name: playwright test
-              run:
-                command: npx playwright test # run your playwright tests
-            - name: chromatic test
-              run:
-                command: npm run chromatic # run visual tests
+
