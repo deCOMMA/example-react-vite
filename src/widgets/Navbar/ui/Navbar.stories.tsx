@@ -1,4 +1,3 @@
-// src/widgets/Sidebar/ui/Sidebar/Sidebar.stories.ts
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Navbar } from './Navbar';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
