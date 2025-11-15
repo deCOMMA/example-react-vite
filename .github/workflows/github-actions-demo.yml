@@ -1,35 +1,35 @@
-name: linting, testing, building 
+name: linting, testing, building
 on:
-  push: 
-    branches: [master]
-  pull_request:
-    branches: [master]
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 jobs:
-  pipeline:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
+    pipeline:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [22]
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }} 
-      - name : install modules
-        run : npm install
-      - name : build prod project
-        run : npm run build 
-      - name : linting typescript
-        run : npm run lint:ts
-      - name : linting css
-        run : npm run  lint:css
-      - name : linting i18n
-        run : npm run lint:i18n
-      - name : prettierrc checking
-        run : npm run format:check
-      - name : prettierrc checking typescript
-        run : npm run format:ts:check
-      - name : unit testing
-        run : npm run test
+        steps:
+            - uses: actions/checkout@v4
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install modules
+              run: npm install
+            - name: build prod project
+              run: npm run build
+            - name: linting typescript
+              run: npm run lint:ts
+            - name: linting css
+              run: npm run  lint:css
+            - name: linting i18n
+              run: npm run lint:i18n
+            - name: prettierrc checking
+              run: npm run format:check
+            - name: prettierrc checking typescript
+              run: npm run format:ts:check
+            - name: unit testing
+              run: npm run test

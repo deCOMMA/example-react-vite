@@ -1,20 +1,20 @@
-import { ThemeProvider } from "@/app/providers/theme/ThemeProvider"
-import { I18nextProvider } from "react-i18next"
-import i18n from "../../i18n/i18n";
+import { ThemeProvider } from '@/app/providers/theme/ThemeProvider';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../../i18n/i18n';
 
 type ThemeDecoratorsProps = {
-    theme?: 'normal' | 'dark',
-}
+    theme?: 'normal' | 'dark';
+};
 
 export const ThemeDecorators = ({ theme = 'normal' }: ThemeDecoratorsProps = {}) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
         <I18nextProvider i18n={i18n}>
-            <ThemeProvider >
+            <ThemeProvider>
                 <div className={`app ${theme}`}>
                     <Story />
                 </div>
             </ThemeProvider>
         </I18nextProvider>
-    )
+    );
 };

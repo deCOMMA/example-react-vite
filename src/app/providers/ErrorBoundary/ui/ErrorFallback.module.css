@@ -1,12 +1,12 @@
 .ErrorFallback {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .large {
-  font: var(--font-l);
+    font: var(--font-l);
 }

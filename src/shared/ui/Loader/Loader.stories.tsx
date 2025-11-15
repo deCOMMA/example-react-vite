@@ -17,5 +17,5 @@ export const Normal: Story = {
 };
 export const Dark: Story = {
     args: {},
-    decorators: [StyleDecorators({ theme: 'dark' })]
+    decorators: [StyleDecorators({ theme: 'dark' })],
 };

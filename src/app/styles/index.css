@@ -1,19 +1,19 @@
-@import "./reset.css";
-@import "./variables/global.css";
-@import "./themes/dark.css";
-@import "./themes/normal.css";
+@import './reset.css';
+@import './variables/global.css';
+@import './themes/dark.css';
+@import './themes/normal.css';
 
 .app {
-  font: var(--font-m);
-  background: var(--bg-color);
-  min-height: 100vh;
+    font: var(--font-m);
+    background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .content-page {
-  display: flex;
+    display: flex;
 }
 
 .page-wrapper {
-  flex-grow: 1;
-  padding: 20px;
+    flex-grow: 1;
+    padding: 20px;
 }

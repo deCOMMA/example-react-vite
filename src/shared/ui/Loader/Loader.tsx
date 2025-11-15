@@ -8,8 +8,5 @@ type LoaderProps = {
 export const Loader = ({ className, ...otherProps }: LoaderProps) => {
     const classNames = clsx(cls.Loader, className);
 
-    return (
-        <span className={classNames} {...otherProps}>
-        </span>
-    );
+    return <span className={classNames} {...otherProps}></span>;
 };
