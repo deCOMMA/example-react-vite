@@ -20,7 +20,8 @@
         "format:ts:check": "prettier --check src/**/*.{ts,tsx}",
         "fix:all": "npm run lint:ts:fix && npm run format:ts && npm run lint:css:fix && npm run lint:i18n:fix",
         "validate": "npm run lint:ts && npm run format:ts:check && npm run lint:css && npm run lint:i18n",
-        "test": "vitest",
+        "test": "vitest --exclude=\"**/*.stories.{ts,tsx}\"",
+        "test:stories": "vitest --include=\"**/*.stories.{ts,tsx}\"",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "chromatic": "npx chromatic --project-token=chpt_6678d4dfde4a53a"
