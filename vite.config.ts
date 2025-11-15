@@ -4,11 +4,11 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import analyzer from 'vite-bundle-analyzer';
 // https://vite.dev/config/
-//import { fileURLToPath } from 'node:url';
+// import { fileURLToPath } from 'node:url';
 // import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 // import { playwright } from '@vitest/browser-playwright';
 // const dirname =
-//     typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+//   typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
@@ -23,7 +23,13 @@ export default defineConfig({
         globals: true,
         environment: 'jsdom',
         setupFiles: './src/app/test/setup.ts',
-        exclude: ['**/*.stories.{ts,tsx}'],
+        exclude: [
+            '**/node_modules/**',
+            '**/dist/**',
+            '**/*.stories.{ts,tsx}',
+            '**/.{storybook,git,idea}/**',
+        ],
+        include: ['src/**/*.{test,spec}.{ts,tsx}'],
     },
     css: {
         modules: {
