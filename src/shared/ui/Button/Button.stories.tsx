@@ -32,11 +32,22 @@ export const Clear: Story = {
         children: 'Button',
     },
 };
-
-export const Large: Story = {
+export const Background: Story = {
+    args: {
+        theme: 'background',
+        children: 'Button',
+    },
+};
+export const BackgroundInv: Story = {
+    args: {
+        theme: 'backgroundInv',
+        children: 'Button',
+    },
+};
+export const Small: Story = {
     args: {
         children: 'Button',
-        size: 'large',
+        size: 'small',
     },
 };
 export const Medium: Story = {
@@ -45,10 +56,44 @@ export const Medium: Story = {
         size: 'medium',
     },
 };
-
-export const Small: Story = {
+export const Large: Story = {
     args: {
         children: 'Button',
+        size: 'large',
+    },
+};
+export const xl: Story = {
+    args: {
+        children: 'Button',
+        size: 'xl',
+    },
+};
+export const sqareSizeS: Story = {
+    args: {
+        children: '?',
         size: 'small',
+        sqare: true,
+    },
+};
+export const sqareSizeM: Story = {
+    args: {
+        children: '?',
+        size: 'medium',
+        sqare: true,
+    },
+};
+export const sqareSizeL: Story = {
+    args: {
+        children: '?',
+        size: 'large',
+        sqare: true,
+    },
+};
+export const sqareSizeXLBackgroundInv: Story = {
+    args: {
+        children: '?',
+        size: 'xl',
+        sqare: true,
+        theme: 'backgroundInv',
     },
 };

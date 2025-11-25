@@ -17,7 +17,13 @@ export const ThemeSwitcher = ({ className, ...otherProps }: ThemeSwitcherProps) 
 
     return (
         <div>
-            <Button size='medium' className={classNames} onClick={switchThem} {...otherProps}>
+            <Button
+                size='medium'
+                className={classNames}
+                onClick={switchThem}
+                {...otherProps}
+                theme={'backgroundInv'}
+            >
                 {t('Тема')}
             </Button>
         </div>
