@@ -1,6 +1,6 @@
 .app.normal {
     --bg-color: rgb(255 225 225);
     --inv-bg-color: rgb(243 218 155);
-    --primary-color: rgb(118, 97, 5);
-    --inv-primary-color: rgb(57, 3, 217);
+    --primary-color: rgb(118 97 5);
+    --inv-primary-color: rgb(57 3 217);
 }

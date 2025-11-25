@@ -5,6 +5,7 @@
     position: relative;
     transition: width 0.4s;
 }
+
 .switcher {
     position: absolute;
     display: flex;
@@ -16,35 +17,40 @@
 
 .items {
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     margin-top: 20px;
     padding: 20px;
-    flex-wrap: wrap;
 }
+
 .link {
     padding: 10px;
     color: var(--inv-primary-color);
     margin-left: 10px;
 }
+
 .icon {
     fill: var(--inv-primary-color);
 }
+
 .item {
     margin-top: 10px;
     display: flex;
     align-items: center;
 }
+
 .collapseBtn {
     position: absolute;
     right: -20px;
     bottom: 60px;
 }
+
 .expand {
     width: var(--sidebar-width-expand);
 
     .switcher {
         flex-direction: column;
     }
+
     .link {
         opacity: 0;
         transition: 0.2s opacity;
