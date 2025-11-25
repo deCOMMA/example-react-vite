@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { describe, expect } from 'vitest';
 import { it } from 'vitest';
 import { Sidebar } from '@/widgets/Sidebar/index';
