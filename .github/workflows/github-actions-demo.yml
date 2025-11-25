@@ -25,13 +25,19 @@ jobs:
               run: npm run build
             - name: linting typescript
               run: npm run lint:ts
+              if: always()
             - name: linting css
               run: npm run  lint:css
+              if: always()
             - name: linting i18n
               run: npm run lint:i18n
+              if: always()
             - name: prettier checking
               run: npm run format:check
+              if: always()
             - name: prettier checking typescript
               run: npm run format:ts:check
+              if: always()
             - name: unit testing
               run: npm run test
+              if: always()

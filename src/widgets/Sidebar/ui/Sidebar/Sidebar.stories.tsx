@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Sidebar } from './Sidebar';
-import { ThemeDecorators } from '@/shared/config/storybook/decorators/ThemeDecorators';
+import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
 const meta = {
     title: 'widgets/Sidebar',
     component: Sidebar,
@@ -12,9 +12,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
     args: {},
-    decorators: [ThemeDecorators()],
+    decorators: [RouterDecorator()],
 };
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorators({ theme: 'dark' })],
+    decorators: [RouterDecorator({ theme: 'dark' })],
 };
