@@ -18,6 +18,7 @@ export default tseslint.config(
             files: ['**/*.{ts,tsx}'],
             plugins: {
                 i18next: i18next,
+                reactHooks: reactHooks,
             },
             extends: [
                 js.configs.recommended,
@@ -31,6 +32,9 @@ export default tseslint.config(
                 globals: globals.browser,
             },
             rules: {
+                'react-hooks/rules-of-hooks': 'error',
+                'react-hooks/exhaustive-deps': 'error',
+
                 'i18next/no-literal-string': 'warn',
 
                 'no-console': 'warn',
@@ -47,8 +51,6 @@ export default tseslint.config(
                 ],
 
                 'react-refresh/only-export-components': 'off',
-                'react-hooks/exhaustive-deps': 'warn',
-                'react-hooks/rules-of-hooks': 'error',
                 'react/jsx-uses-react': 'off',
                 'react/react-in-jsx-scope': 'off',
             },

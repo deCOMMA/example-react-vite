@@ -19,4 +19,10 @@
     --navbar-h: 50px;
     --sidebar-width: 300px;
     --sidebar-width-expand: 70px;
+
+    /* z-index */
+    --modal-z-index: 10;
+
+    /* Цвета */
+    --overlay-color: rgb(0 0 0 / 60%);
 }
