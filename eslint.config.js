@@ -49,7 +49,7 @@ export default tseslint.config(
                         varsIgnorePattern: '^_',
                     },
                 ],
-
+                '@typescript-eslint/no-empty-object-type': 'off', // ругался на пустые интерфемы в импортах, пока выкл
                 'react-refresh/only-export-components': 'off',
                 'react/jsx-uses-react': 'off',
                 'react/react-in-jsx-scope': 'off',

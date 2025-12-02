@@ -27,6 +27,7 @@
         "chromatic": "npx chromatic --project-token=chpt_6678d4dfde4a53a"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^2.11.0",
         "clsx": "^2.1.1",
         "i18next": "^25.6.0",
         "i18next-browser-languagedetector": "^8.2.0",
@@ -35,6 +36,7 @@
         "react-dom": "^19.1.0",
         "react-error-boundary": "^6.0.0",
         "react-i18next": "^16.2.0",
+        "react-redux": "^9.2.0",
         "react-router-dom": "^7.9.4"
     },
     "devDependencies": {
