@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { StateSchema } from '@/app/providers/Store';
-import { getCounterValue } from './getCountervalue';
+import { getCounterValue } from './getCounterValue';
 
 describe('getCounterValue', () => {
     it('should return value', () => {
