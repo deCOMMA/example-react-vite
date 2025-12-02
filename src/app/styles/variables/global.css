@@ -1,7 +1,6 @@
 @import '@/shared/fonts/font.css';
 
 :root {
-    --red: red;
     --font-family-main: 'Mulish', serif;
     --font-size-s: 10px;
     --font-line-s: 18px;
