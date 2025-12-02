@@ -1,5 +1,5 @@
-import type { CounterSchema } from "@/entities/Counter";
+import type { CounterSchema } from '@/entities/Counter';
 
 export interface StateSchema {
-    counter: CounterSchema
+    counter: CounterSchema;
 }
