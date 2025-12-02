@@ -5,7 +5,7 @@ import type { ButtonHTMLAttributes } from 'react';
 type ButtonProps = {
     className?: string;
     children?: React.ReactNode;
-    theme?: 'clear' | 'def' | 'background' | 'backgroundInv';
+    theme?: 'clear' | 'clearInv' | 'def' | 'background' | 'backgroundInv';
     size?: 'small' | 'medium' | 'large' | 'xl';
     sqare?: boolean;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;

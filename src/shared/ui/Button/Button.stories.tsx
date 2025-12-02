@@ -32,6 +32,12 @@ export const Clear: Story = {
         children: 'Button',
     },
 };
+export const ClearInv: Story = {
+    args: {
+        theme: 'clearInv',
+        children: 'Button',
+    },
+};
 export const Background: Story = {
     args: {
         theme: 'background',

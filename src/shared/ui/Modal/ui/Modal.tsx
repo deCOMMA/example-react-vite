@@ -1,6 +1,10 @@
+import '@/app/styles/index.css';
+import '@/app/styles/themes/dark.css';
+import '@/app/styles/themes/normal.css';
 import clsx from 'clsx';
 import cls from './Modal.module.css';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Portal } from '../../Portal/Portal';
 
 type ModalProps = {
     className?: string;
@@ -11,7 +15,7 @@ type ModalProps = {
 
 const ANIMATION_DELAY = 200;
 
-export const Modal = ({ className, children, isOpen, onClose, ...otherProps }: ModalProps) => {
+export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
     const [isClosing, setIsClosing] = useState<boolean>(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
@@ -31,11 +35,14 @@ export const Modal = ({ className, children, isOpen, onClose, ...otherProps }: M
         event.stopPropagation();
     };
 
-    const onKeyDown = useCallback((event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
+    const onKeyDown = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                closeHandler();
+            }
+        },
+        [closeHandler]
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -51,12 +58,14 @@ export const Modal = ({ className, children, isOpen, onClose, ...otherProps }: M
     }, [isOpen, onKeyDown]);
 
     return (
-        <div className={classNames} {...otherProps}>
-            <div className={cls.overlay} onClick={closeHandler}>
-                <div className={cls.content} onClick={onContentHandler}>
-                    {children}
+        <Portal>
+            <div className={classNames}>
+                <div className={cls.overlay} onClick={closeHandler}>
+                    <div className={cls.content} onClick={onContentHandler}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     );
 };
