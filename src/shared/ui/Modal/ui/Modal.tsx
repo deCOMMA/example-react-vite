@@ -1,6 +1,3 @@
-import '@/app/styles/index.css';
-import '@/app/styles/themes/dark.css';
-import '@/app/styles/themes/normal.css';
 import clsx from 'clsx';
 import cls from './Modal.module.css';
 import React, { useCallback, useEffect, useRef, useState } from 'react';

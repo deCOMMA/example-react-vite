@@ -1,13 +1,11 @@
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
-import { useTheme } from './providers/theme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import clsx from 'clsx';
 import { Suspense } from 'react';
 
 function App() {
-    const { theme } = useTheme();
-    const classNames = clsx('app', theme);
+    const classNames = clsx('app');
 
     return (
         <div className={classNames}>
