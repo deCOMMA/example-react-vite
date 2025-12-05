@@ -4,6 +4,7 @@ import { Modal } from '@/shared/ui/Modal/ui/Modal';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 import { Button } from '@/shared/ui/Button/Button';
+import { LoginModal } from '@/features/AuthByUserName';
 
 type NavbarProps = {
     className?: string;
@@ -25,9 +26,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Button onClick={onToggleModal} theme='clearInv'>
                 {t('Войти')}
             </Button>
-            <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-                {t('какой-то текст для регистрации')}
-            </Modal>
+            <LoginModal onClose={onToggleModal} isOpen={isAuthModal} />
         </div>
     );
 };
