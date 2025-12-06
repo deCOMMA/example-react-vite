@@ -6,10 +6,9 @@ import { Input } from '@/shared/ui/Input/Input';
 
 type LoginFormProps = {
     className?: string;
-    children?: React.ReactNode;
 };
 
-export const LoginForm = ({ className, children, ...otherProps }: LoginFormProps) => {
+export const LoginForm = ({ className, ...otherProps }: LoginFormProps) => {
     const { t } = useTranslation();
 
     const classNames = clsx(cls.LoginForm, className);
@@ -19,7 +18,7 @@ export const LoginForm = ({ className, children, ...otherProps }: LoginFormProps
             <Input className={cls.input}></Input>
             <Input className={cls.input}></Input>
             <input type='text' className={cls.input}></input>
-            <Button className={cls.loginBtn} >{t('Войти ')}</Button>
+            <Button className={cls.loginBtn}>{t('Войти ')}</Button>
         </div>
     );
 };

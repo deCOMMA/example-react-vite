@@ -1,19 +1,20 @@
-.Input{
+.Input {
     display: flex;
 }
-.input{
- background: transparent;
- border: none;
- outline: none;
- width: 100%;
- color: var(--primary-color);
- text-shadow: 0 0 0 ;
- &:focus{
+
+.input {
+    background: transparent;
+    border: none;
     outline: none;
- }
+    width: 100%;
+    color: var(--primary-color);
+    text-shadow: 0 0 0;
+
+    &:focus {
+        outline: none;
+    }
 }
 
-.placeholder{
+.placeholder {
     margin-right: 5px;
 }
-

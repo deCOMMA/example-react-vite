@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 
 function MainPage() {
     const { t } = useTranslation();
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('');
 
     const onChangeHandler = (val: string) => {
-        setValue(val)
-    }
+        setValue(val);
+    };
 
     return (
         <div>
