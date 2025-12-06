@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import cls from './Navbar.module.css';
-import { Modal } from '@/shared/ui/Modal/ui/Modal';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 import { Button } from '@/shared/ui/Button/Button';
@@ -16,17 +15,20 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAutnmodal] = useState(false);
 
-    const onToggleModal = useCallback(() => {
-        setIsAutnmodal(prev => !prev);
+    const onCloseModal = useCallback(() => {
+        setIsAutnmodal(false);
+    }, []);
+    const onShowModal = useCallback(() => {
+        setIsAutnmodal(true);
     }, []);
 
     return (
         <div className={classNames}>
             <div className={cls.links}></div>
-            <Button onClick={onToggleModal} theme='clearInv'>
+            <Button onClick={onShowModal} theme='clearInv'>
                 {t('Войти')}
             </Button>
-            <LoginModal onClose={onToggleModal} isOpen={isAuthModal} />
+            <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />
         </div>
     );
 };
