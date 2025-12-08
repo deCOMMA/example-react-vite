@@ -1,12 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { getCounterValue } from './getCounterValue';
-import type { CounterSchema } from '../../types/counterSchema';
+import type { StateSchema } from '@/app/providers/Store';
+import type { DeepPartial } from '@/shared/helpers/types/deepPartial';
 
 describe('getCounterValue', () => {
     it('should return value', () => {
-        const state: CounterSchema = {
-            value: 10,
+        const state: DeepPartial<StateSchema> = {
+            counter: {
+                value: 10,
+            }
         };
-        expect(getCounterValue(state)).toEqual(10);
+        expect(getCounterValue(state as StateSchema)).toEqual(10);
     });
 });
