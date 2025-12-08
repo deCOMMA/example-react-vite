@@ -1,3 +1,3 @@
-import type { StateSchema } from '@/app/providers/Store';
+import type { CounterSchema } from '../../types/counterSchema';
 
-export const getCounter = (state: StateSchema) => state.counter;
+export const getCounter = (state: CounterSchema) => state;
