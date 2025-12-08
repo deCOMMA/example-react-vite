@@ -24,9 +24,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     return (
         <div className={classNames}>
-            <div className={cls.links}>
-
-            </div>
+            <div className={cls.links}></div>
             <Button onClick={onShowModal} theme='clearInv'>
                 {t('Войти')}
             </Button>

@@ -15,8 +15,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         placeholder: 'Введите username',
-        value: 'username1234'
+        value: 'username1234',
     },
 };
-
-

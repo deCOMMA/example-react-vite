@@ -6,7 +6,7 @@ type InputProps = {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
-    autoFocus?: boolean,
+    autoFocus?: boolean;
 } & Omit<InputHTMLAttributes<HTMLElement>, 'classNames' | 'value' | 'onChange'>;
 
 export const Input = ({
@@ -18,7 +18,6 @@ export const Input = ({
     autoFocus,
     ...otherProps
 }: InputProps) => {
-
     const ref = useRef<HTMLInputElement>(null);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isFocus, setIsFocus] = useState(false);
@@ -28,8 +27,7 @@ export const Input = ({
             setIsFocus(true);
             ref?.current?.focus();
         }
-    }, [autoFocus])
-
+    }, [autoFocus]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
@@ -38,12 +36,12 @@ export const Input = ({
     const classNames = clsx(cls.Input, className);
 
     const onFocus = () => {
-        setIsFocus(true)
-    }
+        setIsFocus(true);
+    };
 
     const onBlur = () => {
-        setIsFocus(false)
-    }
+        setIsFocus(false);
+    };
 
     return (
         <div className={classNames}>

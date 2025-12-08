@@ -8,7 +8,7 @@ type ModalProps = {
     children?: React.ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
-    lazy?: boolean,
+    lazy?: boolean;
 };
 
 const ANIMATION_DELAY = 200;
@@ -22,7 +22,7 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: ModalProps
         if (isOpen) {
             setIsMounted(true);
         }
-    }, [isOpen])
+    }, [isOpen]);
 
     const classNames = clsx(cls.Modal, className, isOpen && cls.opened, isClosing && cls.isClosing);
 
