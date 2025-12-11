@@ -3,10 +3,13 @@ import cls from './LoginForm.module.css';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { loginActions } from '../../model/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { getLoginState } from '../../model/selectors/selectLoginState/getLoginState';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { Loader } from '@/shared/ui/Loader/Loader';
 
 type LoginFormProps = {
     className?: string;
@@ -14,8 +17,8 @@ type LoginFormProps = {
 
 export const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
-    const { username, password } = useSelector(getLoginState);
+    const dispatch = useAppDispatch();
+    const { username, password, isLoading, error } = useSelector(getLoginState);
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -31,7 +34,9 @@ export const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => 
         [dispatch]
     );
 
-    const onLoginClick = useCallback(() => {}, []);
+    const onLoginClick = useCallback(() => {
+        dispatch(loginByUsername({ password, username }));
+    }, [dispatch, password, username]);
 
     const classNames = clsx(cls.LoginForm, className);
 
@@ -58,6 +63,8 @@ export const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => 
             >
                 {t('Войти ')}
             </Button>
+            {isLoading && <Loader />}
+            {error && <div>{error}</div>}
         </div>
     );
 });
