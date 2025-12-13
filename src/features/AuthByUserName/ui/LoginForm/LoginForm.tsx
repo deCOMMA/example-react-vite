@@ -60,6 +60,7 @@ export const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => 
                 className={cls.loginBtn}
                 style={{ marginTop: '40px' }}
                 onClick={onLoginClick}
+                disabled={isLoading}
             >
                 {t('Войти ')}
             </Button>

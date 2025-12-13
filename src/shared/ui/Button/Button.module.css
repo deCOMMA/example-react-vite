@@ -74,3 +74,7 @@
 .xl {
     font: var(--font-xl);
 }
+
+.disable{
+    opacity: 0.6;
+}

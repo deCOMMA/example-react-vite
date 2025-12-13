@@ -8,6 +8,7 @@ type ButtonProps = {
     theme?: 'clear' | 'clearInv' | 'def' | 'background' | 'backgroundInv';
     size?: 'small' | 'medium' | 'large' | 'xl';
     sqare?: boolean;
+    disabled?: boolean;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
 
 export const Button = ({
@@ -16,12 +17,13 @@ export const Button = ({
     theme = 'def',
     size = 'medium',
     sqare = false,
+    disabled,
     ...otherProps
 }: ButtonProps) => {
-    const classNames = clsx(cls.Button, cls[theme], cls[size], className, sqare && cls.sqare);
+    const classNames = clsx(cls.Button, cls[theme], cls[size], className, sqare && cls.sqare, disabled && cls.disable);
 
     return (
-        <button className={classNames} {...otherProps}>
+        <button disabled={disabled} className={classNames} {...otherProps}>
             {children}
         </button>
     );

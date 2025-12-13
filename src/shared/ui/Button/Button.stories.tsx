@@ -25,6 +25,13 @@ export const Default: Story = {
         children: 'Button',
     },
 };
+export const Disable: Story = {
+    args: {
+        theme: 'def',
+        children: 'Button',
+        disabled: true,
+    },
+};
 
 export const Clear: Story = {
     args: {
