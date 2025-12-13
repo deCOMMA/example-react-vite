@@ -16,7 +16,7 @@ export const Normal: Story = {
         isOpen: true,
         children: 'modal window',
     },
-    decorators: [StyleDecorators()],
+    decorators: [StyleDecorators({ theme: 'normal' })],
 };
 export const Dark: Story = {
     args: {
