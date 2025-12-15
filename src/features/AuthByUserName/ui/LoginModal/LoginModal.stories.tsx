@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { LoginModal } from './LoginModal';
-import { ThemeDecorators } from '@/shared/config/storybook/decorators/ThemeDecorators';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
 const meta = {
     title: 'features/LoginModal',

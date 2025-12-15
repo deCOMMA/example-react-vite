@@ -10,6 +10,7 @@ import { getLoginState } from '../../model/selectors/selectLoginState/getLoginSt
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { useAppDispatch } from '@/app/providers/Store/config/hooks';
 import { Loader } from '@/shared/ui/Loader/Loader';
+import { Text } from '@/shared/ui/Text/Text';
 
 type LoginFormProps = {
     className?: string;
@@ -42,6 +43,8 @@ export const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => 
 
     return (
         <div className={classNames} {...otherProps}>
+            <Text title={t('Форма авторизации')} />
+            {error && <Text text={error} thema='error' />}
             <Input
                 value={username}
                 className={cls.input}
@@ -65,7 +68,6 @@ export const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => 
                 {t('Войти ')}
             </Button>
             {isLoading && <Loader />}
-            {error && <div>{error}</div>}
         </div>
     );
 });
