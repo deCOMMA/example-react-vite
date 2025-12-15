@@ -14,5 +14,3 @@ export const StoreProvider = (props: StoreProviderProps) => {
 
     return <Provider store={store}>{children}</Provider>;
 };
-
-

@@ -15,9 +15,9 @@ export const Error: Story = {
     args: {
         text: 'Text text text',
         title: 'Title title',
-        thema: 'error'
+        thema: 'error',
     },
-    decorators: ThemeDecorators({ theme: 'dark' })
+    decorators: ThemeDecorators({ theme: 'dark' }),
 };
 
 export const TextTitleDark: Story = {
@@ -25,39 +25,37 @@ export const TextTitleDark: Story = {
         text: 'Text text text',
         title: 'Title title',
     },
-    decorators: ThemeDecorators({ theme: 'dark' })
+    decorators: ThemeDecorators({ theme: 'dark' }),
 };
 
 export const OnlyTitleDark: Story = {
     args: {
         title: 'Title title',
     },
-    decorators: ThemeDecorators({ theme: 'dark' })
-
+    decorators: ThemeDecorators({ theme: 'dark' }),
 };
 export const OnlyTextDark: Story = {
     args: {
         text: 'Text text text',
     },
-    decorators: ThemeDecorators({ theme: 'dark' })
+    decorators: ThemeDecorators({ theme: 'dark' }),
 };
 export const TextTitleNormal: Story = {
     args: {
         text: 'Text text text',
         title: 'Title title',
     },
-    decorators: ThemeDecorators({ theme: 'normal' })
+    decorators: ThemeDecorators({ theme: 'normal' }),
 };
 export const OnlyTitleNormal: Story = {
     args: {
         title: 'Title title',
     },
-    decorators: ThemeDecorators({ theme: 'normal' })
-
+    decorators: ThemeDecorators({ theme: 'normal' }),
 };
 export const OnlyTextNormal: Story = {
     args: {
         text: 'Text text text',
     },
-    decorators: ThemeDecorators({ theme: 'normal' })
+    decorators: ThemeDecorators({ theme: 'normal' }),
 };

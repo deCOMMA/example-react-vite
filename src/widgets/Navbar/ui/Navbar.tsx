@@ -13,7 +13,6 @@ type NavbarProps = {
 };
 
 export const Navbar = ({ className }: NavbarProps) => {
-
     const authData = useSelector(getAuthUserData);
     const dispatch = useAppDispatch();
 
@@ -32,8 +31,8 @@ export const Navbar = ({ className }: NavbarProps) => {
     }, []);
 
     const onLogout = useCallback(() => {
-        dispatch(userActions.logout())
-    }, [dispatch])
+        dispatch(userActions.logout());
+    }, [dispatch]);
 
     if (authData) {
         return (
@@ -43,8 +42,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                     {t('Выйти')}
                 </Button>
             </div>
-        )
-
+        );
     }
 
     return (

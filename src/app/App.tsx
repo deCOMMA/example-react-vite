@@ -8,11 +8,11 @@ import { userActions } from '@/entities/User';
 
 function App() {
     const classNames = clsx('app');
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(userActions.initAuthData())
-    }, [dispatch])
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
 
     return (
         <div className={classNames}>

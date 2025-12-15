@@ -1,27 +1,22 @@
-import clsx from "clsx"
-import cls from './Text.module.css'
+import clsx from 'clsx';
+import cls from './Text.module.css';
 
 type TextProps = {
     className?: string;
-    title?: string,
-    text?: string,
+    title?: string;
+    text?: string;
     thema?: 'primary' | 'error' | '';
-}
+};
 
 export const Text = (props: TextProps) => {
     const { className, text, thema = 'primary', title } = props;
 
-    const classNames = clsx(
-        cls.Text,
-        className,
-        cls[thema],
-    );
+    const classNames = clsx(cls.Text, className, cls[thema]);
 
     return (
-        <div
-            className={classNames}>
+        <div className={classNames}>
             {title && <p className={cls.title}>{title}</p>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
-    )
-}
+    );
+};

@@ -20,7 +20,14 @@ export const Button = ({
     disabled,
     ...otherProps
 }: ButtonProps) => {
-    const classNames = clsx(cls.Button, cls[theme], cls[size], className, sqare && cls.sqare, disabled && cls.disable);
+    const classNames = clsx(
+        cls.Button,
+        cls[theme],
+        cls[size],
+        className,
+        sqare && cls.sqare,
+        disabled && cls.disable
+    );
 
     return (
         <button disabled={disabled} className={classNames} {...otherProps}>

@@ -5,7 +5,7 @@ type StyleDecoratorsProps = {
 export const StyleDecorators = ({ theme = 'normal' }: StyleDecoratorsProps = {}) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
-        <div className={`app ${theme}`} >
+        <div className={`app ${theme}`}>
             <Story />
         </div>
     );

@@ -17,10 +17,8 @@ export function createReduxStore(initialState?: StateSchema) {
     });
 }
 
-const _store = createReduxStore()
+const _store = createReduxStore();
 
-export type AppStore = typeof _store
-export type RootState = ReturnType<AppStore['getState']>
-export type AppDispatch = AppStore['dispatch']
-
-
+export type AppStore = typeof _store;
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];
