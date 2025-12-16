@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
 const meta = {
     title: 'features/LoginForm',
