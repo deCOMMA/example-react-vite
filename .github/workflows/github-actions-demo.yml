@@ -27,7 +27,7 @@ jobs:
               run: npm run lint:ts
               if: always()
             - name: linting css
-              run: npm run  lint:css
+              run: npm run lint:css
               if: always()
             - name: linting i18n
               run: npm run lint:i18n

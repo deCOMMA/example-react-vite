@@ -12,9 +12,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
     args: {},
-    decorators: [RouterDecorator()],
+    decorators: [RouterDecorator({ state: { loginForm: { username: '123', password: '123' } } })],
 };
 export const Dark: Story = {
     args: {},
     decorators: [RouterDecorator({ theme: 'dark' })],
+};
+export const WithError: Story = {
+    args: {},
+    decorators: [RouterDecorator({ theme: 'dark', state: { loginForm: { username: '123', password: '123', error: 'ERROR' } } },)],
 };
