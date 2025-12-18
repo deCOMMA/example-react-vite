@@ -51,11 +51,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Button onClick={onShowModal} theme='clearInv' className={cls.links}>
                 {t('Войти')}
             </Button>
-            {
-                isAuthModal && (
-                    <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />
-                )
-            }
+            {isAuthModal && <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />}
         </div>
     );
 };

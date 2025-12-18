@@ -14,24 +14,27 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { DynamicModuleFolder, type ReducerList } from '@/shared/helpers/components/DynamicModuleFolder/DynamicModuleFolder';
+import {
+    DynamicModuleFolder,
+    type ReducerList,
+} from '@/shared/helpers/components/DynamicModuleFolder/DynamicModuleFolder';
 
 export type LoginFormProps = {
     className?: string;
 };
 
 const initialReducers: ReducerList = {
-    loginForm: loginReducer
-}
+    loginForm: loginReducer,
+};
 
 const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
-    const username = useSelector(getLoginUsername)
-    const password = useSelector(getLoginPassword)
-    const isLoading = useSelector(getLoginLoading)
-    const error = useSelector(getLoginError)
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginLoading);
+    const error = useSelector(getLoginError);
 
     const onChangeUsername = useCallback(
         (value: string) => {

@@ -13,12 +13,13 @@ export interface StateSchema {
 export type StateSchemaKey = keyof StateSchema;
 
 export type ReducerManager = {
-    getReducerMap: () => ReducersMapObject<StateSchema>,
-    reduce: (state: StateSchema, action: AnyAction) => any,
-    add: (key: StateSchemaKey, reducer: Reducer) => void,
-    remove: (key: StateSchemaKey) => void,
-}
+    getReducerMap: () => ReducersMapObject<StateSchema>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reduce: (state: StateSchema, action: AnyAction) => any;
+    add: (key: StateSchemaKey, reducer: Reducer) => void;
+    remove: (key: StateSchemaKey) => void;
+};
 
 export interface ReduxStoreWitnManager extends EnhancedStore<StateSchema> {
-    reducerManager: ReducerManager
+    reducerManager: ReducerManager;
 }

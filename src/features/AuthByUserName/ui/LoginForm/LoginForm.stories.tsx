@@ -20,5 +20,10 @@ export const Dark: Story = {
 };
 export const WithError: Story = {
     args: {},
-    decorators: [RouterDecorator({ theme: 'dark', state: { loginForm: { username: '123', password: '123', error: 'ERROR' } } },)],
+    decorators: [
+        RouterDecorator({
+            theme: 'dark',
+            state: { loginForm: { username: '123', password: '123', error: 'ERROR' } },
+        }),
+    ],
 };

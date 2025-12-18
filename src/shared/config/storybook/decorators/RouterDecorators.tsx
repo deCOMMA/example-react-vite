@@ -15,12 +15,19 @@ type RouterDecoratorProps = {
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
-}
+};
 
-export const RouterDecorator = ({ theme = 'normal', state, asyncReducers }: RouterDecoratorProps = {}) => {
+export const RouterDecorator = ({
+    theme = 'normal',
+    state,
+    asyncReducers,
+}: RouterDecoratorProps = {}) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
-        <StoreProvider initialState={state as StateSchema} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
+        <StoreProvider
+            initialState={state as StateSchema}
+            asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+        >
             <BrowserRouter>
                 <I18nextProvider i18n={i18n}>
                     <ThemeProvider>

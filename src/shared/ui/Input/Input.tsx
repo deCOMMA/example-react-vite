@@ -19,7 +19,7 @@ export const Input = ({
     ...otherProps
 }: InputProps) => {
     const ref = useRef<HTMLInputElement>(null);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     const [_isFocus, setIsFocus] = useState(false);
 
     useEffect(() => {
