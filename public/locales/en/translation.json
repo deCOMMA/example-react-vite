@@ -2,7 +2,7 @@
     "Язык": "English",
     "Короткий язык": "eng",
     "Главная": "Main",
-    "О нас": "About",
+    "О сайте": "About",
     "Тема": "Theme",
     "Страница не найдена": "Page not found",
     "Что-то пошло не так": "Something went wrong :C",
@@ -14,5 +14,6 @@
     "Введите password": "Enter password",
     "Форма авторизации": "Form auth",
     "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
-    "Выйти": "Exit"
+    "Выйти": "Exit",
+    "Профиль": "Profile"
 }

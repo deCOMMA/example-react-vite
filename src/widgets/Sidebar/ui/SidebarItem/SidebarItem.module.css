@@ -1,0 +1,22 @@
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    padding: 10px;
+    color: var(--inv-primary-color);
+    margin-left: 10px;
+}
+
+.icon {
+    fill: var(--inv-primary-color);
+}
+
+.expand{
+    .link {
+        opacity: 0;
+        transition: 0.2s opacity;
+    }
+}

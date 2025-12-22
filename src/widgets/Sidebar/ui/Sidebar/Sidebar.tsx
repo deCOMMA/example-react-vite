@@ -1,14 +1,12 @@
 import clsx from 'clsx';
 import cls from './Sidebar.module.css';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher/ui/LanguageSwitcher';
 import { Button } from '@/shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routerConfig/routeConfig';
-import AboutIcon from '@/shared/assets/icons/about.svg?react';
-import MainIcon from '@/shared/assets/icons/main.svg?react';
+import { SidebarItemsList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+
 
 type SidebarProps = {
     className?: string;
@@ -25,7 +23,16 @@ export const Sidebar = ({ className, ...otherProps }: SidebarProps) => {
         setIsExpand(prev => !prev);
     };
 
-    const { t } = useTranslation();
+    const itemList = useMemo(() => {
+        return (
+            SidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    expand={isExpand} />
+            ))
+        )
+    }, [isExpand])
 
     return (
         <div data-testid='sidebar' className={classNames} {...otherProps}>
@@ -37,17 +44,10 @@ export const Sidebar = ({ className, ...otherProps }: SidebarProps) => {
                 theme={'backgroundInv'}
                 sqare
             >
-                {isExpand ? t(' > ') : t(' < ')}
+                {isExpand ? '>' : '<'}
             </Button>
             <div className={cls.items}>
-                <AppLink size='medium' className={cls.item} to={RoutePath.main}>
-                    <MainIcon className={cls.icon} />
-                    <span className={cls.link}>{t('Главная')}</span>
-                </AppLink>
-                <AppLink size='medium' className={cls.item} to={RoutePath.about}>
-                    <AboutIcon className={cls.icon} />
-                    <span className={cls.link}>{t('О нас')}</span>
-                </AppLink>
+                {itemList}
             </div>
             <div className={cls.switcher}>
                 <ThemeSwitcher />

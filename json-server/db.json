@@ -29,6 +29,12 @@
         }
     ],
     "profile": {
-        "name": "typicode"
+        "firstname": "митя",
+        "lastname": "Щербиновский",
+        "age": "21",
+        "currency": "currency",
+        "country": "rus",
+        "username": "decomma",
+        "avatar": "decomma"
     }
 }

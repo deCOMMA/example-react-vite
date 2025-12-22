@@ -15,33 +15,17 @@
     bottom: 10px;
 }
 
+.collapseBtn {
+    position: absolute;
+    right: -20px;
+    bottom: 60px;
+}
+
 .items {
     display: flex;
     flex-flow: column wrap;
     margin-top: 20px;
     padding: 20px;
-}
-
-.link {
-    padding: 10px;
-    color: var(--inv-primary-color);
-    margin-left: 10px;
-}
-
-.icon {
-    fill: var(--inv-primary-color);
-}
-
-.item {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.collapseBtn {
-    position: absolute;
-    right: -20px;
-    bottom: 60px;
 }
 
 .expand {
