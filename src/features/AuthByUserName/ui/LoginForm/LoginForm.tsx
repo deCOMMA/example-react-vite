@@ -21,13 +21,14 @@ import {
 
 export type LoginFormProps = {
     className?: string;
+    onSuccess?: () => void;
 };
 
 const initialReducers: ReducerList = {
     loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess, ...otherProps }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -50,8 +51,11 @@ const LoginForm = memo(({ className, ...otherProps }: LoginFormProps) => {
         [dispatch]
     );
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ password, username }));
+    const onLoginClick = useCallback(async () => {
+        const res = await dispatch(loginByUsername({ password, username }));
+        if (res.meta.requestStatus === 'fulfilled' && onSuccess) {
+            onSuccess();
+        }
     }, [dispatch, password, username]);
 
     const classNames = clsx(cls.LoginForm, className);

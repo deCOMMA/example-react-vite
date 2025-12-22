@@ -27,8 +27,6 @@ export function createReduxStore(
     return store;
 }
 
-const _store = createReduxStore();
-
-export type AppStore = typeof _store;
+export type AppStore = ReturnType<typeof createReduxStore>
 export type RootState = ReturnType<AppStore['getState']>;
 export type AppDispatch = AppStore['dispatch'];
