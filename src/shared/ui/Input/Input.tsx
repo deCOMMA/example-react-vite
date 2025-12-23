@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import cls from './Input.module.css';
-import { useEffect, useRef, useState, type ChangeEvent, type InputHTMLAttributes } from 'react';
+import { memo, useEffect, useRef, useState, type ChangeEvent, type InputHTMLAttributes } from 'react';
 
 type InputProps = {
     className?: string;
@@ -9,7 +9,7 @@ type InputProps = {
     autoFocus?: boolean;
 } & Omit<InputHTMLAttributes<HTMLElement>, 'classNames' | 'value' | 'onChange'>;
 
-export const Input = ({
+export const Input = memo(({
     className,
     value,
     onChange,
@@ -60,4 +60,4 @@ export const Input = ({
             </div>
         </div>
     );
-};
+});

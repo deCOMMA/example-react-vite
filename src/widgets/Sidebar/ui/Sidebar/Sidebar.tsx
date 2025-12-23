@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import cls from './Sidebar.module.css';
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher/ui/LanguageSwitcher';
 import { Button } from '@/shared/ui/Button/Button';
@@ -12,7 +12,7 @@ type SidebarProps = {
     className?: string;
 };
 
-export const Sidebar = ({ className, ...otherProps }: SidebarProps) => {
+export const Sidebar = memo(({ className, ...otherProps }: SidebarProps) => {
     const [isExpand, setIsExpand] = useState(false);
 
     const classNames = clsx(cls.Sidebar, className, {
@@ -55,4 +55,4 @@ export const Sidebar = ({ className, ...otherProps }: SidebarProps) => {
             </div>
         </div>
     );
-};
+});

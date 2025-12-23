@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import cls from './Text.module.css';
+import { memo } from 'react';
 
 type TextProps = {
     className?: string;
@@ -8,7 +9,7 @@ type TextProps = {
     thema?: 'primary' | 'error' | '';
 };
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
     const { className, text, thema = 'primary', title } = props;
 
     const classNames = clsx(cls.Text, className, cls[thema]);
@@ -19,4 +20,4 @@ export const Text = (props: TextProps) => {
             {text && <p className={cls.text}>{text}</p>}
         </div>
     );
-};
+});

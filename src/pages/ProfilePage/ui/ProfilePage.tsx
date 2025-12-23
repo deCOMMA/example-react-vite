@@ -1,7 +1,13 @@
+import { profileReducer } from "@/entities/Profile";
+import { DynamicModuleFolder, type ReducerList } from "@/shared/helpers/components/DynamicModuleFolder/DynamicModuleFolder";
 
 type ProfilePageProps = {
     children?: React.ReactNode;
 }
+
+const initialReducers: ReducerList = {
+    profile: profileReducer
+};
 
 const ProfilePage = ({
     children,
@@ -9,10 +15,12 @@ const ProfilePage = ({
 
 
     return (
-        <div>
-            PROFILE PAGE
-            {children}
-        </div>
+        <DynamicModuleFolder reducers={initialReducers} removeAfterUnmount={true}>
+            <div>
+                PROFILE PAGE
+                {children}
+            </div>
+        </DynamicModuleFolder>
     )
 }
 

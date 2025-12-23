@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import cls from './AppLink.module.css';
 import { Link, type LinkProps } from 'react-router-dom';
+import { memo, type ReactNode } from 'react';
 
 type AppLinkProps = {
     className?: string;
     variant?: 'primary' | 'secondary';
     size?: 'small' | 'medium' | 'large';
+    children?: ReactNode;
 } & Omit<LinkProps, 'className'>;
 
-export const AppLink = ({
+export const AppLink = memo(({
     className,
     to,
     variant = 'primary',
@@ -23,4 +25,4 @@ export const AppLink = ({
             {children}
         </Link>
     );
-};
+});

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import cls from './Button.module.css';
-import type { ButtonHTMLAttributes } from 'react';
+import { memo, type ButtonHTMLAttributes } from 'react';
 
 type ButtonProps = {
     className?: string;
@@ -11,7 +11,7 @@ type ButtonProps = {
     disabled?: boolean;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
 
-export const Button = ({
+export const Button = memo(({
     className,
     children,
     theme = 'def',
@@ -34,4 +34,4 @@ export const Button = ({
             {children}
         </button>
     );
-};
+});

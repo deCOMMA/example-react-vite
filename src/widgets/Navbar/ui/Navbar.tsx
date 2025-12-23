@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import cls from './Navbar.module.css';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Button } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthByUserName';
 import { useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ type NavbarProps = {
     className?: string;
 };
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const authData = useSelector(getAuthUserData);
     const dispatch = useAppDispatch();
 
@@ -54,4 +54,4 @@ export const Navbar = ({ className }: NavbarProps) => {
             {isAuthModal && <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />}
         </div>
     );
-};
+});

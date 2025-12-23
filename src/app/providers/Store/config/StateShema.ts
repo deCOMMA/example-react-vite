@@ -1,4 +1,5 @@
 import type { CounterSchema } from '@/entities/Counter';
+import type { ProfileShema } from '@/entities/Profile';
 import type { UserShema } from '@/entities/User';
 import type { LoginShema } from '@/features/AuthByUserName';
 import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
@@ -7,6 +8,7 @@ export interface StateSchema {
     counter: CounterSchema;
     user: UserShema;
     // async reducers
+    profile?: ProfileShema;
     loginForm?: LoginShema;
 }
 
