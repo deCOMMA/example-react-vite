@@ -8,13 +8,13 @@ import { AppErrorBoundary } from './app/providers/ErrorBoundary/index.ts';
 import { StoreProvider } from './app/providers/Store/index.ts';
 
 createRoot(document.getElementById('root')!).render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <AppErrorBoundary>
                 <ThemeProvider>
                     <App />
                 </ThemeProvider>
             </AppErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>
+        </StoreProvider>
+    </BrowserRouter>
 );
