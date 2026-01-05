@@ -56,7 +56,7 @@ const LoginForm = memo(({ className, onSuccess, ...otherProps }: LoginFormProps)
         if (res.meta.requestStatus === 'fulfilled' && onSuccess) {
             onSuccess();
         }
-    }, [dispatch, password, username]);
+    }, [dispatch, password, username, onSuccess]);
 
     const classNames = clsx(cls.LoginForm, className);
 

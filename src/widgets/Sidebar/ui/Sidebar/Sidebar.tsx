@@ -42,7 +42,7 @@ export const Sidebar = memo(({ className, ...otherProps }: SidebarProps) => {
                 size={'large'}
                 className={cls.collapseBtn}
                 theme={'backgroundInv'}
-                sqare
+                square
             >
                 {isExpand ? '>' : '<'}
             </Button>

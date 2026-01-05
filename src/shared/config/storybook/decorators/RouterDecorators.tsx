@@ -24,6 +24,7 @@ export const RouterDecorator = ({
     state,
     asyncReducers,
 }: RouterDecoratorProps = {}) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
         <StoreProvider
             initialState={state as StateSchema}

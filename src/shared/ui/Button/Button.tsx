@@ -7,7 +7,7 @@ type ButtonProps = {
     children?: React.ReactNode;
     theme?: 'clear' | 'clearInv' | 'def' | 'background' | 'backgroundInv';
     size?: 'small' | 'medium' | 'large' | 'xl';
-    sqare?: boolean;
+    square?: boolean;
     disabled?: boolean;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
 
@@ -16,7 +16,7 @@ export const Button = memo(({
     children,
     theme = 'def',
     size = 'medium',
-    sqare = false,
+    square = false,
     disabled,
     ...otherProps
 }: ButtonProps) => {
@@ -25,7 +25,7 @@ export const Button = memo(({
         cls[theme],
         cls[size],
         className,
-        sqare && cls.sqare,
+        square && cls.sqare,
         disabled && cls.disable
     );
 

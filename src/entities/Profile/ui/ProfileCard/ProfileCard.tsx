@@ -17,7 +17,6 @@ type ProfileCardProps = {
 
 export const ProfileCard = ({
     className,
-    children,
     ...otherProps
 }: ProfileCardProps) => {
 

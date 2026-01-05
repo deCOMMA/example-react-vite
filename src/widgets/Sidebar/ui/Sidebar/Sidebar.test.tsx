@@ -1,17 +1,17 @@
 import { fireEvent, screen } from '@testing-library/react';
 import { describe, expect } from 'vitest';
 import { it } from 'vitest';
-import { Sidebar } from '@/widgets/Sidebar/index';
-import { renderWithRouter } from '@/shared/config/tests/renderWithRouter';
+import { renderWithStore } from '@/shared/config/tests/renderWithStore';
+import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
     it('should render in Russian', () => {
-        renderWithRouter(<Sidebar />);
+        renderWithStore(<Sidebar />);
         screen.debug();
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
     it('toggle btn', () => {
-        renderWithRouter(<Sidebar />);
+        renderWithStore(<Sidebar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         fireEvent.click(toggleBtn);
