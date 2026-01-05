@@ -6,6 +6,7 @@ import { StoreProvider, type StateSchema } from '@/app/providers/Store';
 import type { DeepPartial } from '@/shared/helpers/types/deepPartial';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from '@/features/AuthByUserName';
+import { profileReducer } from '@/entities/Profile';
 
 type RouterDecoratorProps = {
     theme?: 'normal' | 'dark';
@@ -15,6 +16,7 @@ type RouterDecoratorProps = {
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
+    profile: profileReducer,
 };
 
 export const RouterDecorator = ({
@@ -22,7 +24,6 @@ export const RouterDecorator = ({
     state,
     asyncReducers,
 }: RouterDecoratorProps = {}) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
         <StoreProvider
             initialState={state as StateSchema}

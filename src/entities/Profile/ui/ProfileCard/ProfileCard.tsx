@@ -7,8 +7,8 @@ import { getProfileLoader } from "../../model/selectors/getProfileLoader/getProf
 import { Text } from "@/shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/shared/ui/Button/Button";
-import { Loader } from "@/shared/ui/Loader/Loader";
 import { Input } from "@/shared/ui/Input/Input";
+import { Loader } from "@/shared/ui/Loader/Loader";
 
 type ProfileCardProps = {
     className?: string;
@@ -30,27 +30,28 @@ export const ProfileCard = ({
     const data = useSelector(getProfileData);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileLoader);
-
+    console.log(data)
     return (
         <div
             className={classNames}
             {...otherProps}>
             <div className={cls.header}>
                 <Text title={t('Профиль')}></Text>
-                {
-                    isLoading ?
-                        <Loader></Loader>
-                        :
-                        <div>
-                            <Button theme="clear">
-                                {t('Редактирвоать')}
-                            </Button>
-                            <Input value="" placeholder={t('Ваша имя')} className={cls.input} />
-                            <Input value="" placeholder={t('Ваша фамилия')} className={cls.input} />
-                            <Input value="" placeholder={t('Ваша nickname')} className={cls.input} />
-                        </div>
-                }
                 {error}
+            </div>
+            <div>
+                <Button theme="clear" className={cls.editBtn}>
+                    {t('Редактирвоать')}
+                </Button>
+                {isLoading
+                    ?
+                    <Loader></Loader>
+                    :
+                    <div className={cls.data}>
+                        <Input value={data?.firstname} placeholder={t('Ваша имя')} className={cls.input} />
+                        <Input value={data?.lastname} placeholder={t('Ваша фамилия')} className={cls.input} />
+                        <Input value={data?.username} placeholder={t('Ваша nickname')} className={cls.input} />
+                    </div>}
             </div>
         </div>
     )

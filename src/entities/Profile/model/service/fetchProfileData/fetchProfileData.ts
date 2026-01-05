@@ -5,20 +5,17 @@ import type { Profile } from '../../types/profile';
 
 
 
-export const fetchProfileData = createAsyncThunk<
-    Profile,
-    void,
-    ThunkConfig<string>
->('profile', async (_, thunkApi) => {
+export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+    'profile/fetchProfileData', async (_, thunkApi) => {
 
-    const { extra, rejectWithValue } = thunkApi
+        const { extra, rejectWithValue } = thunkApi
 
-    try {
-        const responce = await extra.api.get<Profile>('/profile');
+        try {
+            const responce = await extra.api.get<Profile>('/profile');
 
-        return responce.data;
-    } catch (e) {
-        console.log(e);
-        return rejectWithValue(i18n.t('Ошибка загрущки профиля'));
-    }
-});
+            return responce.data;
+        } catch (e) {
+            console.log(e);
+            return rejectWithValue(i18n.t('Ошибка загрущки профиля'));
+        }
+    });
