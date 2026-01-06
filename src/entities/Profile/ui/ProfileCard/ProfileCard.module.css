@@ -1,23 +1,21 @@
 .ProfileCard{
     position: relative;
     padding: 20px;
-    border: 2px solid var(--inverted-bg-color);
-}
-
-.header{
-    position: relative;
-    display: flex;
-
+    border: 2px solid var(--inv-primary-color);
 }
 
 .input{
     margin-top: 10px;
 }
 
-.editBtn{
-    margin-left: auto;
+.data{
+    margin-top: 10px;
 }
 
-.data{
-    margin-top: 30px;
+.loading, 
+.error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
 }

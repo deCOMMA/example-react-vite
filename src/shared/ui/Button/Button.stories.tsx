@@ -53,6 +53,18 @@ export const BackgroundInv: Story = {
         children: 'Button',
     },
 };
+export const Outline: Story = {
+    args: {
+        theme: 'outline',
+        children: 'Button',
+    },
+};
+export const OutlineInv: Story = {
+    args: {
+        theme: 'outlineInv',
+        children: 'Button',
+    },
+};
 export const Small: Story = {
     args: {
         children: 'Button',
@@ -81,28 +93,28 @@ export const sqareSizeS: Story = {
     args: {
         children: '?',
         size: 'small',
-        sqare: true,
+        square: true,
     },
 };
 export const sqareSizeM: Story = {
     args: {
         children: '?',
         size: 'medium',
-        sqare: true,
+        square: true,
     },
 };
 export const sqareSizeL: Story = {
     args: {
         children: '?',
         size: 'large',
-        sqare: true,
+        square: true,
     },
 };
 export const sqareSizeXLBackgroundInv: Story = {
     args: {
         children: '?',
         size: 'xl',
-        sqare: true,
+        square: true,
         theme: 'backgroundInv',
     },
 };

@@ -1,40 +1,41 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "json-server",
-            "userId": 1
-        },
-        {
-            "id": "2",
-            "title": "json-server",
-            "userId": "2"
-        },
-        {
-            "id": "e614"
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "body": "some comment",
-            "postId": "1"
-        }
-    ],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": {
-        "firstname": "митя",
-        "lastname": "Щербиновский",
-        "age": "21",
-        "currency": "currency",
-        "country": "rus",
-        "username": "decomma",
-        "avatar": "decomma"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": 1
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
+    },
+    {
+      "id": "e614"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstname": "Митя",
+    "lastname": "Щербиновский",
+    "currency": "currency",
+    "country": "rus",
+    "username": "decomma",
+    "avatar": "https://i.pinimg.com/originals/57/9c/8a/579c8af00e1b71a721d97c2b36547293.png",
+    "city": "Voronez",
+    "age": 21
+  }
 }

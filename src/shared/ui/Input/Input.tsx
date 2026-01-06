@@ -4,14 +4,16 @@ import { memo, useEffect, useRef, useState, type ChangeEvent, type InputHTMLAttr
 
 type InputProps = {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autoFocus?: boolean;
-} & Omit<InputHTMLAttributes<HTMLElement>, 'classNames' | 'value' | 'onChange'>;
+    readOnly?: boolean
+} & Omit<InputHTMLAttributes<HTMLElement>, 'classNames' | 'value' | 'onChange' | 'readOnly'>;
 
 export const Input = memo(({
     className,
     value,
+    readOnly,
     onChange,
     type = 'text',
     placeholder,
@@ -33,7 +35,7 @@ export const Input = memo(({
         onChange?.(e.target.value);
     };
 
-    const classNames = clsx(cls.Input, className);
+    const classNames = clsx(cls.Input, className, readOnly && cls.readOnly);
 
     const onFocus = () => {
         setIsFocus(true);
@@ -55,6 +57,7 @@ export const Input = memo(({
                     value={value}
                     onChange={onChangeHandler}
                     className={cls.input}
+                    readOnly={readOnly}
                     {...otherProps}
                 />
             </div>

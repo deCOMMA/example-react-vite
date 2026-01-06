@@ -1,0 +1,10 @@
+.ProfilePageHeader{
+    margin-bottom: 20px;
+    display: flex;
+    flex-grow: inherit;
+}
+
+.editBtn{
+    margin-left: auto;
+    margin-right: 10px;
+}

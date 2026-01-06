@@ -7,12 +7,13 @@ type TextProps = {
     title?: string;
     text?: string;
     thema?: 'primary' | 'error' | '';
+    align?: 'right' | 'center' | 'left';
 };
 
 export const Text = memo((props: TextProps) => {
-    const { className, text, thema = 'primary', title } = props;
+    const { className, text, thema = 'primary', title, align = 'left' } = props;
 
-    const classNames = clsx(cls.Text, className, cls[thema]);
+    const classNames = clsx(cls.Text, className, cls[thema], cls[align]);
 
     return (
         <div className={classNames}>

@@ -3,6 +3,18 @@
     padding: 6px 15px;
 }
 
+.outline{
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: none; 
+}
+
+.outlineInv{
+    border: 1px solid var(--inv-primary-color);
+    color: var(--inv-primary-color);
+    background: none; 
+}
+
 .clear {
     padding: 0;
     margin: 0;

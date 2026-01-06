@@ -5,7 +5,7 @@ import { memo, type ButtonHTMLAttributes } from 'react';
 type ButtonProps = {
     className?: string;
     children?: React.ReactNode;
-    theme?: 'clear' | 'clearInv' | 'def' | 'background' | 'backgroundInv';
+    theme?: 'clear' | 'clearInv' | 'def' | 'background' | 'backgroundInv' | 'outline' | 'outlineInv';
     size?: 'small' | 'medium' | 'large' | 'xl';
     square?: boolean;
     disabled?: boolean;
