@@ -1,7 +1,7 @@
 .ProfileCard{
     position: relative;
     padding: 20px;
-    border: 2px solid var(--inv-primary-color);
+    border: 3px solid var(--inv-primary-color);
 }
 
 .input{
@@ -18,4 +18,13 @@
     align-items: center;
     justify-content: center;
     height: 200px;
+}
+.avatarWrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.editing{
+        border: 2px solid var(--primary-color);
 }

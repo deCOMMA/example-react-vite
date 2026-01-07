@@ -26,11 +26,11 @@ export const RouterDecorator = ({
 }: RouterDecoratorProps = {}) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (Story: any) => (
-        <StoreProvider
-            initialState={state as StateSchema}
-            asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-        >
-            <BrowserRouter>
+        <BrowserRouter>
+            <StoreProvider
+                initialState={state as StateSchema}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            >
                 <I18nextProvider i18n={i18n}>
                     <ThemeProvider>
                         <div className={`app ${theme}`}>
@@ -38,7 +38,7 @@ export const RouterDecorator = ({
                         </div>
                     </ThemeProvider>
                 </I18nextProvider>
-            </BrowserRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </BrowserRouter>
     );
 };

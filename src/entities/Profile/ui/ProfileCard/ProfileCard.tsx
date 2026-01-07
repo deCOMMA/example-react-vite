@@ -5,6 +5,9 @@ import { Input } from "@/shared/ui/Input/Input";
 import type { Profile } from '../../model/types/profile';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import clsx from 'clsx';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { CountrySelect, type Country } from '@/entities/Country';
 
 type ProfileCardProps = {
     className?: string;
@@ -17,6 +20,8 @@ type ProfileCardProps = {
     onChangeAge?: (value: string) => void;
     onChangeUsername?: (value: string) => void;
     onChangeAvatar?: (value: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
     readOnly?: boolean;
 }
 
@@ -31,6 +36,8 @@ export const ProfileCard = ({
     onChangeCity,
     onChangeUsername,
     onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
     readOnly,
 }: ProfileCardProps) => {
 
@@ -58,10 +65,14 @@ export const ProfileCard = ({
     }
 
     return (
-        <div className={clsx(className, cls.ProfileCard)}>
+        <div className={clsx(className, cls.ProfileCard, readOnly && cls.editing)}>
             <div className={cls.data}>
+
                 {
-                    data?.avatar && <img src={data?.avatar}></img>
+                    data?.avatar && (
+                        <div className={cls.avatarWrapper}>
+                            <Avatar src={data.avatar} size={200} alt={t('Аватар профиля')} />
+                        </div>)
                 }
                 <Input
                     value={data?.firstname}
@@ -99,6 +110,18 @@ export const ProfileCard = ({
                     className={cls.input}
                     readOnly={readOnly}
                     onChange={onChangeAvatar} />
+                <CurrencySelect
+                    className={cls.input}
+                    onChange={onChangeCurrency}
+                    value={data?.currency}
+                    readOnly={readOnly}
+                />
+                <CountrySelect
+                    className={cls.input}
+                    onChange={onChangeCountry}
+                    value={data?.country}
+                    readonly={readOnly}
+                />
             </div>
         </div>
     )

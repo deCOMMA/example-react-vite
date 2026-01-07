@@ -7,6 +7,8 @@ import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { getProfileForm } from "@/entities/Profile/model/selectors/getProfileForm/getProfileForm";
+import type { Currency } from "@/entities/Currency";
+import type { Country } from "@/entities/Country";
 
 type ProfilePageProps = {
     children?: React.ReactNode;
@@ -61,6 +63,14 @@ const ProfilePage = ({
         dispatch(profileActions.updateProfile({ avatar: value }))
     }, [dispatch])
 
+    const onChangeCurrency = useCallback((currency: Currency) => {
+        dispatch(profileActions.updateProfile({ currency: currency }))
+    }, [dispatch])
+
+    const onChangeCountry = useCallback((country: Country) => {
+        dispatch(profileActions.updateProfile({ country: country }))
+    }, [dispatch])
+
 
     return (
         <DynamicModuleFolder reducers={initialReducers} removeAfterUnmount={true}>
@@ -77,6 +87,8 @@ const ProfilePage = ({
                     onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
                 {children}
             </div>

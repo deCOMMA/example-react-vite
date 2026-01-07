@@ -1,10 +1,11 @@
-import type { Country } from "@/shared/const/common";
+import type { Currency } from "@/entities/Currency";
+import type { Country } from "@/entities/Country";
 
 export interface Profile {
     firstname?: string,
     lastname?: string,
     age?: number,
-    currency?: string,
+    currency?: Currency,
     country?: Country,
     username?: string,
     avatar?: string,
