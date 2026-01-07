@@ -21,6 +21,7 @@ export const SidebarItem = memo(({ item, expand }: SidebarItemProps) => {
         return null;
 
     }
+
     const classnames = clsx(cls.item, { [cls.expand]: expand, })
     return (
         <AppLink size='medium' className={classnames} to={item.path}>

@@ -5,6 +5,10 @@ export type {
 } from './model/types/profile'
 
 export {
+    validateProfileError
+} from './model/types/profile'
+
+export {
     profileActions,
     profileReducer,
 } from './model/slice/profileSlice'
@@ -20,3 +24,4 @@ export { getProfileData } from './model/selectors/getProfileData/getProfileData'
 export { getProfileLoader } from './model/selectors/getProfileLoader/getProfileLoader'
 export { getProfileError } from './model/selectors/getProfileError/getProfileErros'
 export { getProfileReadOnly } from './model/selectors/getProfileReadOnly/getProfileReadOnly'
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors'
