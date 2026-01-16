@@ -2,6 +2,7 @@
 @import '@/app/styles/variables/global.css';
 @import '@/app/styles/themes/normal.css';
 @import '@/app/styles/themes/dark.css';
+@import '@/app/styles/themes/black.css';
 
 body {
     font: var(--font-m);

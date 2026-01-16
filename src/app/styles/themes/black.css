@@ -1,0 +1,11 @@
+.black {
+    --bg-color: rgb(73 75 95);
+    
+    --inv-bg-color: rgb(31 32 41);
+    
+    --primary-color: rgb(115 118 150);
+    
+    --secondary-color: rgb(140 143 170);
+    
+    --inv-primary-color: rgb(0 247 255);
+}

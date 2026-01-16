@@ -1,7 +1,11 @@
 .dark {
-    --bg-color: rgb(160 178 216);
-    --inv-bg-color: rgb(0 41 82);
-    --primary-color: rgb(164 159 210);
-    --secondary-color: rgb(193 188 230);
-    --inv-primary-color: rgb(0 247 58);
+    --bg-color: rgb(36 52 71);
+    
+    --inv-bg-color: rgb(20 30 45);
+    
+    --primary-color: rgb(64 110 128);
+    
+    --secondary-color: rgb(86 140 150);
+    
+    --inv-primary-color: rgb(100 255 180);
 }

@@ -1,7 +1,11 @@
 .normal {
-    --bg-color: rgb(255 225 225);
-    --inv-bg-color: rgb(243 218 155);
-    --primary-color: rgb(118 97 5);
-    --secondary-color: rgb(144 129 60);
-    --inv-primary-color: rgb(57 3 217);
+    --bg-color: rgb(95 85 73);
+    
+    --inv-bg-color: rgb(65 50 40);
+    
+    --primary-color: rgb(150 125 100);
+    
+    --secondary-color: rgb(190 160 130);
+    
+    --inv-primary-color: rgb(255 200 80);
 }
