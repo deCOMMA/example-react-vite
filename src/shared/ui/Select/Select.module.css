@@ -16,7 +16,7 @@
 
 .option{
     color: var(--inv-primary-color);
-    background:  var(--inv-primary-color);
+    background:  var(--primary-color);
 }
 
 .readOnly{

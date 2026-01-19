@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_THEME_KEY, ThemeContext, type ThemeType } from './ThemeCo
 
 export function useTheme() {
     const { theme, setTheme } = useContext(ThemeContext);
-
+    document.body.className = theme;
     const switchThem = () => {
         const themes: ThemeType[] = ['normal', 'dark', 'black'];
         const currentIndex = themes.indexOf(theme);

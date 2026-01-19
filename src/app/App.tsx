@@ -4,11 +4,13 @@ import { Navbar } from '@/widgets/Navbar';
 import clsx from 'clsx';
 import { Suspense, useEffect } from 'react';
 import { useAppDispatch } from './providers/Store/config/hooks';
-import { userActions } from '@/entities/User';
+import { getUserInited, userActions } from '@/entities/User';
+import { useSelector } from 'react-redux';
 
 function App() {
     const classNames = clsx('app');
     const dispatch = useAppDispatch();
+    const inited = useSelector(getUserInited)
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -20,7 +22,7 @@ function App() {
                 <Navbar />
                 <div className='content-page'>
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>

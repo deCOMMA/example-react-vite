@@ -4,7 +4,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import ProfilePage from '@/pages/ProfilePage/ui/ProfilePage';
 import type { RouteProps } from 'react-router-dom';
 
-type AppRoutesProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
     title?: string;
 }
@@ -19,7 +19,7 @@ export enum AppRoutes {
 
 export type RouteConfig = {
     path: string;
-    title: string;
+    title?: string;
     element: React.ReactNode;
     authOnly?: boolean;
 };
