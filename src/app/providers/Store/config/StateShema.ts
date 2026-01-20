@@ -1,3 +1,4 @@
+import type { ArticleDetailShema } from '@/entities/Article';
 import type { CounterSchema } from '@/entities/Counter';
 import type { ProfileShema } from '@/entities/Profile';
 import type { UserShema } from '@/entities/User';
@@ -12,6 +13,7 @@ export interface StateSchema {
     // async reducers
     profile?: ProfileShema;
     loginForm?: LoginShema;
+    articleDetails?: ArticleDetailShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

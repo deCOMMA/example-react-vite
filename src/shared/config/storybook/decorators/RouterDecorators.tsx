@@ -9,7 +9,7 @@ import { loginReducer } from '@/features/AuthByUserName';
 import { profileReducer } from '@/entities/Profile';
 
 type RouterDecoratorProps = {
-    theme?: 'normal' | 'dark';
+    theme?: 'normal' | 'dark' | 'black';
     state?: DeepPartial<StateSchema>;
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 };

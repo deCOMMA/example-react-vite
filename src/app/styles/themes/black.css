@@ -8,4 +8,7 @@
     --secondary-color: rgb(140 143 170);
     
     --inv-primary-color: rgb(0 247 255);
+
+    --skeleton-shadow: rgb(45 47 65);
+    --skeleton-color: rgb(90 93 120);
 }

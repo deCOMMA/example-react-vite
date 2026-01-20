@@ -1,25 +1,33 @@
 import clsx from "clsx"
 import cls from './ArticleDetailsPage.module.css'
-import { useTranslation } from "react-i18next";
 import { memo } from "react";
+import { ArticleDetails } from "@/entities/Article";
+import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type ArticleDetailsPageProps = {
     className?: string;
 }
 
-const ArticleDetailsPage = ({
-    className,
-}: ArticleDetailsPageProps) => {
+const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
 
-    const { t } = useTranslation('article')
     const classNames = clsx(
         cls.ArticleDetailsPage,
         className
     );
+    const { id } = useParams<{ id: string }>();
+    const { t } = useTranslation('article')
+    if (!id) {
+        return (
+            <div>
+                {t('Article not found')}
+            </div>
+        )
+    }
 
     return (
         <div className={classNames}>
-            {t('Article Details Page')}
+            <ArticleDetails id={id} />
         </div>
     )
 }

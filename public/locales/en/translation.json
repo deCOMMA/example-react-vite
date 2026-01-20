@@ -15,5 +15,6 @@
     "Форма авторизации": "Form auth",
     "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
     "Выйти": "Exit",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Статьи": "Article"
 }
