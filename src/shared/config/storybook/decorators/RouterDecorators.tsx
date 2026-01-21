@@ -7,6 +7,7 @@ import type { DeepPartial } from '@/shared/helpers/types/deepPartial';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from '@/features/AuthByUserName';
 import { profileReducer } from '@/entities/Profile';
+import { articleDetailsReducer } from '@/entities/Article';
 
 type RouterDecoratorProps = {
     theme?: 'normal' | 'dark' | 'black';
@@ -17,6 +18,7 @@ type RouterDecoratorProps = {
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export const RouterDecorator = ({

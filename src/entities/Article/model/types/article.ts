@@ -16,7 +16,7 @@ export enum ArticleType {
 }
 
 
-export type ArticleBlock = ArticleBlockType | ArticleBlockCode | ArticleBlockImg;
+export type ArticleBlock = ArticleBlockText | ArticleBlockCode | ArticleBlockImg;
 
 export enum ArticleBlockType {
     CODE = 'CODE',

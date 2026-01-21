@@ -59,3 +59,17 @@ export const OnlyTextNormal: Story = {
     },
     decorators: ThemeDecorators({ theme: 'normal' }),
 };
+export const TextSizeL: Story = {
+    args: {
+        text: 'Text text text',
+        size: 'l'
+    },
+    decorators: ThemeDecorators({ theme: 'normal' }),
+};
+export const TextSizeM: Story = {
+    args: {
+        text: 'Text text text',
+        size: 'm'
+    },
+    decorators: ThemeDecorators({ theme: 'normal' }),
+};
