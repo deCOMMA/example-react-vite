@@ -77,7 +77,7 @@ const article: Article = {
 
 const meta = {
     decorators: [RouterDecorator()],
-    title: 'entities/CountrySelect',
+    title: 'page/ArticleDetails',
     component: ArticleDetails,
     tags: ['autodocs'],
 } satisfies Meta<typeof ArticleDetails>;
