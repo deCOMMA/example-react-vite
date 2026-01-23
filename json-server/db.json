@@ -112,13 +112,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://i.pinimg.com/originals/57/9c/8a/579c8af00e1b71a721d97c2b36547293.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://preview.redd.it/if-you-could-have-anyone-in-the-manga-coach-ippo-besides-ol-v0-pghi6be1ekv81.jpg?width=411&format=pjpg&auto=webp&s=534bcadb3c559089a645184d51911aebc4d53fad"
     }
   ],
   "profile": {

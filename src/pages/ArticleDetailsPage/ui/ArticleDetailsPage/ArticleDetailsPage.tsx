@@ -4,6 +4,8 @@ import { memo } from "react";
 import { ArticleDetails } from "@/entities/Article";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Text } from "@/shared/ui/Text/Text";
+import { CommentList } from "@/entities/Comment/ui/CommentList/CommentList";
 
 type ArticleDetailsPageProps = {
     className?: string;
@@ -28,6 +30,8 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
     return (
         <div className={classNames}>
             <ArticleDetails id={id} />
+            <Text title={t('Comments')} size="l" className={cls.commentTitle} />
+            <CommentList isLoading={true} comments={[]} />
         </div>
     )
 }

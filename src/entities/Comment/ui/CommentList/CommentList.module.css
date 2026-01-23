@@ -1,6 +1,6 @@
-.ArticleDetailsPage{
+.CommentList{
     position: relative;
-}
-.commentTitle{
+} 
+.commentCard{
     margin-top: 20px;
 }

@@ -1,1 +1,2 @@
 export { ArticleAsyncDetailsPage as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.async'
+export type { ArticleDetailscommentsShema } from './model/types/ArticleDetailsCommentsSchema'
