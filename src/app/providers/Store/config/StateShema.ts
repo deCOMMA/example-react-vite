@@ -3,7 +3,7 @@ import type { CounterSchema } from '@/entities/Counter';
 import type { ProfileShema } from '@/entities/Profile';
 import type { UserShema } from '@/entities/User';
 import type { LoginShema } from '@/features/AuthByUserName';
-import type { ArticleDetailscommentsShema } from '@/pages/ArticleDetailsPage';
+import type { ArticleDetailsCommentsSchema } from '@/pages/ArticleDetailsPage';
 import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import type { AxiosInstance } from 'axios';
 import type { NavigateOptions, To } from 'react-router-dom';
@@ -15,7 +15,7 @@ export interface StateSchema {
     profile?: ProfileShema;
     loginForm?: LoginShema;
     articleDetails?: ArticleDetailShema;
-    articleDetailsComments?: ArticleDetailscommentsShema
+    articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
