@@ -24,6 +24,6 @@ export const fetchCommentsByArticleId = createAsyncThunk<CommentI[], string | un
 
             return responce.data;
         } catch (e) {
-            return rejectWithValue(i18n.t('Ошибка загрущки профиля'));
+            return rejectWithValue(i18n.t('Ошибка загрузки комментариев'));
         }
     });

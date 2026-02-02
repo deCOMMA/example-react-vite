@@ -16,7 +16,7 @@ type DynamicModuleFolderProps = {
 };
 
 export const DynamicModuleFolder = (props: DynamicModuleFolderProps) => {
-    const { children, reducers, removeAfterUnmount } = props;
+    const { children, reducers, removeAfterUnmount = true } = props;
 
     const store = useStore() as ReduxStoreWitnManager;
     const dispatch = useAppDispatch();

@@ -89,22 +89,16 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
-      "acticleId": "1",
-      "userId": "1"
+      "articleId": "1",
+      "userId": "1",
+      "text": "проверка коментов !!!",
+      "id": 1
     },
     {
-      "id": "2",
-      "text": "some comment2",
-      "acticleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment3",
-      "acticleId": "1",
-      "userId": "1"
+      "articleId": "1",
+      "userId": "2",
+      "text": "я тоже решил проверить !!",
+      "id": 2
     }
   ],
   "users": [
@@ -123,14 +117,28 @@
       "avatar": "https://preview.redd.it/if-you-could-have-anyone-in-the-manga-coach-ippo-besides-ol-v0-pghi6be1ekv81.jpg?width=411&format=pjpg&auto=webp&s=534bcadb3c559089a645184d51911aebc4d53fad"
     }
   ],
-  "profile": {
-    "firstname": "митя",
-    "lastname": "Щербиновсктй",
-    "currency": "RUB",
-    "country": "Russia",
-    "username": "decomma",
-    "avatar": "https://i.pinimg.com/originals/57/9c/8a/579c8af00e1b71a721d97c2b36547293.png",
-    "city": "Voronez",
-    "age": 21
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "митя",
+      "lastname": "Щербиновсктй",
+      "currency": "RUB",
+      "country": "Russia",
+      "username": "decomma",
+      "avatar": "https://i.pinimg.com/originals/57/9c/8a/579c8af00e1b71a721d97c2b36547293.png",
+      "city": "Voronez",
+      "age": 21
+    },
+    {
+      "id": "2",
+      "firstname": "Алексей",
+      "lastname": "Ожерельев",
+      "currency": "RUB",
+      "country": "Russia",
+      "username": "psyho",
+      "avatar": "https://preview.redd.it/if-you-could-have-anyone-in-the-manga-coach-ippo-besides-ol-v0-pghi6be1ekv81.jpg?width=411&format=pjpg&auto=webp&s=534bcadb3c559089a645184d51911aebc4d53fad",
+      "city": "Voronez",
+      "age": 21
+    }
+  ]
 }

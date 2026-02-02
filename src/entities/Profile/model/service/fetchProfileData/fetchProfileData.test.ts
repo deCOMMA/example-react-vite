@@ -43,7 +43,7 @@ describe('fetchProfileData', () => {
     it('fulfilled fetch', async () => {
 
         (api.get as ReturnType<typeof vi.fn>).mockResolvedValue({ data: data });
-        const action = fetchProfileData();
+        const action = fetchProfileData('1');
         const result = await action(
             dispatch,
             getState,
@@ -56,7 +56,7 @@ describe('fetchProfileData', () => {
 
     it('rejected fetch', async () => {
         (api.post as ReturnType<typeof vi.fn>).mockRejectedValue(new Error('Request failed'));
-        const action = fetchProfileData();
+        const action = fetchProfileData('1');
         const result = await action(
             dispatch,
             getState,

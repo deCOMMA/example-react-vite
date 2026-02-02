@@ -11,6 +11,7 @@ import type { Currency } from "@/entities/Currency";
 import type { Country } from "@/entities/Country";
 import { Text } from "@/shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 type ProfilePageProps = {
     children?: React.ReactNode;
@@ -31,6 +32,7 @@ const ProfilePage = ({
     const readOnly = useSelector(getProfileReadOnly);
     const validateErrors = useSelector(getProfileValidateErrors);
     const { t } = useTranslation();
+    const { id } = useParams<{ id: string }>()
 
     const validateErrorsTranslates = {
         [validateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -41,8 +43,8 @@ const ProfilePage = ({
     }
 
     useEffect(() => {
-        dispatch(fetchProfileData())
-    }, [dispatch])
+        dispatch(fetchProfileData(id))
+    }, [dispatch, id])
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value }))

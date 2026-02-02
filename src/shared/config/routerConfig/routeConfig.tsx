@@ -31,7 +31,7 @@ export type RouteConfig = {
 export const RoutePath: Record<AppRoutes, string> = {
     main: '/',
     about: '/about',
-    profile: '/profile',
+    profile: '/profile/', // + id
     articles: '/articles',
     article_details: '/articles/', // + id
 
@@ -50,7 +50,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <AboutPage />,
     },
     profile: {
-        path: RoutePath.profile,
+        path: `${RoutePath.profile}:id`,
         title: 'Profile',
         element: <ProfilePage />,
         authOnly: true,

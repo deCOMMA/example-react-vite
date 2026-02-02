@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments.ts";
 import { useAppDispatch } from "@/app/providers/Store/config/hooks.ts";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId.ts";
+import { AddCommentForm } from "@/features/addCommentForm/index.ts";
 
 type ArticleDetailsPageProps = {
     className?: string;
@@ -50,6 +51,7 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
             <div className={classNames}>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments')} size="l" className={cls.commentTitle} />
+                <AddCommentForm />
                 <CommentList isLoading={commentsisLoading} comments={comments} />
             </div>
         </DynamicModuleFolder>

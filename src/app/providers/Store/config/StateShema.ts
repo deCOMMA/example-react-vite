@@ -7,6 +7,7 @@ import type { ArticleDetailsCommentsSchema } from '@/pages/ArticleDetailsPage';
 import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import type { AxiosInstance } from 'axios';
 import type { NavigateOptions, To } from 'react-router-dom';
+import type { AddCommentFormShema } from '@/features/addCommentForm';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -15,7 +16,8 @@ export interface StateSchema {
     profile?: ProfileShema;
     loginForm?: LoginShema;
     articleDetails?: ArticleDetailShema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema
+    articleDetailsComments?: ArticleDetailsCommentsSchema;
+    addCommentFormShema?: AddCommentFormShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
