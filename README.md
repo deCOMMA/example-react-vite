@@ -1,69 +1,102 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite - Example Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современное React приложение с архитектурой Feature-Sliced Design (FSD), TypeScript.
 
-Currently, two official plugins are available:
+## Цель проекта
+Проект демонстрирует:
+- применение Feature-Sliced Design (FSD) для масштабируемой архитектуры
+- полный стек инструментов для enterprise-разработки на React/TypeScript
+- оптимизацию производительности через код-сплиттинг, мемоизацию, асинхронность 
+- контроль качества кода с покрытием тестами (unit, интеграционные, скриншотные)
+- модульность и переиспользуемость через строгое разделение слоев
+- готовую инфраструктуру для быстрого старта новых проектов
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
-
-            // Remove tseslint.configs.recommended and replace with this
-            ...tseslint.configs.recommendedTypeChecked,
-            // Alternatively, use this for stricter rules
-            ...tseslint.configs.strictTypeChecked,
-            // Optionally, add this for stylistic rules
-            ...tseslint.configs.stylisticTypeChecked,
-
-            // Other configs...
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
+## Структура проекта 
+```
+src/
+├── app/                 # Инициализация приложения, провайдеры, роутинг
+│   ├── providers/       # Провайдеры (Store, Router, Theme, i18n)
+|   ├── test/            # setup тестов
+|   ├── types/           # типизация для тестов и svg
+│   └── styles/          # Глобальные стили, темы
+│
+├── pages/              # Страницы приложения
+│   └── компонент Страницы/       # publicAPI для импортов,  
+|        └── ui/                  # .tsx компонент страницы, стили, stories, асинхронная страница для имитации загрузки
+|        └── index.ts             # publicAPI для экспортов
+|       
+├── widgets/            # Самостоятельные виджеты ( по аналогии с страницами ) 
+|
+├── features/           # Функциональности пользователя ( какие-то бизнес фичи ) 
+|
+├── entities/           # Бизнес-сущности
+│   └── компонент Сущности/        # Сущность статьи
+|        └── ui/                   
+|        └── index.ts             
+|        └── model/               
+│            ├── selectos/       #  селекторы + тесты
+|            ├── services/       #  запросы + тесты
+|            ├── slice/          #  Slice из reduxjs/toolkit + тесты
+│            └── types/          #  типы для этой сущности
+|
+│
+└── shared/            # Переиспользуемый код
+    ├── api/           # API клиенты, настройки
+    ├── assets/        # Иконки, изображения
+    ├── config/        # Конфигурации (i18n, роутинг, storybook, тесты)
+    ├── const/         # Константы
+    ├── fonts/         # Шрифты
+    ├── helpers/       # Вспомогательные функции, утилиты
+    └── ui/            # UI компоненты (UIKit) - .tsx + .stories.tsx + .css
+        ├── Avatar/     
+        ├── Button/     
+        └── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Основные команды
+- `npm run dev` - Запуск приложения в режиме разработки
+- `npm run build` -  Сборка production версии (откроется Bundle Analyzer в браузере)
+- `npm run start:dev:server` - Запуск сервера для API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+### Команды для тестов
+- `npm run storybook` - Запуск Storybook для документации компонентов
+- `npm run build-storybook` - Сборка Storybook
+- `npm run chromatic` - Публикация Storybook в Chromatic
+- `npm run test` - Запуск всех тестов (кроме stories)
+- `npm run validate` - Полная проверка проекта (линт + формат + тесты)
 
-export default tseslint.config([
-    globalIgnores(['dist']),
-    {
-        files: ['**/*.{ts,tsx}'],
-        extends: [
-            // Other configs...
-            // Enable lint rules for React
-            reactX.configs['recommended-typescript'],
-            // Enable lint rules for React DOM
-            reactDom.configs.recommended,
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ['./tsconfig.node.json', './tsconfig.app.json'],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
+### Проверка кода
+- `npm run lint` - Проверка всего кода ESLint
+- `npm run lint:ts` - Проверка TypeScript файлов
+- `npm run lint:css` - Проверка CSS/SCSS файлов
+- `npm run lint:i18n` - Проверка i18n переводов
+- `npm run lint:ts:fix` - Автоисправление TypeScript кода
+- `npm run lint:css:fix` - Автоисправление CSS/SCSS кода
+- `npm run lint:i18n:fix` - Автоисправление i18n ошибок
+- `npm run fix:all` - Автоисправление всех проблем разом
+- `npm run format` - Форматирование всего проекта
+- `npm run format:check` - Проверка форматирования
+- `npm run format:ts` - Форматирование TypeScript файлов
+- `npm run validate` - Полная проверка проекта (линт + формат + тесты)
+
+## Взаимодействие с проектом
+Запуститем приложение в режиме разработки и dev:server через отдельные терминалы. Чтобы авторизоваться используйте пользователя `username : admin; password: 123` ( подробнее можно посмотреть `\example-react-vite\json-server\db.json` )
 ```
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://i.pinimg.com/originals/57/9c/8a/579c8af00e1b71a721d97c2b36547293.png"
+    },
+```
+
+Из функциональных страниц - страница "Профиля" и "Статей", которые доступны только авторизованным пользователям
+`/profile` - Страница профиля
+`/articles/id` - Страница статьи (в моковом API есть только статья с id=1)
+
+
+
+
+
