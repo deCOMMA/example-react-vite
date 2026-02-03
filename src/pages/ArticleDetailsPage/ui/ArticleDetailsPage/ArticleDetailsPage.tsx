@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import cls from './ArticleDetailsPage.module.css'
-import { memo, useEffect } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { ArticleDetails } from "@/entities/Article";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,7 @@ import { getArticleCommentsIsLoading } from "../../model/selectors/comments.ts";
 import { useAppDispatch } from "@/app/providers/Store/config/hooks.ts";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId.ts";
 import { AddCommentForm } from "@/features/addCommentForm/index.ts";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle.ts";
 
 type ArticleDetailsPageProps = {
     className?: string;
@@ -42,6 +43,10 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
         )
     }
 
+    const onSendComment = useCallback((value: string) => {
+        dispatch(addCommentForArticle(value))
+    }, [dispatch])
+
     useEffect(() => {
         dispatch((fetchCommentsByArticleId(id)))
     }, [dispatch, id])
@@ -51,7 +56,7 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
             <div className={classNames}>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments')} size="l" className={cls.commentTitle} />
-                <AddCommentForm />
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={commentsisLoading} comments={comments} />
             </div>
         </DynamicModuleFolder>

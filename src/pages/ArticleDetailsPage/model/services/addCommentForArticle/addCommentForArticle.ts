@@ -3,15 +3,14 @@ import type { CommentI } from '@/entities/Comment';
 import { getAuthUserData } from '@/entities/User';
 import i18n from '@/shared/config/i18n/i18n';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getAddCommentFormText } from '../../selectors/addCommentFormSelectors';
 import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
-import { addCommentFormActions } from '../../slice/addCommentFormSlice';
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-export const sendComment = createAsyncThunk<
+export const addCommentForArticle = createAsyncThunk<
     CommentI,
-    void,
+    string,
     ThunkConfig<string>
->('addCommentForm/sendComment', async (_, thunkApi) => {
+>('articleDetails/addCommentForArticle', async (text, thunkApi) => {
 
     const {
         extra,
@@ -21,7 +20,6 @@ export const sendComment = createAsyncThunk<
     } = thunkApi;
 
     const userData = getAuthUserData(getState());
-    const text = getAddCommentFormText(getState());
     const article = getArticleDetailsData(getState());
 
     if (!userData || !text || !article) {
@@ -37,7 +35,7 @@ export const sendComment = createAsyncThunk<
         if (!responce.data) {
             throw new Error();
         }
-        dispatch(addCommentFormActions.setText(''))
+        dispatch(fetchCommentsByArticleId(article.id));
         return responce.data;
     } catch (e) {
         console.log(e);
