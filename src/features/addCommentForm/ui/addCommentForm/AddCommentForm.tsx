@@ -16,7 +16,7 @@ export type AddCommentFormProps = {
 }
 
 const initialReducer: ReducerList = {
-    addCommentFormShema: addCommentFormRudecer
+    addCommentForm: addCommentFormRudecer
 }
 
 const AddCommentForm = memo(({

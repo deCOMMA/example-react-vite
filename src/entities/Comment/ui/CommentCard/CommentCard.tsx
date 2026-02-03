@@ -20,7 +20,8 @@ export const CommentCard = ({
 
     const classNames = clsx(
         cls.CommentCard,
-        className
+        className,
+        isLoading && cls.loading
     );
 
     if (isLoading) {

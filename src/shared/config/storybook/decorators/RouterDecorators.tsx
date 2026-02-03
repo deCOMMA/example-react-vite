@@ -8,6 +8,8 @@ import type { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from '@/features/AuthByUserName';
 import { profileReducer } from '@/entities/Profile';
 import { articleDetailsReducer } from '@/entities/Article';
+import { articleDetailsCommentsReducer } from '@/pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice.ts/ArticleDetailsCommentsSlice.ts';
+import { addCommentFormRudecer } from '@/features/addCommentForm/model/slice/addCommentFormSlice';
 
 type RouterDecoratorProps = {
     theme?: 'normal' | 'dark' | 'black';
@@ -19,6 +21,8 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    articleDetailsComments: articleDetailsCommentsReducer,
+    addCommentForm: addCommentFormRudecer,
 };
 
 export const RouterDecorator = ({
