@@ -4,6 +4,7 @@ import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDeco
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/ui/Avatar/storybook.jpg';
+import { validateProfileError } from '@/entities/Profile';
 const meta = {
     title: 'pages/ProfilePage',
     component: ProfilePage,
@@ -14,12 +15,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
-    args: {},
+    args: {
+
+    },
     decorators: [
         RouterDecorator({
             state: {
                 profile: {
-                    form: {
+                    data: {
+                        id: '1',
                         username: 'decomma',
                         age: 23,
                         country: Country.Russia,
@@ -31,27 +35,20 @@ export const Normal: Story = {
                     },
                 },
             },
+
         }),
+
     ],
 };
-export const Dark: Story = {
+export const Error: Story = {
     args: {},
     decorators: [
         RouterDecorator({
             theme: 'dark',
             state: {
                 profile: {
-                    form: {
-                        username: 'decomma',
-                        age: 23,
-                        country: Country.Russia,
-                        avatar: AvatarImg,
-                        city: 'Voronezh',
-                        currency: Currency.RUB,
-                        firstname: 'Имя',
-                        lastname: 'Фамилия',
-                    },
-                },
+                    validateErrors: [validateProfileError.INCORECT_AGE,]
+                }
             },
         }),
     ],

@@ -22,7 +22,7 @@ export const fetchProfileData = createAsyncThunk<Profile, string | undefined, Th
             return responce.data;
         } catch (e) {
             console.log(e);
-            return rejectWithValue(i18n.t('Ошибка загрущки профиля'));
+            return rejectWithValue(i18n.t('Ошибка загрузки профиля'));
         }
     }
 );

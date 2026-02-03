@@ -4,7 +4,7 @@ import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDeco
 
 const meta = {
     decorators: [RouterDecorator()],
-    title: 'page/AtriclesPage',
+    title: 'pages/AtriclesPage',
     component: AtriclesPage,
     tags: ['autodocs'],
 } satisfies Meta<typeof AtriclesPage>;

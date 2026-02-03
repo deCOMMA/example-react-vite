@@ -1,11 +1,11 @@
 import cls from './SidebarItem.module.css';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
-import type { SidebarItemsType } from '../../model/items';
 import { memo } from 'react';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { getAuthUserData } from '@/entities/User';
+import type { SidebarItemsType } from '../../model/types/sidebarItemsType';
 
 type SidebarItemProps = {
     item: SidebarItemsType;

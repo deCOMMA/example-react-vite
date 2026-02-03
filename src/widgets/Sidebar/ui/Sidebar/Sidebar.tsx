@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import cls from './Sidebar.module.css';
-import { memo, useMemo, useState } from 'react';
+import { memo, useState } from 'react';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher/ui/LanguageSwitcher';
 import { Button } from '@/shared/ui/Button/Button';
-import { SidebarItemsList } from '../../model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from '../../model/selector/getSidebarItems';
 
 type SidebarProps = {
     className?: string;
@@ -22,11 +23,11 @@ export const Sidebar = memo(({ className, ...otherProps }: SidebarProps) => {
         setIsExpand(prev => !prev);
     };
 
-    const itemList = useMemo(() => {
-        return SidebarItemsList.map(item => (
-            <SidebarItem key={item.path} item={item} expand={isExpand} />
-        ));
-    }, [isExpand]);
+    const sidebarItemList = useSelector(getSidebarItems)
+
+    const itemList = sidebarItemList.map(item => (
+        <SidebarItem key={item.path} item={item} expand={isExpand} />
+    ))
 
     return (
         <div data-testid='sidebar' className={classNames} {...otherProps}>
