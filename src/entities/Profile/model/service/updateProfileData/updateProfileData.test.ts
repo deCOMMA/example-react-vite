@@ -17,6 +17,7 @@ const formData = {
     currency: Currency.RUB,
     firstname: 'Имя',
     lastname: 'Фамилия',
+    id: "1",
 }
 
 vi.mock('@/shared/config/i18n/i18n', () => ({
