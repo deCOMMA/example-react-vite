@@ -9,7 +9,7 @@ import type { NavigateOptions, To } from 'react-router-dom';
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
+    navigate?: (to: To, options?: NavigateOptions) => void
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
@@ -22,17 +22,18 @@ export function createReduxStore(
     const extraArg: ThunkExtraArg = {
         api: api,
         navigate,
-    }
+    };
 
     const store = configureStore({
         //ReducersMapObject<StateSchema>
         reducer: reducerManager.reduce as Reducer,
         preloadedState: initialState,
-        middleware: getDefaultMiddleware => getDefaultMiddleware({
-            thunk: {
-                extraArgument: extraArg
-            }
-        })
+        middleware: getDefaultMiddleware =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: extraArg,
+                },
+            }),
     });
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -41,6 +42,6 @@ export function createReduxStore(
     return store;
 }
 
-export type AppStore = ReturnType<typeof createReduxStore>
+export type AppStore = ReturnType<typeof createReduxStore>;
 export type RootState = ReturnType<AppStore['getState']>;
 export type AppDispatch = AppStore['dispatch'];

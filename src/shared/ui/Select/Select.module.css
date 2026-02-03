@@ -1,12 +1,12 @@
-.Select{
+.Select {
     display: flex;
 }
 
-.label{
+.label {
     margin-right: 5px;
 }
 
-.select{
+.select {
     background: none;
     outline: none;
     color: var(--primary-color);
@@ -14,11 +14,11 @@
     border: 1px solid var(--primary-color);
 }
 
-.option{
+.option {
     color: var(--inv-primary-color);
-    background:  var(--primary-color);
+    background: var(--primary-color);
 }
 
-.readOnly{
+.readOnly {
     opacity: 0.7;
 }

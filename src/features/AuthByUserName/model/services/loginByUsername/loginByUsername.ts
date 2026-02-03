@@ -9,28 +9,22 @@ type loginByUsernameProps = {
     password: string;
 };
 
-export const loginByUsername = createAsyncThunk<
-    User,
-    loginByUsernameProps,
-    ThunkConfig<string>
->('login/fetchByIdStatus', async (authData, thunkApi) => {
+export const loginByUsername = createAsyncThunk<User, loginByUsernameProps, ThunkConfig<string>>(
+    'login/fetchByIdStatus',
+    async (authData, thunkApi) => {
+        const { extra, dispatch, rejectWithValue } = thunkApi;
 
-    const {
-        extra,
-        dispatch,
-        rejectWithValue
-    } = thunkApi
-
-    try {
-        const responce = await extra.api.post<User>('/login', authData);
-        if (!responce.data) {
-            throw new Error();
+        try {
+            const responce = await extra.api.post<User>('/login', authData);
+            if (!responce.data) {
+                throw new Error();
+            }
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(responce.data));
+            dispatch(userActions.setAuthData(responce.data));
+            return responce.data;
+        } catch (e) {
+            console.log(e);
+            return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
         }
-        localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(responce.data));
-        dispatch(userActions.setAuthData(responce.data));
-        return responce.data;
-    } catch (e) {
-        console.log(e);
-        return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
     }
-});
+);

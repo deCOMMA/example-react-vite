@@ -1,7 +1,7 @@
-import type { Article } from "./article"
+import type { Article } from './article';
 
 export type ArticleDetailShema = {
-    isLoading: boolean,
-    data?: Article,
-    error?: string,
-}
+    isLoading: boolean;
+    data?: Article;
+    error?: string;
+};

@@ -18,6 +18,3 @@ export const Primary: Story = {
         value: Country.Belarus,
     },
 };
-
-
-

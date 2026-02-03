@@ -1,12 +1,11 @@
-import type { StateSchema } from "@/app/providers/Store";
-import type { DeepPartial } from "@/shared/helpers/types/deepPartial";
-import { expect } from "storybook/test";
-import { describe, test } from "vitest";
-import { getProfileForm } from "./getProfileForm";
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import AvatarImg from '@/shared/ui/Avatar/storybook.jpg'
-
+import type { StateSchema } from '@/app/providers/Store';
+import type { DeepPartial } from '@/shared/helpers/types/deepPartial';
+import { expect } from 'storybook/test';
+import { describe, test } from 'vitest';
+import { getProfileForm } from './getProfileForm';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/shared/ui/Avatar/storybook.jpg';
 
 describe('getProfileForm', () => {
     test('should retutn form', () => {
@@ -19,19 +18,18 @@ describe('getProfileForm', () => {
             currency: Currency.RUB,
             firstname: 'Имя',
             lastname: 'Фамилия',
-        }
+        };
         const state: DeepPartial<StateSchema> = {
             profile: {
-                form: form
-            }
-        }
-        expect(getProfileForm(state as StateSchema)).toEqual(form)
-    })
+                form: form,
+            },
+        };
+        expect(getProfileForm(state as StateSchema)).toEqual(form);
+    });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {
-            }
-        }
-        expect(getProfileForm(state as StateSchema)).toEqual(undefined)
-    })
-})
+            profile: {},
+        };
+        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
+    });
+});

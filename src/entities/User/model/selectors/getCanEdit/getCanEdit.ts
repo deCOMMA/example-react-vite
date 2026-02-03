@@ -1,6 +1,6 @@
-import { getProfileData } from "@/entities/Profile";
-import { getAuthUserData } from "@/entities/User";
-import { createSelector } from "@reduxjs/toolkit";
+import { getProfileData } from '@/entities/Profile';
+import { getAuthUserData } from '@/entities/User';
+import { createSelector } from '@reduxjs/toolkit';
 
 export const getCanEdit = createSelector(
     getAuthUserData,

@@ -9,7 +9,7 @@ import type { RouteProps } from 'react-router-dom';
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
     title?: string;
-}
+};
 
 export enum AppRoutes {
     MAIN = 'main',

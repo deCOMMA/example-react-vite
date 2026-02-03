@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 function App() {
     const classNames = clsx('app');
     const dispatch = useAppDispatch();
-    const inited = useSelector(getUserInited)
+    const inited = useSelector(getUserInited);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());

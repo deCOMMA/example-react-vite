@@ -1,7 +1,7 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Profile, ProfileShema } from "../types/profile";
-import { fetchProfileData } from "../service/fetchProfileData/fetchProfileData";
-import { updateProfileData } from "../service/updateProfileData/updateProfileData";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import type { Profile, ProfileShema } from '../types/profile';
+import { fetchProfileData } from '../service/fetchProfileData/fetchProfileData';
+import { updateProfileData } from '../service/updateProfileData/updateProfileData';
 
 const initialState: ProfileShema = {
     isLoading: false,
@@ -21,9 +21,9 @@ const profileSlice = createSlice({
             state.form = {
                 ...state.form,
                 ...action.payload,
-            }
+            };
         },
-        cancelEdit: (state) => {
+        cancelEdit: state => {
             state.readonly = true;
             state.form = state.data;
             state.validateErrors = undefined;
@@ -60,10 +60,8 @@ const profileSlice = createSlice({
                 state.validateErrors = action.payload;
                 state.isLoading = false;
             });
+    },
+});
 
-
-    }
-})
-
-export const { actions: profileActions } = profileSlice
-export const { reducer: profileReducer } = profileSlice
+export const { actions: profileActions } = profileSlice;
+export const { reducer: profileReducer } = profileSlice;

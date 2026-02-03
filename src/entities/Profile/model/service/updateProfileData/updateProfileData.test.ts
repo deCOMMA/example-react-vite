@@ -3,9 +3,9 @@ import { updateProfileData } from './updateProfileData';
 import type { AxiosInstance } from 'axios';
 import type { Dispatch } from '@reduxjs/toolkit';
 import type { StateSchema } from '@/app/providers/Store';
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import AvatarImg from '@/shared/ui/Avatar/storybook.jpg'
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/shared/ui/Avatar/storybook.jpg';
 import { validateProfileError } from '../../types/profile';
 
 const formData = {
@@ -17,13 +17,13 @@ const formData = {
     currency: Currency.RUB,
     firstname: 'Имя',
     lastname: 'Фамилия',
-    id: "1",
-}
+    id: '1',
+};
 
 vi.mock('@/shared/config/i18n/i18n', () => ({
     default: {
-        t: vi.fn((str: string) => str)
-    }
+        t: vi.fn((str: string) => str),
+    },
 }));
 
 describe('updateProfileData', () => {
@@ -34,11 +34,14 @@ describe('updateProfileData', () => {
 
     beforeEach(() => {
         dispatch = vi.fn();
-        getState = vi.fn(() => ({
-            profile: {
-                form: formData
-            }
-        } as StateSchema));
+        getState = vi.fn(
+            () =>
+                ({
+                    profile: {
+                        form: formData,
+                    },
+                }) as StateSchema
+        );
         api = {
             post: vi.fn(),
             get: vi.fn(),
@@ -51,11 +54,7 @@ describe('updateProfileData', () => {
         (api.put as ReturnType<typeof vi.fn>).mockResolvedValue({ data: formData });
 
         const action = updateProfileData();
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
 
         expect(api.put).toHaveBeenCalledWith('/profile', formData);
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -68,18 +67,20 @@ describe('updateProfileData', () => {
             firstname: '',
         };
 
-        const getStateWithInvalidData = vi.fn(() => ({
-            profile: {
-                form: invalidFormData
-            }
-        } as StateSchema));
+        const getStateWithInvalidData = vi.fn(
+            () =>
+                ({
+                    profile: {
+                        form: invalidFormData,
+                    },
+                }) as StateSchema
+        );
 
         const action = updateProfileData();
-        const result = await action(
-            dispatch,
-            getStateWithInvalidData,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getStateWithInvalidData, {
+            api: api as AxiosInstance,
+            navigate,
+        });
 
         expect(api.put).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
@@ -91,11 +92,7 @@ describe('updateProfileData', () => {
         (api.put as ReturnType<typeof vi.fn>).mockRejectedValue(new Error('Request failed'));
 
         const action = updateProfileData();
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
 
         expect(api.put).toHaveBeenCalledWith('/profile', formData);
         expect(result.meta.requestStatus).toBe('rejected');
@@ -106,11 +103,7 @@ describe('updateProfileData', () => {
         (api.put as ReturnType<typeof vi.fn>).mockResolvedValue({ data: null });
 
         const action = updateProfileData();
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
 
         expect(api.put).toHaveBeenCalledWith('/profile', formData);
         expect(result.meta.requestStatus).toBe('rejected');

@@ -20,27 +20,24 @@ export const Primary: Story = {
 };
 export const Circle: Story = {
     args: {
-        border: "50%",
+        border: '50%',
         width: 100,
         height: 100,
     },
 };
 export const CircleBlack: Story = {
     args: {
-        border: "50%",
+        border: '50%',
         width: 100,
         height: 100,
     },
-    decorators: RouterDecorator({ theme: 'black' })
+    decorators: RouterDecorator({ theme: 'black' }),
 };
 export const CircleNormal: Story = {
     args: {
-        border: "50%",
+        border: '50%',
         width: 100,
         height: 100,
     },
-    decorators: RouterDecorator({ theme: 'normal' })
+    decorators: RouterDecorator({ theme: 'normal' }),
 };
-
-
-

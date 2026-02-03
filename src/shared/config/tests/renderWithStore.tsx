@@ -17,9 +17,7 @@ export function renderWithStore(
 
     return render(
         <MemoryRouter initialEntries={[route]}>
-            <StoreProvider initialState={initialState as StateSchema}>
-                {component}
-            </StoreProvider>
+            <StoreProvider initialState={initialState as StateSchema}>{component}</StoreProvider>
         </MemoryRouter>
     );
 }

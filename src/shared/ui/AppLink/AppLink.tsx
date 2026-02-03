@@ -10,19 +10,21 @@ type AppLinkProps = {
     children?: ReactNode;
 } & Omit<LinkProps, 'className'>;
 
-export const AppLink = memo(({
-    className,
-    to,
-    variant = 'primary',
-    size = 'medium',
-    children,
-    ...otherProps
-}: AppLinkProps) => {
-    const classNames = clsx(cls.AppLink, cls[size], cls[variant], className);
+export const AppLink = memo(
+    ({
+        className,
+        to,
+        variant = 'primary',
+        size = 'medium',
+        children,
+        ...otherProps
+    }: AppLinkProps) => {
+        const classNames = clsx(cls.AppLink, cls[size], cls[variant], className);
 
-    return (
-        <Link className={classNames} to={to} {...otherProps}>
-            {children}
-        </Link>
-    );
-});
+        return (
+            <Link className={classNames} to={to} {...otherProps}>
+                {children}
+            </Link>
+        );
+    }
+);

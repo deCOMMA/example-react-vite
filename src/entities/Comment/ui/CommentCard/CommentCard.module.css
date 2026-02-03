@@ -1,21 +1,21 @@
-.CommentCard{
+.CommentCard {
     position: relative;
     padding: 10px;
     border: 1px solid var(--primary-color);
 }
 
-.header{
+.header {
     display: flex;
     align-items: center;
 }
 
-.usernem{
+.usernem {
     margin-left: 10px;
 }
 
-.text{
+.text {
     margin-top: 10px;
 }
-.loading{
+.loading {
     border: none;
 }

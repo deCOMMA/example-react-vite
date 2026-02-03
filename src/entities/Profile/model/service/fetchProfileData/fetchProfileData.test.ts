@@ -3,9 +3,9 @@ import { fetchProfileData } from './fetchProfileData';
 import type { AxiosInstance } from 'axios';
 import type { Dispatch } from '@reduxjs/toolkit';
 import type { StateSchema } from '@/app/providers/Store';
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import AvatarImg from '@/shared/ui/Avatar/storybook.jpg'
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/shared/ui/Avatar/storybook.jpg';
 
 const data = {
     username: 'decomma',
@@ -16,12 +16,12 @@ const data = {
     currency: Currency.RUB,
     firstname: 'Имя',
     lastname: 'Фамилия',
-}
+};
 
 vi.mock('@/shared/config/i18n/i18n', () => ({
     default: {
-        t: vi.fn((str: string) => str)
-    }
+        t: vi.fn((str: string) => str),
+    },
 }));
 
 describe('fetchProfileData', () => {
@@ -41,14 +41,9 @@ describe('fetchProfileData', () => {
     });
 
     it('fulfilled fetch', async () => {
-
         (api.get as ReturnType<typeof vi.fn>).mockResolvedValue({ data: data });
         const action = fetchProfileData('1');
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
         expect(api.get).toHaveBeenCalledWith('/profile');
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(data);
@@ -57,15 +52,10 @@ describe('fetchProfileData', () => {
     it('rejected fetch', async () => {
         (api.post as ReturnType<typeof vi.fn>).mockRejectedValue(new Error('Request failed'));
         const action = fetchProfileData('1');
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
         expect(api.get).toHaveBeenCalledWith('/profile');
 
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toBe('Ошибка загрущки профиля');
     });
-
 });

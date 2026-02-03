@@ -4,9 +4,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { Article } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
-    'articles/fetchArticleById', async (articleId, thunkApi) => {
-
-        const { extra, rejectWithValue } = thunkApi
+    'articles/fetchArticleById',
+    async (articleId, thunkApi) => {
+        const { extra, rejectWithValue } = thunkApi;
 
         try {
             const responce = await extra.api.get<Article>(`/articles/${articleId}`);
@@ -20,4 +20,5 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
             console.log(e);
             return rejectWithValue(i18n.t('Ошибка загрущки профиля'));
         }
-    });
+    }
+);

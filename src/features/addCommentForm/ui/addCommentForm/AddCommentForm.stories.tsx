@@ -13,15 +13,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
     args: {
-        onSendComment: () => {
-        }
+        onSendComment: () => {},
     },
     decorators: [RouterDecorator()],
 };
 export const Dark: Story = {
     args: {
-        onSendComment() {
-        },
+        onSendComment() {},
     },
     decorators: [RouterDecorator({ theme: 'dark' })],
 };

@@ -20,7 +20,7 @@ export const Normal: Story = {
                 user: {
                     id: '1',
                     username: 'decomma',
-                }
+                },
             },
             {
                 id: '2',
@@ -28,9 +28,9 @@ export const Normal: Story = {
                 user: {
                     id: '2',
                     username: 'anril',
-                }
+                },
             },
-        ]
+        ],
     },
     decorators: [RouterDecorator()],
 };
@@ -49,7 +49,7 @@ export const Dark: Story = {
                 user: {
                     id: '1',
                     username: 'decomma',
-                }
+                },
             },
             {
                 id: '2',
@@ -57,12 +57,13 @@ export const Dark: Story = {
                 user: {
                     id: '2',
                     username: 'anril',
-                }
+                },
             },
-        ]
+        ],
     },
-    decorators: [RouterDecorator({
-        theme: 'dark'
-    }
-    )],
+    decorators: [
+        RouterDecorator({
+            theme: 'dark',
+        }),
+    ],
 };

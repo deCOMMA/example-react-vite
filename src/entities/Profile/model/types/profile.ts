@@ -1,16 +1,16 @@
-import type { Currency } from "@/entities/Currency";
-import type { Country } from "@/entities/Country";
+import type { Currency } from '@/entities/Currency';
+import type { Country } from '@/entities/Country';
 
 export interface Profile {
-    id?: string,
-    firstname?: string,
-    lastname?: string,
-    age?: number,
-    currency?: Currency,
-    country?: Country,
-    username?: string,
-    avatar?: string,
-    city?: string,
+    id?: string;
+    firstname?: string;
+    lastname?: string;
+    age?: number;
+    currency?: Currency;
+    country?: Country;
+    username?: string;
+    avatar?: string;
+    city?: string;
 }
 
 export interface ProfileShema {

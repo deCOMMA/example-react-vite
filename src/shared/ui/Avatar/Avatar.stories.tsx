@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar } from './Avatar';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
-import AvatarImg from './storybook.jpg'
+import AvatarImg from './storybook.jpg';
 const meta = {
     decorators: [RouterDecorator()],
     title: 'shared/Avatar',
@@ -24,5 +24,3 @@ export const Small: Story = {
         src: AvatarImg,
     },
 };
-
-

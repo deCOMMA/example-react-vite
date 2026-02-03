@@ -1,3 +1,3 @@
-import type { StateSchema } from "@/app/providers/Store"
+import type { StateSchema } from '@/app/providers/Store';
 
-export const getProfileData = (state: StateSchema) => state.profile?.data || null; 
+export const getProfileData = (state: StateSchema) => state.profile?.data || null;

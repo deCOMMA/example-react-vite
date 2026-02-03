@@ -35,14 +35,6 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
     const commentsisLoading = useSelector(getArticleCommentsIsLoading)
     const dispatch = useAppDispatch();
 
-    if (!id) {
-        return (
-            <div>
-                {t('Article not found')}
-            </div>
-        )
-    }
-
     const onSendComment = useCallback((value: string) => {
         dispatch(addCommentForArticle(value))
     }, [dispatch])
@@ -50,6 +42,14 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
     useEffect(() => {
         dispatch((fetchCommentsByArticleId(id)))
     }, [dispatch, id])
+
+    if (!id) {
+        return (
+            <div>
+                {t('Article not found')}
+            </div>
+        )
+    }
 
     return (
         <DynamicModuleFolder reducers={initialReducer} removeAfterUnmount={true}>

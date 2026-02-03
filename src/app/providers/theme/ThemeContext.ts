@@ -9,7 +9,7 @@ export type ThemeContextProps = {
 
 export const ThemeContext = createContext<ThemeContextProps>({
     theme: 'normal',
-    setTheme: () => { },
+    setTheme: () => {},
 });
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';

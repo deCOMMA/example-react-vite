@@ -1,26 +1,22 @@
-import clsx from "clsx"
-import cls from './CommentList.module.css'
-import type { CommentI } from "../../model/types/comments";
-import { Text } from "@/shared/ui/Text/Text";
-import { useTranslation } from "react-i18next";
-import { CommentCard } from "../CommentCard/CommentCard";
+import clsx from 'clsx';
+import cls from './CommentList.module.css';
+import type { CommentI } from '../../model/types/comments';
+import { Text } from '@/shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
+import { CommentCard } from '../CommentCard/CommentCard';
 
 type CommentListProps = {
     className?: string;
     comments?: CommentI[];
     isLoading?: boolean;
-}
+};
 
 export const CommentList = (props: CommentListProps) => {
-
     const { className, comments, isLoading } = props;
 
-    const { t } = useTranslation('article')
+    const { t } = useTranslation('article');
 
-    const classNames = clsx(
-        cls.CommentList,
-        className
-    );
+    const classNames = clsx(cls.CommentList, className);
 
     if (isLoading) {
         return (
@@ -29,17 +25,16 @@ export const CommentList = (props: CommentListProps) => {
                 <CommentCard isLoading={true} />
                 <CommentCard isLoading={true} />
             </div>
-        )
+        );
     }
 
     if (!comments) {
-        return null
+        return null;
     }
 
     return (
         <div className={classNames}>
-            {comments?.length
-                ?
+            {comments?.length ? (
                 comments.map(comment => (
                     <CommentCard
                         isLoading={isLoading}
@@ -47,9 +42,9 @@ export const CommentList = (props: CommentListProps) => {
                         comment={comment}
                     />
                 ))
-                :
+            ) : (
                 <Text text={t('No comments yet')} />
-            }
+            )}
         </div>
-    )
-}
+    );
+};

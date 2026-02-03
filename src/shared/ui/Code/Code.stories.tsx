@@ -14,9 +14,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
-        text: `consile.log('Hellow world!')`
+        text: `consile.log('Hellow world!')`,
     },
-}
-
-
-
+};

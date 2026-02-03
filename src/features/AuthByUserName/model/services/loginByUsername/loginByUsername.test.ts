@@ -7,8 +7,8 @@ import { userActions } from '@/entities/User';
 
 vi.mock('@/shared/config/i18n/i18n', () => ({
     default: {
-        t: vi.fn((str: string) => str)
-    }
+        t: vi.fn((str: string) => str),
+    },
 }));
 
 describe('loginByUsername', () => {
@@ -31,14 +31,10 @@ describe('loginByUsername', () => {
         const userValue = { username: '123', id: '1' };
         (api.post as ReturnType<typeof vi.fn>).mockResolvedValue({ data: userValue });
         const action = loginByUsername({ username: '123', password: '123' });
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
         expect(api.post).toHaveBeenCalledWith('/login', {
             username: '123',
-            password: '123'
+            password: '123',
         });
         expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -48,14 +44,10 @@ describe('loginByUsername', () => {
     it('rejected fetch', async () => {
         (api.post as ReturnType<typeof vi.fn>).mockRejectedValue(new Error('Request failed'));
         const action = loginByUsername({ username: '123', password: '123' });
-        const result = await action(
-            dispatch,
-            getState,
-            { api: api as AxiosInstance, navigate }
-        );
+        const result = await action(dispatch, getState, { api: api as AxiosInstance, navigate });
         expect(api.post).toHaveBeenCalledWith('/login', {
             username: '123',
-            password: '123'
+            password: '123',
         });
 
         expect(result.meta.requestStatus).toBe('rejected');

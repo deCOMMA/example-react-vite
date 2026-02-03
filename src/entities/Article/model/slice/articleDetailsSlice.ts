@@ -6,15 +6,13 @@ import type { Article } from '../types/article';
 const initialState: ArticleDetailShema = {
     isLoading: true,
     data: undefined,
-    error: undefined
+    error: undefined,
 };
 
 export const articleDetailsSlice = createSlice({
     name: 'articleDetails',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: builder => {
         builder
             .addCase(fetchArticleById.pending, state => {
@@ -29,8 +27,8 @@ export const articleDetailsSlice = createSlice({
             .addCase(fetchArticleById.rejected, (state, action) => {
                 state.error = action.payload;
                 state.isLoading = false;
-            })
-    }
+            });
+    },
 });
 
 export const { actions: articleDetailsActions } = articleDetailsSlice;

@@ -7,7 +7,6 @@ import { Button } from '@/shared/ui/Button/Button';
 import { SidebarItemsList } from '../../model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
-
 type SidebarProps = {
     className?: string;
 };
@@ -24,15 +23,10 @@ export const Sidebar = memo(({ className, ...otherProps }: SidebarProps) => {
     };
 
     const itemList = useMemo(() => {
-        return (
-            SidebarItemsList.map((item) => (
-                <SidebarItem
-                    key={item.path}
-                    item={item}
-                    expand={isExpand} />
-            ))
-        )
-    }, [isExpand])
+        return SidebarItemsList.map(item => (
+            <SidebarItem key={item.path} item={item} expand={isExpand} />
+        ));
+    }, [isExpand]);
 
     return (
         <div data-testid='sidebar' className={classNames} {...otherProps}>
@@ -46,9 +40,7 @@ export const Sidebar = memo(({ className, ...otherProps }: SidebarProps) => {
             >
                 {isExpand ? '>' : '<'}
             </Button>
-            <div className={cls.items}>
-                {itemList}
-            </div>
+            <div className={cls.items}>{itemList}</div>
             <div className={cls.switcher}>
                 <ThemeSwitcher />
                 <LanguageSwitcher short={isExpand} />

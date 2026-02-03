@@ -19,8 +19,8 @@ export const Normal: Story = {
             user: {
                 id: '1',
                 username: 'decomma',
-            }
-        }
+            },
+        },
     },
     decorators: [RouterDecorator()],
 };
@@ -28,8 +28,9 @@ export const DarkLoading: Story = {
     args: {
         isLoading: true,
     },
-    decorators: [RouterDecorator({
-        theme: 'dark'
-    }
-    )],
+    decorators: [
+        RouterDecorator({
+            theme: 'dark',
+        }),
+    ],
 };

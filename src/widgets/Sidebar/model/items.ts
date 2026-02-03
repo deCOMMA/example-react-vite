@@ -1,5 +1,5 @@
-import { RoutePath } from "@/shared/config/routerConfig/routeConfig";
-import type { FC, SVGProps } from "react";
+import { RoutePath } from '@/shared/config/routerConfig/routeConfig';
+import type { FC, SVGProps } from 'react';
 import AboutIcon from '@/shared/assets/icons/about.svg?react';
 import MainIcon from '@/shared/assets/icons/main.svg?react';
 import ProfileIcon from '@/shared/assets/icons/profile.svg?react';
@@ -10,7 +10,7 @@ export type SidebarItemsType = {
     text: string;
     Icon: FC<SVGProps<SVGSVGElement>>;
     authOnly?: boolean;
-}
+};
 
 export const SidebarItemsList: SidebarItemsType[] = [
     {
@@ -35,4 +35,4 @@ export const SidebarItemsList: SidebarItemsType[] = [
         Icon: ArticleIcon,
         authOnly: true,
     },
-]
+];

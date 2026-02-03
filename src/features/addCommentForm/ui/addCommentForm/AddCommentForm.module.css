@@ -1,4 +1,4 @@
-.addCommentForm{
+.addCommentForm {
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -6,6 +6,6 @@
     align-items: center;
 }
 
-.input{
+.input {
     flex-grow: 1;
 }

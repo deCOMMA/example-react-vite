@@ -1,7 +1,7 @@
-import cls from './ProfileCard.module.css'
-import { Text } from "@/shared/ui/Text/Text";
-import { useTranslation } from "react-i18next";
-import { Input } from "@/shared/ui/Input/Input";
+import cls from './ProfileCard.module.css';
+import { Text } from '@/shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
+import { Input } from '@/shared/ui/Input/Input';
 import type { Profile } from '../../model/types/profile';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import clsx from 'clsx';
@@ -23,7 +23,7 @@ type ProfileCardProps = {
     onChangeCurrency?: (currency: Currency) => void;
     onChangeCountry?: (country: Country) => void;
     readOnly?: boolean;
-}
+};
 
 export const ProfileCard = ({
     className,
@@ -40,7 +40,6 @@ export const ProfileCard = ({
     onChangeCountry,
     readOnly,
 }: ProfileCardProps) => {
-
     const { t } = useTranslation();
 
     if (isLoading) {
@@ -48,7 +47,7 @@ export const ProfileCard = ({
             <div className={clsx(cls.ProfileCard, cls.loading)}>
                 <Loader />
             </div>
-        )
+        );
     }
 
     if (error) {
@@ -61,55 +60,59 @@ export const ProfileCard = ({
                     text={t('Попробуйте обновить страницу')}
                 />
             </div>
-        )
+        );
     }
 
     return (
         <div className={clsx(className, cls.ProfileCard, readOnly && cls.editing)}>
             <div className={cls.data}>
-
-                {
-                    data?.avatar && (
-                        <div className={cls.avatarWrapper}>
-                            <Avatar src={data.avatar} size={200} alt={t('Аватар профиля')} />
-                        </div>)
-                }
+                {data?.avatar && (
+                    <div className={cls.avatarWrapper}>
+                        <Avatar src={data.avatar} size={200} alt={t('Аватар профиля')} />
+                    </div>
+                )}
                 <Input
                     value={data?.firstname}
                     placeholder={t('Ваше имя')}
                     className={cls.input}
                     onChange={onChangeFirstname}
-                    readOnly={readOnly} />
+                    readOnly={readOnly}
+                />
                 <Input
                     value={data?.lastname}
                     placeholder={t('Ваша фамилия')}
                     className={cls.input}
                     onChange={onChangeLastname}
-                    readOnly={readOnly} />
+                    readOnly={readOnly}
+                />
                 <Input
                     value={data?.city}
                     placeholder={t('Город')}
                     className={cls.input}
                     onChange={onChangeCity}
-                    readOnly={readOnly} />
+                    readOnly={readOnly}
+                />
                 <Input
                     value={data?.age}
                     placeholder={t('Ваш возраст')}
                     className={cls.input}
                     onChange={onChangeAge}
-                    readOnly={readOnly} />
+                    readOnly={readOnly}
+                />
                 <Input
                     value={data?.username}
                     placeholder={t('Введите имя пользователя')}
                     className={cls.input}
                     readOnly={readOnly}
-                    onChange={onChangeUsername} />
+                    onChange={onChangeUsername}
+                />
                 <Input
                     value={data?.avatar}
                     placeholder={t('Введите ссылку на аватар')}
                     className={cls.input}
                     readOnly={readOnly}
-                    onChange={onChangeAvatar} />
+                    onChange={onChangeAvatar}
+                />
                 <CurrencySelect
                     className={cls.input}
                     onChange={onChangeCurrency}
@@ -124,5 +127,5 @@ export const ProfileCard = ({
                 />
             </div>
         </div>
-    )
-}
+    );
+};

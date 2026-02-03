@@ -14,7 +14,7 @@
     fill: var(--inv-primary-color);
 }
 
-.expand{
+.expand {
     .link {
         opacity: 0;
         transition: 0.2s opacity;

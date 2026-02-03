@@ -1,15 +1,16 @@
 .black {
     --bg-color: rgb(73 75 95);
-    
+
     --inv-bg-color: rgb(31 32 41);
-    
+
     --primary-color: rgb(115 118 150);
-    
+
     --secondary-color: rgb(140 143 170);
-    
+
     --inv-primary-color: rgb(0 247 255);
 
     --skeleton-shadow: rgb(45 47 65);
     --skeleton-color: rgb(90 93 120);
     --code-bg: rgb(25 27 45);
-    --code-color: rgb(200 210 255);}
+    --code-color: rgb(200 210 255);
+}

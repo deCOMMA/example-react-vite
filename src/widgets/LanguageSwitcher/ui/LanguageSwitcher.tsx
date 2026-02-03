@@ -9,18 +9,20 @@ type LanguageSwitcherProps = {
     short?: boolean;
 };
 
-export const LanguageSwitcher = memo(({ className, short, ...otherProps }: LanguageSwitcherProps) => {
-    const classNames = clsx(cls.LanguageSwitcher, className);
+export const LanguageSwitcher = memo(
+    ({ className, short, ...otherProps }: LanguageSwitcherProps) => {
+        const classNames = clsx(cls.LanguageSwitcher, className);
 
-    const { t, i18n } = useTranslation();
+        const { t, i18n } = useTranslation();
 
-    const toggle = async () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-    };
+        const toggle = async () => {
+            i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+        };
 
-    return (
-        <Button onClick={toggle} className={classNames} {...otherProps} theme={'backgroundInv'}>
-            {t(short ? 'Короткий язык' : 'Язык')}
-        </Button>
-    );
-});
+        return (
+            <Button onClick={toggle} className={classNames} {...otherProps} theme={'backgroundInv'}>
+                {t(short ? 'Короткий язык' : 'Язык')}
+            </Button>
+        );
+    }
+);

@@ -16,32 +16,31 @@
     }
 }
 
-.left{
+.left {
     text-align: left;
 }
 
-.right{
+.right {
     text-align: right;
 }
 
-.center{
+.center {
     text-align: center;
 }
 
-.m{
-    .font{
+.m {
+    .font {
         font: var(--font-l);
     }
-    .title{
+    .title {
         font: var(--font-m);
     }
 }
-.l{
-    .font{
+.l {
+    .font {
         font: var(--font-xl);
     }
-    .title{
+    .title {
         font: var(--font-l);
     }
 }
- 
