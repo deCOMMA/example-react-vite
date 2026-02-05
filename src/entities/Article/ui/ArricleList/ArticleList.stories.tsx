@@ -1,13 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleList } from './ArricleList';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
-import {
-    ArticleBlockType,
-    ArticleType,
-    type Article,
-} from '@/entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType, ArticleView, type Article } from '../../model/types/article';
 
-const article: Article = {
+const article: Article[] = [{
     id: '1',
     userId: {
         id: "1",
@@ -79,26 +75,53 @@ const article: Article = {
             ],
         },
     ],
-};
+}]
 
 const meta = {
     decorators: [RouterDecorator()],
-    title: 'page/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+    title: 'entities/ArticleList',
+    component: ArticleList,
     tags: ['autodocs'],
-} satisfies Meta<typeof ArticleDetailsPage>;
+} satisfies Meta<typeof ArticleList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-    args: {},
+export const BLOCK: Story = {
+    args: {
+        articles: article,
+        view: ArticleView.BLOCK,
+    },
     decorators: RouterDecorator({
         theme: 'dark',
-        state: {
-            articleDetails: {
-                data: article,
-            },
-        },
+    }),
+};
+export const LINE: Story = {
+    args: {
+        articles: article,
+        view: ArticleView.LINE,
+    },
+    decorators: RouterDecorator({
+        theme: 'dark',
+    }),
+};
+export const isLoadingLINE: Story = {
+    args: {
+        articles: [],
+        isLoading: true,
+        view: ArticleView.LINE,
+    },
+    decorators: RouterDecorator({
+        theme: 'dark',
+    }),
+};
+export const isLoadingBLOCK: Story = {
+    args: {
+        articles: [],
+        isLoading: true,
+        view: ArticleView.BLOCK,
+    },
+    decorators: RouterDecorator({
+        theme: 'dark',
     }),
 };

@@ -11,10 +11,10 @@ import {
     addCommentFormActions,
     addCommentFormRudecer,
 } from '../../model/slice/addCommentFormSlice';
-import { useSelector } from 'react-redux';
-import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from '@/app/providers/Store/config/hooks';
 import { memo, useCallback } from 'react';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { useSelector } from 'react-redux';
 
 export type AddCommentFormProps = {
     className?: string;
@@ -28,16 +28,14 @@ const initialReducer: ReducerList = {
 const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) => {
     const { t } = useTranslation('article');
     const classNames = clsx(cls.addCommentForm, className);
-    const text = useSelector(getAddCommentFormText);
     const dispatch = useAppDispatch();
-
+    const text = useSelector(getAddCommentFormText)
     const onCommentTextChange = useCallback(
         (value: string) => {
             dispatch(addCommentFormActions.setText(value));
         },
         [dispatch]
     );
-
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
         onCommentTextChange('');

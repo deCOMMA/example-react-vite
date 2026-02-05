@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleListItem } from './ArticleListItem';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
-import {
-    ArticleBlockType,
-    ArticleType,
-    type Article,
-} from '@/entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType, ArticleView, type Article } from '../../model/types/article';
 
 const article: Article = {
     id: '1',
@@ -83,16 +79,33 @@ const article: Article = {
 
 const meta = {
     decorators: [RouterDecorator()],
-    title: 'page/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+    title: 'entities/ArticleListItem',
+    component: ArticleListItem,
     tags: ['autodocs'],
-} satisfies Meta<typeof ArticleDetailsPage>;
+} satisfies Meta<typeof ArticleListItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        article: article,
+        view: ArticleView.BLOCK
+    },
+    decorators: RouterDecorator({
+        theme: 'dark',
+        state: {
+            articleDetails: {
+                data: article,
+            },
+        },
+    }),
+};
+export const isLoading: Story = {
+    args: {
+        article: article,
+        view: ArticleView.LINE,
+    },
     decorators: RouterDecorator({
         theme: 'dark',
         state: {

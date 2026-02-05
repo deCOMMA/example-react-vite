@@ -1,5 +1,8 @@
+import type { User } from "@/entities/User";
+
 export interface Article {
     id: string;
+    userId: User;
     title: string;
     subtitle: string;
     img: string;
@@ -41,4 +44,9 @@ export interface ArticleBlockText extends ArticleBlocBase {
     type: ArticleBlockType.TEXT;
     paragraphs: string[];
     title?: string;
+}
+
+export enum ArticleView {
+    LINE = 'LINE',
+    BLOCK = 'BLOCK',
 }

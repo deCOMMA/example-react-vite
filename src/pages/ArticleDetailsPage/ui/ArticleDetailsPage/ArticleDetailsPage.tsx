@@ -2,7 +2,7 @@ import clsx from "clsx"
 import cls from './ArticleDetailsPage.module.css'
 import { memo, useCallback, useEffect } from "react";
 import { ArticleDetails } from "@/entities/Article";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Text } from "@/shared/ui/Text/Text";
 import { CommentList } from "@/entities/Comment/ui/CommentList/CommentList";
@@ -14,6 +14,8 @@ import { useAppDispatch } from "@/app/providers/Store/config/hooks.ts";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId.ts";
 import { AddCommentForm } from "@/features/addCommentForm/index.ts";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle.ts";
+import { Button } from "@/shared/ui/Button/Button.tsx";
+import { RoutePath } from "@/shared/config/routerConfig/routeConfig.tsx";
 
 type ArticleDetailsPageProps = {
     className?: string;
@@ -51,9 +53,18 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
         )
     }
 
+    const navigat = useNavigate()
+
+    const onBackToArticlePage = useCallback(() => {
+        navigat(RoutePath.articles)
+    }, [navigat])
+
     return (
         <DynamicModuleFolder reducers={initialReducer} removeAfterUnmount={true}>
             <div className={classNames}>
+                <Button className={cls.backToArticlePageBTN} theme="outline" onClick={onBackToArticlePage}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text title={t('Comments')} size="l" className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />

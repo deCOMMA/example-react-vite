@@ -5,6 +5,10 @@ import { ArticleBlockType, ArticleType, type Article } from '../../model/types/a
 
 const article: Article = {
     id: '1',
+    userId: {
+        id: "1",
+        username: "admin",
+    },
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -75,7 +79,7 @@ const article: Article = {
 
 const meta = {
     decorators: [RouterDecorator()],
-    title: 'page/ArticleDetails',
+    title: 'entities/ArticleDetails',
     component: ArticleDetails,
     tags: ['autodocs'],
 } satisfies Meta<typeof ArticleDetails>;

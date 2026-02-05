@@ -1,4 +1,4 @@
 import type { StateSchema } from '@/app/providers/Store';
 
-export const getAddCommentFormText = (state: StateSchema) => state.addCommentFormShema?.text;
-export const getAddCommentFormError = (state: StateSchema) => state.addCommentFormShema?.error;
+export const getAddCommentFormText = (state: StateSchema) => state.addCommentForm?.text || '';
+export const getAddCommentFormError = (state: StateSchema) => state.addCommentForm?.error || '';
