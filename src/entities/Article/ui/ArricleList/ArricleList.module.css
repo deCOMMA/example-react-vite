@@ -1,5 +1,6 @@
-.ArticleList{
-}
+/* .ArticleList{
+    
+} */
 .LINE{
     .card{
         margin-bottom: 30px;
@@ -9,7 +10,7 @@
 .BLOCK{
     display: flex;
     flex-wrap: wrap;
-    
+
     .card{
         margin-right: 30px;
         margin-bottom: 30px;

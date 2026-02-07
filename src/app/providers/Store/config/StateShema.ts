@@ -8,6 +8,7 @@ import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@redu
 import type { AxiosInstance } from 'axios';
 import type { NavigateOptions, To } from 'react-router-dom';
 import type { AddCommentFormShema } from '@/features/addCommentForm';
+import type { ArticlePageShema } from '@/pages/ArticlesPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -18,6 +19,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailShema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormShema;
+    articlesPage?: ArticlePageShema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

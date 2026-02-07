@@ -24,7 +24,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     const { article, className, view } = props;
     const { t } = useTranslation('article');
     const classNames = clsx(
-        cls.ArticleListItem,
+        //cls.ArticleListItem,
         className,
         cls[String(view)],
     );

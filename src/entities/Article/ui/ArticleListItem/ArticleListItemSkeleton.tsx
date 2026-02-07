@@ -1,10 +1,6 @@
 import cls from './ArticleListItem.module.css'
 import { ArticleView } from "../../model/types/article";
-import { Text } from "@/shared/ui/Text/Text";
 import { Card } from "@/shared/ui/Card/Card";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Button } from "@/shared/ui/Button/Button";
-import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import clsx from 'clsx';
 

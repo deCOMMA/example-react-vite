@@ -29,7 +29,7 @@ export const ArticleList = (props: ArticleListProps) => {
             <div className={classNames}>
                 {new Array(view == ArticleView.BLOCK ? 9 : 3)
                     .fill(0)
-                    .map((block, index) => (
+                    .map((_block, index) => (
                         <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
                     ))}
             </div>

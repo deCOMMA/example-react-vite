@@ -1,0 +1,6 @@
+.ArticleViewSelector{
+    position: relative;
+}
+.notSelect{
+    fill : var(--inv-bg-color);
+}

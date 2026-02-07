@@ -11,3 +11,4 @@ export {
 } from './model/slice/articleDetailsSlice';
 
 export { ArticleList } from './ui/ArricleList/ArricleList'
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ui/ArticleViewSelector'
