@@ -10,9 +10,9 @@ export const AppRouter = () => {
             <Route
                 key={route.path}
                 element={
-                    <div className='page-wrapper'>
+                    <>
                         {route.authOnly ? <ReqireAyth>{route.element}</ReqireAyth> : route.element}
-                    </div>
+                    </>
                 }
                 path={route.path}
             />

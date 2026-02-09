@@ -10,6 +10,7 @@ import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArt
 import { useSelector } from 'react-redux';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPage';
 import { Text } from '@/shared/ui/Text/Text';
+import { Page } from '@/shared/ui/Page/Page';
 
 
 type AtriclesPageProps = {
@@ -41,16 +42,18 @@ const AtriclesPage = ({ className }: AtriclesPageProps) => {
 
     return (
         <DynamicModuleFolder reducers={initialReducer}>
-            <div className={classNames}>
-                {t('ARTICLE PAGE')}
-                {error && <Text align='center' text={error} thema='error' size='l' />}
-                <ArticleViewSelector view={view} onViewClick={omChangeView} />
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                />
-            </div>
+            <Page className={classNames}>
+                <section>
+                    {t('ARTICLE PAGE')}
+                    {error && <Text align='center' text={error} thema='error' size='l' />}
+                    <ArticleViewSelector view={view} onViewClick={omChangeView} />
+                    <ArticleList
+                        isLoading={isLoading}
+                        view={view}
+                        articles={articles}
+                    />
+                </section>
+            </Page>
         </DynamicModuleFolder>
     )
 };

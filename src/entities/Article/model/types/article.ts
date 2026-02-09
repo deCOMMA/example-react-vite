@@ -2,7 +2,7 @@ import type { User } from "@/entities/User";
 
 export interface Article {
     id: string;
-    user: User; // userId: User;
+    user: User;
     title: string;
     subtitle: string;
     img: string;

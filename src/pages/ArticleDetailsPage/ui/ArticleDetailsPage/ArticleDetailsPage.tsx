@@ -16,6 +16,7 @@ import { AddCommentForm } from "@/features/addCommentForm/index.ts";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle.ts";
 import { Button } from "@/shared/ui/Button/Button.tsx";
 import { RoutePath } from "@/shared/config/routerConfig/routeConfig.tsx";
+import { Page } from "@/shared/ui/Page/Page.tsx";
 
 type ArticleDetailsPageProps = {
     className?: string;
@@ -61,15 +62,17 @@ const ArticleDetailsPage = ({ className, }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleFolder reducers={initialReducer} removeAfterUnmount={true}>
-            <div className={classNames}>
-                <Button className={cls.backToArticlePageBTN} theme="outline" onClick={onBackToArticlePage}>
-                    {t('Назад к списку')}
-                </Button>
-                <ArticleDetails id={id} />
-                <Text title={t('Comments')} size="l" className={cls.commentTitle} />
-                <AddCommentForm onSendComment={onSendComment} />
-                <CommentList isLoading={commentsisLoading} comments={comments} />
-            </div>
+            <Page>
+                <section className={classNames}>
+                    <Button className={cls.backToArticlePageBTN} theme="outline" onClick={onBackToArticlePage}>
+                        {t('Назад к списку')}
+                    </Button>
+                    <ArticleDetails id={id} />
+                    <Text title={t('Comments')} size="l" className={cls.commentTitle} />
+                    <AddCommentForm onSendComment={onSendComment} />
+                    <CommentList isLoading={commentsisLoading} comments={comments} />
+                </section>
+            </Page>
         </DynamicModuleFolder>
     )
 }

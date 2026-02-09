@@ -23,6 +23,7 @@ import type { Country } from '@/entities/Country';
 import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { Page } from '@/shared/ui/Page/Page';
 
 type ProfilePageProps = {
     children?: React.ReactNode;
@@ -119,33 +120,36 @@ const ProfilePage = ({ children }: ProfilePageProps) => {
 
     return (
         <DynamicModuleFolder reducers={initialReducers} removeAfterUnmount={true}>
-            <div>
-                <ProfilePageHeader />
-                {validateErrors?.length &&
-                    validateErrors.map(error => (
-                        <Text
-                            text={validateErrorsTranslates[error]}
-                            title='Ошибка валидации'
-                            thema='error'
-                            key={error}
-                        />
-                    ))}
-                <ProfileCard
-                    data={formData}
-                    error={error}
-                    isLoading={isLoading}
-                    readOnly={readOnly}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                />
-                {children}
-            </div>
+            <Page>
+
+                <section>
+                    <ProfilePageHeader />
+                    {validateErrors?.length &&
+                        validateErrors.map(error => (
+                            <Text
+                                text={validateErrorsTranslates[error]}
+                                title='Ошибка валидации'
+                                thema='error'
+                                key={error}
+                            />
+                        ))}
+                    <ProfileCard
+                        data={formData}
+                        error={error}
+                        isLoading={isLoading}
+                        readOnly={readOnly}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeAge={onChangeAge}
+                        onChangeCity={onChangeCity}
+                        onChangeUsername={onChangeUsername}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                    />
+                    {children}
+                </section>
+            </Page>
         </DynamicModuleFolder>
     );
 };
