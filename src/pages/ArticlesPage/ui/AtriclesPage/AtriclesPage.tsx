@@ -31,8 +31,8 @@ const AtriclesPage = ({ className }: AtriclesPageProps) => {
     const view = useSelector(getArticlesPageView)
     const dispatch = useAppDispatch()
     useEffect(() => {
-        dispatch(fetchArticleList())
         dispatch(articlePageAction.initStat())
+        dispatch(fetchArticleList({ page: 1 }))
     }, [dispatch])
 
     const omChangeView = useCallback((view: ArticleView) => {

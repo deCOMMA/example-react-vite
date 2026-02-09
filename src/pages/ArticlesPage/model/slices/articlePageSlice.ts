@@ -19,6 +19,8 @@ const initialState: ArticlePageShema = {
     isLoading: false,
     error: undefined,
     view: ArticleView.BLOCK,
+    page: 1,
+    hasMore: true,
 };
 
 
@@ -30,8 +32,13 @@ const articlePageSlice = createSlice({
             state.view = action.payload;
             localStorage.setItem(ARTICLE_PAGE_VIEW, action.payload);
         },
+        setPage(state, action: PayloadAction<number>) {
+            state.page = action.payload;
+        },
         initStat(state) {
-            state.view = localStorage.getItem(ARTICLE_PAGE_VIEW) as ArticleView;
+            const view = localStorage.getItem(ARTICLE_PAGE_VIEW) as ArticleView;
+            state.view = view;
+            state.limit = view === ArticleView.LINE ? 4 : 9;
         }
     },
     extraReducers: builder => {

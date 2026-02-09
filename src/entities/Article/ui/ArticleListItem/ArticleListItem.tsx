@@ -70,8 +70,8 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         <div className={classNames}>
             <Card>
                 <div className={cls.header}>
-                    <Avatar size={30} src={article.userId.avatar} />
-                    <Text text={article.userId.username} className={cls.username} />
+                    <Avatar size={30} src={article.user.avatar} />
+                    <Text text={article.user.username} className={cls.username} />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <Text title={article.title} size="l" className={cls.title} />
