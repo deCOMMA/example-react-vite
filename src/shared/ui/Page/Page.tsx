@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import cls from './Page.module.css'
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
+import { useInfiniteScroll } from "@/shared/helpers/hooks/useInfiniteScroll/useInfiniteScroll";
 
 type PageProps = {
     className?: string;
@@ -15,10 +16,18 @@ export const Page = ({
         cls.Page,
         className
     );
+    const triggerRef = useRef<HTMLDivElement>(null)
+    const wrapperRef = useRef<HTMLElement>(null)
+    useInfiniteScroll({
+        callback: () => console.log('sdfsd'),
+        triggerRef,
+        wrapperRef,
+    })
 
     return (
-        <div className={classNames}>
+        <section ref={wrapperRef} className={classNames}>
             {children}
-        </div>
+            <div ref={triggerRef} />
+        </section>
     )
 }
