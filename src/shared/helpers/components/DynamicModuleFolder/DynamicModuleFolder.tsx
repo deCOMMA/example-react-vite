@@ -16,7 +16,7 @@ type DynamicModuleFolderProps = {
 };
 
 export const DynamicModuleFolder = (props: DynamicModuleFolderProps) => {
-    const { children, reducers, removeAfterUnmount = true } = props;
+    const { children, reducers, removeAfterUnmount } = props;
 
     const store = useStore() as ReduxStoreWitnManager;
     const dispatch = useAppDispatch();
@@ -35,8 +35,7 @@ export const DynamicModuleFolder = (props: DynamicModuleFolderProps) => {
                 });
             }
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [removeAfterUnmount]);
 
     return <>{children}</>;
 };

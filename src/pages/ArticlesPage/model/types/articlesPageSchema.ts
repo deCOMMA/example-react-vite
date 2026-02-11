@@ -9,4 +9,5 @@ export interface ArticlePageShema extends EntityState<Article, string> {
     page: number;
     limit?: number;
     hasMore: boolean;
+    inited: boolean;
 }

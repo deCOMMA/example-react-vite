@@ -24,28 +24,14 @@ export const ArticleList = (props: ArticleListProps) => {
         cls[String(view)],
     );
 
-    if (isLoading) {
-        return (
-            <div className={classNames}>
-                {new Array(view == ArticleView.BLOCK ? 9 : 3)
-                    .fill(0)
-                    .map((_block, index) => (
-                        <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
-                    ))}
-            </div>
-        )
-    }
-
     const renderArticles = (article: Article) => {
         return (
-            <>
-                <ArticleListItem
-                    article={article}
-                    view={view}
-                    className={cls.card}
-                    key={article.id}
-                />
-            </>
+            <ArticleListItem
+                article={article}
+                view={view}
+                className={cls.card}
+                key={article.id}
+            />
         )
     }
 
@@ -60,6 +46,13 @@ export const ArticleList = (props: ArticleListProps) => {
                     articles.map(renderArticles)
                     :
                     null
+                }
+                {isLoading && (
+                    new Array(view == ArticleView.BLOCK ? 9 : 3)
+                        .fill(0)
+                        .map((_block, index) => (
+                            <ArticleListItemSkeleton key={index} view={view} className={cls.card} />
+                        )))
                 }
             </div>
         </>

@@ -8,9 +8,10 @@ import { articlePageAction, articlePageReducer, getArticle } from '../../model/s
 import { useAppDispatch } from '@/app/providers/Store/config/hooks';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useSelector } from 'react-redux';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPage';
+import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPage';
 import { Text } from '@/shared/ui/Text/Text';
 import { Page } from '@/shared/ui/Page/Page';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 
 
 type AtriclesPageProps = {
@@ -31,9 +32,17 @@ const AtriclesPage = ({ className }: AtriclesPageProps) => {
     const error = useSelector(getArticlesPageError)
     const view = useSelector(getArticlesPageView)
     const dispatch = useAppDispatch()
+    const inited = useSelector(getArticlesPageInited);
+
     useEffect(() => {
-        dispatch(articlePageAction.initStat())
-        dispatch(fetchArticleList({ page: 1 }))
+        if (!inited) {
+            dispatch(articlePageAction.initStat())
+            dispatch(fetchArticleList({ page: 1 }))
+        }
+    }, [dispatch])
+
+    const onLoadNextPage = useCallback(() => {
+        dispatch(fetchNextArticlePage())
     }, [dispatch])
 
     const omChangeView = useCallback((view: ArticleView) => {
@@ -41,8 +50,8 @@ const AtriclesPage = ({ className }: AtriclesPageProps) => {
     }, [dispatch, view])
 
     return (
-        <DynamicModuleFolder reducers={initialReducer}>
-            <Page className={classNames}>
+        <DynamicModuleFolder reducers={initialReducer} removeAfterUnmount={false}>
+            <Page onScroll={onLoadNextPage} className={classNames}>
                 <section>
                     {t('ARTICLE PAGE')}
                     {error && <Text align='center' text={error} thema='error' size='l' />}

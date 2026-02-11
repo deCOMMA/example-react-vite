@@ -38,6 +38,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
         <div className={classNames}>
             {viewTypes.map(viewTypes => (
                 <Button
+                    key={viewTypes.view}
                     theme="clear"
                     onClick={onClick(viewTypes.view)}
                 >

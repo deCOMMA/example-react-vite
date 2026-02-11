@@ -21,6 +21,7 @@ const initialState: ArticlePageShema = {
     view: ArticleView.BLOCK,
     page: 1,
     hasMore: true,
+    inited: false,
 };
 
 
@@ -39,6 +40,7 @@ const articlePageSlice = createSlice({
             const view = localStorage.getItem(ARTICLE_PAGE_VIEW) as ArticleView;
             state.view = view;
             state.limit = view === ArticleView.LINE ? 4 : 9;
+            state.inited = true;
         }
     },
     extraReducers: builder => {
@@ -51,10 +53,11 @@ const articlePageSlice = createSlice({
                 state.error = acrion.payload;
                 state.isLoading = false;
             })
-            .addCase(fetchArticleList.fulfilled, (state, acrion: PayloadAction<Article[]>) => {
+            .addCase(fetchArticleList.fulfilled, (state, action: PayloadAction<Article[]>) => {
                 state.error = undefined;
                 state.isLoading = false;
-                articleAdapter.setAll(state, acrion.payload);
+                articleAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
             })
     },
 });

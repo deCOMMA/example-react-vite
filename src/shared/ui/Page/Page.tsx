@@ -6,12 +6,12 @@ import { useInfiniteScroll } from "@/shared/helpers/hooks/useInfiniteScroll/useI
 type PageProps = {
     className?: string;
     children: ReactNode;
+    onScroll?: () => void;
 }
 
-export const Page = ({
-    className, children
-}: PageProps) => {
+export const Page = (props: PageProps) => {
 
+    const { children, className, onScroll } = props;
     const classNames = clsx(
         cls.Page,
         className
@@ -19,7 +19,7 @@ export const Page = ({
     const triggerRef = useRef<HTMLDivElement>(null)
     const wrapperRef = useRef<HTMLElement>(null)
     useInfiniteScroll({
-        callback: () => console.log('sdfsd'),
+        callback: onScroll,
         triggerRef,
         wrapperRef,
     })

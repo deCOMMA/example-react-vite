@@ -40,6 +40,7 @@ export const CommentList = (props: CommentListProps) => {
                         isLoading={isLoading}
                         className={cls.commentCard}
                         comment={comment}
+                        key={comment.id}
                     />
                 ))
             ) : (
