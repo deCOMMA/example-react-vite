@@ -83,7 +83,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                 }
                 <div className={cls.footer}>
                     <Button onClick={onOpenArticle} theme="outline" size="medium">
-                        {t('Читать далее...')}
+                        {t('Read more...')}
                     </Button>
                     {viewBlock}
                 </div>

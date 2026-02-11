@@ -38,7 +38,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                 <>
                     {readOnly ? (
                         <Button theme='outline' className={cls.editBtn} onClick={onEdit}>
-                            {t('Редактирвоать')}
+                            {t('Редактировать')}
                         </Button>
                     ) : (
                         <>
