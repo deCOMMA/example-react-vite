@@ -13,6 +13,10 @@ export interface Profile {
     city?: string;
 }
 
+export type ProfileUpdate = Partial<Omit<Profile, 'id'>>;
+
+export type ProfileValue = string | number | Currency | Country | undefined;
+
 export interface ProfileShema {
     data?: Profile;
     form?: Profile;

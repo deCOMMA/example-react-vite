@@ -12,7 +12,8 @@ import {
 type InputProps = {
     className?: string;
     value?: string | number;
-    onChange?: (value: string) => void;
+    onChange?: (value: string, name?: string) => void;
+    name?: string;
     autoFocus?: boolean;
     readOnly?: boolean;
 } & Omit<InputHTMLAttributes<HTMLElement>, 'classNames' | 'value' | 'onChange' | 'readOnly'>;
@@ -26,6 +27,7 @@ export const Input = memo(
         type = 'text',
         placeholder,
         autoFocus,
+        name,
         ...otherProps
     }: InputProps) => {
         const ref = useRef<HTMLInputElement>(null);
@@ -40,7 +42,7 @@ export const Input = memo(
         }, [autoFocus]);
 
         const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-            onChange?.(e.target.value);
+            onChange?.(e.target.value, name);
         };
 
         const classNames = clsx(cls.Input, className, readOnly && cls.readOnly);
@@ -59,6 +61,7 @@ export const Input = memo(
                 <div className={cls.caretWrapper}>
                     <input
                         ref={ref}
+                        name={name}
                         type={type}
                         onFocus={onFocus}
                         onBlur={onBlur}

@@ -2,7 +2,6 @@ import type { ArticleDetailShema } from '@/entities/Article';
 import type { CounterSchema } from '@/entities/Counter';
 import type { ProfileShema } from '@/entities/Profile';
 import type { UserShema } from '@/entities/User';
-import type { LoginShema } from '@/features/AuthByUserName';
 import type { ArticleDetailsCommentsSchema } from '@/pages/ArticleDetailsPage';
 import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import type { AxiosInstance } from 'axios';
@@ -15,7 +14,6 @@ export interface StateSchema {
     user: UserShema;
     // async reducers
     profile?: ProfileShema;
-    loginForm?: LoginShema;
     articleDetails?: ArticleDetailShema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: AddCommentFormShema;

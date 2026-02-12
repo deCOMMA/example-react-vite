@@ -18,12 +18,11 @@ import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';
-import type { Currency } from '@/entities/Currency';
-import type { Country } from '@/entities/Country';
 import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Page } from '@/shared/ui/Page/Page';
+import type { ProfileUpdate, ProfileValue } from '@/entities/Profile';
 
 type ProfilePageProps = {
     children?: React.ReactNode;
@@ -55,68 +54,18 @@ const ProfilePage = ({ children }: ProfilePageProps) => {
         dispatch(fetchProfileData(id));
     }, [dispatch, id]);
 
-    const onChangeFirstname = useCallback(
-        (value: string) => {
-            dispatch(profileActions.updateProfile({ firstname: value }));
-        },
-        [dispatch]
-    );
-
-    const onChangeLastname = useCallback(
-        (value: string) => {
-            dispatch(profileActions.updateProfile({ lastname: value }));
-        },
-        [dispatch]
-    );
-
-    const onChangeAge = useCallback(
-        (value: string) => {
-            const regNum = /^$|^\d+$/;
-
-            if (value === undefined) return;
-
-            if (regNum.test(value)) {
-                const age = value === '' ? undefined : Number(value);
-                dispatch(profileActions.updateProfile({ age }));
+    const onChangeProfile = useCallback((name: keyof ProfileUpdate, value: ProfileValue) => {
+        let normalizedValue = value;
+        if (name === 'age') {
+            const regNum = /^\d*$/;
+            if (regNum.test(String(value))) {
+                normalizedValue = value === '' ? undefined : Number(value);
+            } else {
+                return;
             }
-        },
-        [dispatch]
-    );
-
-    const onChangeCity = useCallback(
-        (value: string) => {
-            dispatch(profileActions.updateProfile({ city: value }));
-        },
-        [dispatch]
-    );
-
-    const onChangeUsername = useCallback(
-        (value: string) => {
-            dispatch(profileActions.updateProfile({ username: value }));
-        },
-        [dispatch]
-    );
-
-    const onChangeAvatar = useCallback(
-        (value: string) => {
-            dispatch(profileActions.updateProfile({ avatar: value }));
-        },
-        [dispatch]
-    );
-
-    const onChangeCurrency = useCallback(
-        (currency: Currency) => {
-            dispatch(profileActions.updateProfile({ currency: currency }));
-        },
-        [dispatch]
-    );
-
-    const onChangeCountry = useCallback(
-        (country: Country) => {
-            dispatch(profileActions.updateProfile({ country: country }));
-        },
-        [dispatch]
-    );
+        }
+        dispatch(profileActions.updateProfile({ [name]: normalizedValue }))
+    }, [dispatch])
 
     return (
         <DynamicModuleFolder reducers={initialReducers} removeAfterUnmount={true}>
@@ -134,18 +83,11 @@ const ProfilePage = ({ children }: ProfilePageProps) => {
                             />
                         ))}
                     <ProfileCard
+                        onChangeProfile={onChangeProfile}
                         data={formData}
                         error={error}
                         isLoading={isLoading}
                         readOnly={readOnly}
-                        onChangeFirstname={onChangeFirstname}
-                        onChangeLastname={onChangeLastname}
-                        onChangeAge={onChangeAge}
-                        onChangeCity={onChangeCity}
-                        onChangeUsername={onChangeUsername}
-                        onChangeAvatar={onChangeAvatar}
-                        onChangeCurrency={onChangeCurrency}
-                        onChangeCountry={onChangeCountry}
                     />
                     {children}
                 </section>

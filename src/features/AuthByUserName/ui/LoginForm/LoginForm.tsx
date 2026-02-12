@@ -3,93 +3,86 @@ import cls from './LoginForm.module.css';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
-import { useSelector } from 'react-redux';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
-import { memo, useCallback } from 'react';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { memo, useCallback, useState } from 'react';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Text } from '@/shared/ui/Text/Text';
-import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
-import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
-import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
-import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import {
-    DynamicModuleFolder,
-    type ReducerList,
-} from '@/shared/helpers/components/DynamicModuleFolder/DynamicModuleFolder';
+import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { userActions, type User } from '@/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { api } from '@/shared/api/api';
 
 export type LoginFormProps = {
     className?: string;
     onSuccess?: () => void;
 };
 
-const initialReducers: ReducerList = {
-    loginForm: loginReducer,
-};
-
 const LoginForm = memo(({ className, onSuccess, ...otherProps }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch()
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState<string | undefined>(undefined)
 
-    const username = useSelector(getLoginUsername);
-    const password = useSelector(getLoginPassword);
-    const isLoading = useSelector(getLoginLoading);
-    const error = useSelector(getLoginError);
-
-    const onChangeUsername = useCallback(
-        (value: string) => {
-            dispatch(loginActions.setUsername(value));
-        },
-        [dispatch]
-    );
-
-    const onChangePassword = useCallback(
-        (value: string) => {
-            dispatch(loginActions.setPassword(value));
-        },
-        [dispatch]
-    );
+    const setUsernameHandler = useCallback((username: string) => {
+        setUsername(username)
+    }, [username])
+    const setPasswordandler = useCallback((password: string) => {
+        setPassword(password)
+    }, [password])
 
     const onLoginClick = useCallback(async () => {
-        const res = await dispatch(loginByUsername({ password, username }));
-        if (res.meta.requestStatus === 'fulfilled' && onSuccess) {
-            onSuccess();
+        setIsLoading(true);
+        setError(undefined);
+
+        try {
+            const response = await api.post<User>('/login', { username, password });
+            if (!response.data) {
+                throw new Error();
+            }
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+            dispatch(userActions.setAuthData(response.data));
+            onSuccess?.();
+
+        } catch (e) {
+            console.error(e);
+            setError('Вы ввели неверный логин или пароль');
+        } finally {
+            setIsLoading(false);
         }
-    }, [dispatch, password, username, onSuccess]);
+    }, [dispatch, username, password, onSuccess]);
 
     const classNames = clsx(cls.LoginForm, className);
 
     return (
-        <DynamicModuleFolder reducers={initialReducers} removeAfterUnmount={true}>
-            <div className={classNames} {...otherProps}>
-                <Text title={t('Форма авторизации')} />
-                {error && <Text text={error} thema='error' />}
-                <Input
-                    value={username}
-                    className={cls.input}
-                    placeholder={t('Введите username')}
-                    autoFocus
-                    onChange={onChangeUsername}
-                ></Input>
-                <Input
-                    value={password}
-                    className={cls.input}
-                    placeholder={t('Введите password')}
-                    onChange={onChangePassword}
-                ></Input>
-                <Button
-                    theme='clearInv'
-                    className={cls.loginBtn}
-                    style={{ marginTop: '40px' }}
-                    onClick={onLoginClick}
-                    disabled={isLoading}
-                >
-                    {t('Войти ')}
-                </Button>
-                {isLoading && <Loader />}
-            </div>
-        </DynamicModuleFolder>
+        <div className={classNames} {...otherProps}>
+            <Text title={t('Форма авторизации')} />
+            {error && <Text text={error} thema='error' />}
+            <Input
+                value={username}
+                className={cls.input}
+                placeholder={t('Введите username')}
+                autoFocus
+                onChange={setUsernameHandler}
+            ></Input>
+            <Input
+                value={password}
+                className={cls.input}
+                placeholder={t('Введите password')}
+                onChange={setPasswordandler}
+                type='password'
+            ></Input>
+            <Button
+                theme='clearInv'
+                className={cls.loginBtn}
+                style={{ marginTop: '40px' }}
+                onClick={onLoginClick}
+                disabled={isLoading}
+            >
+                {t('Войти ')}
+            </Button>
+            {isLoading && <Loader />}
+        </div>
     );
 });
 

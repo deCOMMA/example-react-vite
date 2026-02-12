@@ -1,5 +1,4 @@
-export type { Profile, ProfileShema } from './model/types/profile';
-
+export type { Profile, ProfileShema, ProfileUpdate, ProfileValue } from './model/types/profile';
 export { validateProfileError } from './model/types/profile';
 
 export { profileActions, profileReducer } from './model/slice/profileSlice';
