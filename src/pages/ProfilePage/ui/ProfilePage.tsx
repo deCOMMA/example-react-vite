@@ -7,9 +7,9 @@ import {
     ProfileCard,
     profileReducer,
     validateProfileError,
-} from '@/entities/Profile';
-import { getProfileError } from '@/entities/Profile';
-import { getProfileLoader } from '@/entities/Profile';
+} from '@/entities/User';
+import { getProfileError } from '@/entities/User';
+import { getProfileLoader } from '@/entities/User';
 import {
     DynamicModuleFolder,
     type ReducerList,
@@ -17,12 +17,12 @@ import {
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { getProfileForm } from '@/entities/Profile/model/selectors/getProfileForm/getProfileForm';
+import { getProfileForm } from '@/entities/User/model/selectors/getProfileForm/getProfileForm';
 import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Page } from '@/shared/ui/Page/Page';
-import type { ProfileUpdate, ProfileValue } from '@/entities/Profile';
+import type { ProfileUpdate, ProfileValue } from '@/entities/User';
 
 type ProfilePageProps = {
     children?: React.ReactNode;
@@ -42,7 +42,7 @@ const ProfilePage = ({ children }: ProfilePageProps) => {
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
 
-    const validateErrorsTranslates = {
+    const validateErrorsTranslates: Record<validateProfileError, string> = {
         [validateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [validateProfileError.INCORECT_AGE]: t('Неккоректный возраст'),
         [validateProfileError.INCORECT_COUNTRY]: t('Неккоректный регион'),

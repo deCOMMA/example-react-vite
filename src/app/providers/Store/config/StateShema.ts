@@ -1,6 +1,6 @@
 import type { ArticleDetailShema } from '@/entities/Article';
 import type { CounterSchema } from '@/entities/Counter';
-import type { ProfileShema } from '@/entities/Profile';
+import type { ProfileShema } from '@/entities/User';
 import type { UserShema } from '@/entities/User';
 import type { ArticleDetailsCommentsSchema } from '@/pages/ArticleDetailsPage';
 import type { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';

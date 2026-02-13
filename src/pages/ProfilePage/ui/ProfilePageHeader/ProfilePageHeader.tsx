@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Text } from '@/shared/ui/Text/Text';
 import { Button } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getProfileReadOnly, profileActions, updateProfileData } from '@/entities/Profile';
+import { getProfileReadOnly, profileActions, updateProfileData } from '@/entities/User';
 import { useCallback } from 'react';
 import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { getCanEdit } from '@/entities/User/model/selectors/getCanEdit/getCanEdit';

@@ -5,7 +5,7 @@ import { ArticleBlockType, ArticleType, type Article } from '../../model/types/a
 
 const article: Article = {
     id: '1',
-    userId: {
+    user: {
         id: "1",
         username: "admin",
     },

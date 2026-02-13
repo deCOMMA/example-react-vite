@@ -4,7 +4,7 @@ import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDeco
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/ui/Avatar/storybook.jpg';
-import { validateProfileError } from '@/entities/Profile';
+import { validateProfileError } from '@/entities/User';
 const meta = {
     title: 'pages/ProfilePage',
     component: ProfilePage,

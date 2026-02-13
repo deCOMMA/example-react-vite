@@ -5,7 +5,7 @@ import { ArticleBlockType, ArticleType, ArticleView, type Article } from '../../
 
 const article: Article[] = [{
     id: '1',
-    userId: {
+    user: {
         id: "1",
         username: "admin",
     },
