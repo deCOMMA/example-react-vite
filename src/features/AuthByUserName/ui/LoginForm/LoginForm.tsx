@@ -18,18 +18,18 @@ export type LoginFormProps = {
 
 const LoginForm = memo(({ className, onSuccess, ...otherProps }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useAppDispatch()
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState<string | undefined>(undefined)
+    const dispatch = useAppDispatch();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | undefined>(undefined);
 
     const setUsernameHandler = useCallback((username: string) => {
-        setUsername(username)
-    }, [username])
+        setUsername(username);
+    }, []);
     const setPasswordandler = useCallback((password: string) => {
-        setPassword(password)
-    }, [password])
+        setPassword(password);
+    }, []);
 
     const onLoginClick = useCallback(async () => {
         setIsLoading(true);
@@ -43,7 +43,6 @@ const LoginForm = memo(({ className, onSuccess, ...otherProps }: LoginFormProps)
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
             onSuccess?.();
-
         } catch (e) {
             console.error(e);
             setError('Вы ввели неверный логин или пароль');

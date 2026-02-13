@@ -9,9 +9,9 @@ import {
 
 const article: Article = {
     id: '1',
-    userId: {
-        id: "1",
-        username: "admin",
+    user: {
+        id: '1',
+        username: 'admin',
     },
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',

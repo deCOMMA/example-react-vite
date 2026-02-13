@@ -20,4 +20,4 @@ export type { User, UserShema } from '../User/model/types/user';
 
 export { getAuthUserData } from './model/selectors/getAuthUserData/getAuthUserData';
 export { getUserInited } from './model/selectors/getUserInited/getUserInited';
-export { getCanEdit } from './model/selectors/getCanEdit/getCanEdit'
+export { getCanEdit } from './model/selectors/getCanEdit/getCanEdit';

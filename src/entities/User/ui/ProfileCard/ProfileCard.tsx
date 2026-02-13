@@ -14,7 +14,7 @@ type ProfileCardProps = {
     data?: Profile | null;
     isLoading?: boolean | null;
     error?: string;
-    onChangeProfile?: (name: keyof ProfileUpdate, value: ProfileValue) => void,
+    onChangeProfile?: (name: keyof ProfileUpdate, value: ProfileValue) => void;
     readOnly?: boolean;
 };
 
@@ -50,8 +50,8 @@ export const ProfileCard = ({
     }
 
     const onChangeHandler = (name: keyof ProfileUpdate) => (value: ProfileValue) => {
-        onChangeProfile?.(name, value)
-    }
+        onChangeProfile?.(name, value);
+    };
 
     return (
         <div className={clsx(className, cls.ProfileCard, readOnly && cls.editing)}>

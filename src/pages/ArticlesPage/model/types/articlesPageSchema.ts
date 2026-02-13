@@ -1,10 +1,10 @@
-import type { Article, ArticleView } from "@/entities/Article";
-import type { EntityState } from "@reduxjs/toolkit";
+import type { Article, ArticleView } from '@/entities/Article';
+import type { EntityState } from '@reduxjs/toolkit';
 
 export interface ArticlePageShema extends EntityState<Article, string> {
     isLoading?: boolean;
     error?: string;
-    view: ArticleView
+    view: ArticleView;
 
     page: number;
     limit?: number;

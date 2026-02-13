@@ -1,17 +1,17 @@
 /* .ArticleList{
     
 } */
-.LINE{
-    .card{
+.LINE {
+    .card {
         margin-bottom: 30px;
     }
 }
 
-.BLOCK{
+.BLOCK {
     display: flex;
     flex-wrap: wrap;
 
-    .card{
+    .card {
         margin-right: 30px;
         margin-bottom: 30px;
     }

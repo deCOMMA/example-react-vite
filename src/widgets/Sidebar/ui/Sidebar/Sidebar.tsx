@@ -23,11 +23,11 @@ export const Sidebar = memo(({ className, ...otherProps }: SidebarProps) => {
         setIsExpand(prev => !prev);
     };
 
-    const sidebarItemList = useSelector(getSidebarItems)
+    const sidebarItemList = useSelector(getSidebarItems);
 
     const itemList = sidebarItemList.map(item => (
         <SidebarItem key={item.path} item={item} expand={isExpand} />
-    ))
+    ));
 
     return (
         <div data-testid='sidebar' className={classNames} {...otherProps}>

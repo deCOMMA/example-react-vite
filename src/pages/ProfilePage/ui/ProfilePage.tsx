@@ -54,23 +54,25 @@ const ProfilePage = ({ children }: ProfilePageProps) => {
         dispatch(fetchProfileData(id));
     }, [dispatch, id]);
 
-    const onChangeProfile = useCallback((name: keyof ProfileUpdate, value: ProfileValue) => {
-        let normalizedValue = value;
-        if (name === 'age') {
-            const regNum = /^\d*$/;
-            if (regNum.test(String(value))) {
-                normalizedValue = value === '' ? undefined : Number(value);
-            } else {
-                return;
+    const onChangeProfile = useCallback(
+        (name: keyof ProfileUpdate, value: ProfileValue) => {
+            let normalizedValue = value;
+            if (name === 'age') {
+                const regNum = /^\d*$/;
+                if (regNum.test(String(value))) {
+                    normalizedValue = value === '' ? undefined : Number(value);
+                } else {
+                    return;
+                }
             }
-        }
-        dispatch(profileActions.updateProfile({ [name]: normalizedValue }))
-    }, [dispatch])
+            dispatch(profileActions.updateProfile({ [name]: normalizedValue }));
+        },
+        [dispatch]
+    );
 
     return (
         <DynamicModuleFolder reducers={initialReducers} removeAfterUnmount={true}>
             <Page>
-
                 <section>
                     <ProfilePageHeader />
                     {validateErrors?.length &&

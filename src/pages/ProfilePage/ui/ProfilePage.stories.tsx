@@ -15,9 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
-    args: {
-
-    },
+    args: {},
     decorators: [
         RouterDecorator({
             state: {
@@ -35,9 +33,7 @@ export const Normal: Story = {
                     },
                 },
             },
-
         }),
-
     ],
 };
 export const Error: Story = {
@@ -47,8 +43,8 @@ export const Error: Story = {
             theme: 'dark',
             state: {
                 profile: {
-                    validateErrors: [validateProfileError.INCORECT_AGE,]
-                }
+                    validateErrors: [validateProfileError.INCORECT_AGE],
+                },
             },
         }),
     ],

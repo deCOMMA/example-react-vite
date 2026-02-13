@@ -1,13 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ArticleListItem } from './ArticleListItem';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorators';
-import { ArticleBlockType, ArticleType, ArticleView, type Article } from '../../model/types/article';
+import {
+    ArticleBlockType,
+    ArticleType,
+    ArticleView,
+    type Article,
+} from '../../model/types/article';
 
 const article: Article = {
     id: '1',
     user: {
-        id: "1",
-        username: "admin",
+        id: '1',
+        username: 'admin',
     },
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -90,7 +95,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         article: article,
-        view: ArticleView.BLOCK
+        view: ArticleView.BLOCK,
     },
     decorators: RouterDecorator({
         theme: 'dark',

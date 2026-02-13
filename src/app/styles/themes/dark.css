@@ -1,16 +1,10 @@
 .dark {
     --bg-color: rgb(36 52 71);
-
     --inv-bg-color: rgb(20 30 45);
-
     --primary-color: rgb(64 110 128);
-
     --secondary-color: rgb(86 140 150);
-
     --inv-primary-color: rgb(100 255 180);
-
-    --card-bg : rgb(51, 72, 99);
-
+    --card-bg: rgb(51 72 99);
     --skeleton-shadow: rgb(25 38 55);
     --skeleton-color: rgb(50 85 110);
     --code-bg: rgb(15 25 40);

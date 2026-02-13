@@ -1,25 +1,19 @@
-import clsx from "clsx"
-import cls from './Card.module.css'
-import type { HTMLAttributes, ReactNode } from "react";
+import clsx from 'clsx';
+import cls from './Card.module.css';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 type CardProps = {
     className?: string;
     children?: ReactNode;
-} & HTMLAttributes<HTMLDivElement>
+} & HTMLAttributes<HTMLDivElement>;
 
 export const Card = (props: CardProps) => {
-
     const { className, children, ...otherProps } = props;
-    const classNames = clsx(
-        cls.Card,
-        className
-    );
+    const classNames = clsx(cls.Card, className);
 
     return (
-        <div className={classNames}
-            {...otherProps}
-        >
+        <div className={classNames} {...otherProps}>
             {children}
         </div>
-    )
-}
+    );
+};

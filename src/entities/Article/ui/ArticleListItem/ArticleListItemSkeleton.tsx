@@ -1,30 +1,25 @@
-import cls from './ArticleListItem.module.css'
-import { ArticleView } from "../../model/types/article";
-import { Card } from "@/shared/ui/Card/Card";
+import cls from './ArticleListItem.module.css';
+import { ArticleView } from '../../model/types/article';
+import { Card } from '@/shared/ui/Card/Card';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import clsx from 'clsx';
 
 interface ArticleListItemSkeletonProps {
     view: ArticleView;
-    className?: string,
+    className?: string;
 }
 
 export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
-
     const { view, className } = props;
 
-    const classNames = clsx(
-        cls.ArticleListItem,
-        className,
-        cls[String(view)],
-    );
+    const classNames = clsx(cls.ArticleListItem, className, cls[String(view)]);
 
     if (view === ArticleView.BLOCK) {
         return (
             <div className={classNames}>
                 <Card>
                     <div className={cls.imgeWrapper}>
-                        <Skeleton width={200} height={200} className={cls.img} ></Skeleton>
+                        <Skeleton width={200} height={200} className={cls.img}></Skeleton>
                     </div>
                     <div className={cls.infoWrapper}>
                         <Skeleton width={130} height={16} />
@@ -32,7 +27,7 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                     <Skeleton width={150} height={16} className={cls.title} />
                 </Card>
             </div>
-        )
+        );
     }
 
     return (
@@ -50,6 +45,5 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                 </div>
             </Card>
         </div>
-    )
-
-}
+    );
+};

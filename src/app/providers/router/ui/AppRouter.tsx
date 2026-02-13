@@ -10,9 +10,7 @@ export const AppRouter = () => {
             <Route
                 key={route.path}
                 element={
-                    <>
-                        {route.authOnly ? <ReqireAyth>{route.element}</ReqireAyth> : route.element}
-                    </>
+                    <>{route.authOnly ? <ReqireAyth>{route.element}</ReqireAyth> : route.element}</>
                 }
                 path={route.path}
             />

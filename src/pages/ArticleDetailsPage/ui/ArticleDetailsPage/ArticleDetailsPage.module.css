@@ -1,10 +1,11 @@
 .ArticleDetailsPage {
     position: relative;
 }
+
 .commentTitle {
     margin-top: 20px;
 }
 
-.backToArticlePageBTN{
+.backToArticlePageBTN {
     margin-bottom: 30px;
 }

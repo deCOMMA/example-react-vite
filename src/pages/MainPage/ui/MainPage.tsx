@@ -4,12 +4,9 @@ import { useTranslation } from 'react-i18next';
 function MainPage() {
     const { t } = useTranslation();
 
-
     return (
         <Page>
-            <section>
-                {t('Главная')}
-            </section>
+            <section>{t('Главная')}</section>
         </Page>
     );
 }

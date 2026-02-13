@@ -24,7 +24,6 @@ const initialState: ArticlePageShema = {
     inited: false,
 };
 
-
 const articlePageSlice = createSlice({
     name: 'articlePageSlice',
     initialState,
@@ -41,7 +40,7 @@ const articlePageSlice = createSlice({
             state.view = view;
             state.limit = view === ArticleView.LINE ? 4 : 9;
             state.inited = true;
-        }
+        },
     },
     extraReducers: builder => {
         builder
@@ -58,7 +57,7 @@ const articlePageSlice = createSlice({
                 state.isLoading = false;
                 articleAdapter.addMany(state, action.payload);
                 state.hasMore = action.payload.length > 0;
-            })
+            });
     },
 });
 

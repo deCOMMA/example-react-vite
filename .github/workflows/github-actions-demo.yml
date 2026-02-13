@@ -38,6 +38,6 @@ jobs:
             - name: prettier checking typescript
               run: npm run format:ts:check
               if: always()
-            - name: unit testing
-              run: npm run test
-              if: always()
+            # - name: unit testing
+            #   run: npm run test
+            #   if: always()

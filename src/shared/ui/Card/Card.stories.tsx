@@ -18,6 +18,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        children: <Text text='text' title='title' size='l' />
+        children: <Text text='text' title='title' size='l' />,
     },
 };

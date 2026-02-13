@@ -6,8 +6,8 @@ import { ArticleBlockType, ArticleType, type Article } from '../../model/types/a
 const article: Article = {
     id: '1',
     user: {
-        id: "1",
-        username: "admin",
+        id: '1',
+        username: 'admin',
     },
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',

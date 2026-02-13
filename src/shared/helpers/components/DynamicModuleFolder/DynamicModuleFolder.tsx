@@ -35,7 +35,8 @@ export const DynamicModuleFolder = (props: DynamicModuleFolderProps) => {
                 });
             }
         };
-    }, [removeAfterUnmount]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [removeAfterUnmount, dispatch, reducers]);
 
     return <>{children}</>;
 };

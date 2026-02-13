@@ -6,11 +6,9 @@ function AboutPage() {
 
     return (
         <Page>
-            <section>
-                {t('О нас')}
-            </section>
+            <section>{t('О нас')}</section>
         </Page>
-    )
+    );
 }
 
 export default AboutPage;
