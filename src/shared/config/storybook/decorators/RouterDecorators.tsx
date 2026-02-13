@@ -5,8 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { StoreProvider, type StateSchema } from '@/app/providers/Store';
 import type { DeepPartial } from '@/shared/helpers/types/deepPartial';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
-import { loginReducer } from '@/features/AuthByUserName';
-import { profileReducer } from '@/entities/Profile';
+import { profileReducer } from '@/entities/User';
 import { articleDetailsReducer } from '@/entities/Article';
 import { articleDetailsCommentsReducer } from '@/pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice.ts/ArticleDetailsCommentsSlice.ts';
 import { addCommentFormRudecer } from '@/features/addCommentForm/model/slice/addCommentFormSlice';
@@ -18,7 +17,6 @@ type RouterDecoratorProps = {
 };
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
-    loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
