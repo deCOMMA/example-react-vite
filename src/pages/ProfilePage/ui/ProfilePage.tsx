@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import {
     fetchProfileData,
     getProfileReadOnly,

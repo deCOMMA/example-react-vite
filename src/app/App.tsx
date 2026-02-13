@@ -3,7 +3,7 @@ import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import clsx from 'clsx';
 import { Suspense, useEffect } from 'react';
-import { useAppDispatch } from './providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { getUserInited, userActions } from '@/entities/User';
 import { useSelector } from 'react-redux';
 

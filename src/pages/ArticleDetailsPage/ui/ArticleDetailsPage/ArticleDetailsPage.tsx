@@ -10,7 +10,7 @@ import { DynamicModuleFolder, type ReducerList } from "@/shared/helpers/componen
 import { articleDetailsCommentsReducer, getArticleComments } from "../../model/slice/ArticleDetailsCommentsSlice.ts/ArticleDetailsCommentsSlice.ts";
 import { useSelector } from "react-redux";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments.ts";
-import { useAppDispatch } from "@/app/providers/Store/config/hooks.ts";
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId.ts";
 import { AddCommentForm } from "@/features/addCommentForm/index.ts";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle.ts";

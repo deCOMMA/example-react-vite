@@ -6,7 +6,7 @@ import { Input } from '@/shared/ui/Input/Input';
 import { memo, useCallback, useState } from 'react';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Text } from '@/shared/ui/Text/Text';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { userActions, type User } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { api } from '@/shared/api/api';

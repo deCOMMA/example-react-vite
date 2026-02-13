@@ -5,7 +5,7 @@ import { memo, useCallback, useEffect } from 'react';
 import { ArticleList, ArticleView, ArticleViewSelector } from '@/entities/Article';
 import { DynamicModuleFolder, type ReducerList } from '@/shared/helpers/components/DynamicModuleFolder/DynamicModuleFolder';
 import { articlePageAction, articlePageReducer, getArticle } from '../../model/slices/articlePageSlice';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useSelector } from 'react-redux';
 import { getArticlesPageError, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPage';

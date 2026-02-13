@@ -6,7 +6,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthByUserName';
 import { useSelector } from 'react-redux';
 import { getAuthUserData, userActions } from '@/entities/User/index';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 
 type NavbarProps = {
     className?: string;

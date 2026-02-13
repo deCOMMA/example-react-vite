@@ -11,7 +11,7 @@ import {
     addCommentFormActions,
     addCommentFormRudecer,
 } from '../../model/slice/addCommentFormSlice';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { memo, useCallback } from 'react';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { useSelector } from 'react-redux';

@@ -6,7 +6,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getProfileReadOnly, profileActions, updateProfileData } from '@/entities/Profile';
 import { useCallback } from 'react';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import { getCanEdit } from '@/entities/User/model/selectors/getCanEdit/getCanEdit';
 
 type ProfilePageHeaderProps = {

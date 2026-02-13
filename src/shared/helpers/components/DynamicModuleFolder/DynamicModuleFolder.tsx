@@ -1,5 +1,5 @@
 import type { ReduxStoreWitnManager } from '@/app/providers/Store';
-import { useAppDispatch } from '@/app/providers/Store/config/hooks';
+import { useAppDispatch } from '@/shared/helpers/hooks/reduxHooks/reduxHppks';
 import type { StateSchemaKey } from '@/app/providers/Store/config/StateShema';
 import type { Reducer } from '@reduxjs/toolkit';
 import { useEffect } from 'react';
